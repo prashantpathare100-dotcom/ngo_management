@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from website import views as user
+from adpanel import views as adpanel
 
 urlpatterns = [
     path('admin/', admin.site.urls),
