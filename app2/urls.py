@@ -24,11 +24,11 @@ from django.urls import reverse_lazy
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     
     path("login/", login_view, name="login"),
 
-    path("", dashboard_view, name="dashboard"),
+    path("admin/", dashboard_view, name="dashboard"),
 
     path(
         "logout/",
