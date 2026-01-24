@@ -27,6 +27,10 @@ from django.urls import reverse_lazy
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('',ui.home),
+    path('terms/',ui.terms),
+    path('privacy/',ui.privacy),
+    path('faq/',ui.faq),
+    path('contact/',ui.contact),
     path("login/", login_view, name="login"),
 
     path("admin/", dashboard_view, name="dashboard"),
