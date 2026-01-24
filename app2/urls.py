@@ -20,12 +20,13 @@ from adpanel import views as adpanel
 from website import views as users
 from django.contrib.auth.views import LogoutView   # ✅ योग्य import
 from adpanel.views import dashboard_view , login_view  # ✅ FIXED
+from website import views as ui
 from django.urls import reverse_lazy
 
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    
+    path('',ui.home),
     path("login/", login_view, name="login"),
 
     path("admin/", dashboard_view, name="dashboard"),
