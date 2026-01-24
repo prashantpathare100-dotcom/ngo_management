@@ -16,7 +16,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from adpanel import views as adpanel
+from website import views as users
+from django.contrib.auth.views import LogoutView   # ✅ योग्य import
+from adpanel.views import dashboard_view , login_view  # ✅ FIXED
+from django.urls import reverse_lazy
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+    path("login/", login_view, name="login"),
+
+    path("", dashboard_view, name="dashboard"),
+
+    path(
+        "logout/",
+        LogoutView.as_view(next_page=reverse_lazy("login")),
+        name="logout"
+    )
 ]
+
+
