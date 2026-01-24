@@ -31,6 +31,7 @@ urlpatterns = [
     path('privacy/',ui.privacy),
     path('faq/',ui.faq),
     path('contact/',ui.contact),
+    path('donate/',ui.donate),
     path("login/", login_view, name="login"),
 
     path("admin/", dashboard_view, name="dashboard"),

@@ -15,3 +15,5 @@ def faq(req):
 
 def contact(req):
     return render(req,"web/contact.html")
+def donate(req):
+    return render(req,"web/donate.html")

@@ -1,6 +1,4 @@
-/* ============================================
-   SAMAJSEVA FOUNDATION - DONATE PAGE JAVASCRIPT
-   ============================================ */
+
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize AOS Animation
