@@ -1,0 +1,599 @@
+ {% include "web/navbar.html" %}
+ 
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | Hope For All NGO</title>
+       <!-- Bootstrap JS Bundle with Popper -->
+    <!-- Custom JS -->
+    <script src="/static/web/javac/event.js"></script>
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/web/css/event.css">
+
+
+    <!-- Bootstrap 5.3 CSS -->
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- Your CSS -->
+<!-- <link rel="stylesheet" href=""> -->
+
+
+
+
+    
+
+
+
+
+
+
+    <!-- Main Container -->
+    <div class="container-fluid p-0">
+        
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 text-center">
+                        <h1 class="display-4 fw-bold mb-4 animate-text">Events & Activities</h1>
+                        <p class="lead mb-5">Join us in making a difference through impactful events that bring communities together for positive change.</p>
+                        
+                        <!-- Quick Stats -->
+                        <div class="quick-stats">
+                            <div class="row g-4 justify-content-center">
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="stat-box">
+                                        <div class="stat-number">48+</div>
+                                        <div class="stat-label">Events This Year</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="stat-box">
+                                        <div class="stat-number">5,200+</div>
+                                        <div class="stat-label">Participants</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="stat-box">
+                                        <div class="stat-number">120</div>
+                                        <div class="stat-label">Volunteers</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="stat-box">
+                                        <div class="stat-number">$85K</div>
+                                        <div class="stat-label">Funds Raised</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Filter Tabs -->
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Browse Events by Category</h2>
+                
+                <div class="filter-tabs">
+                    <ul class="nav nav-pills justify-content-center mb-5" id="eventsTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="all-tab" data-bs-toggle="pill" data-bs-target="#all" type="button" role="tab">
+                                <i class="bi bi-grid me-2"></i>All Events
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="health-tab" data-bs-toggle="pill" data-bs-target="#health" type="button" role="tab">
+                                <i class="bi bi-heart-pulse me-2"></i>Health
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="education-tab" data-bs-toggle="pill" data-bs-target="#education" type="button" role="tab">
+                                <i class="bi bi-book me-2"></i>Education
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="relief-tab" data-bs-toggle="pill" data-bs-target="#relief" type="button" role="tab">
+                                <i class="bi bi-cloud-lightning-rain me-2"></i>Relief
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="environment-tab" data-bs-toggle="pill" data-bs-target="#environment" type="button" role="tab">
+                                <i class="bi bi-tree me-2"></i>Environment
+                            </button>
+                        </li>
+                    </ul>
+                    
+                    <!-- Tab Content -->
+                    <div class="tab-content" id="eventsTabContent">
+                        <!-- All Events -->
+                        <div class="tab-pane fade show active" id="all" role="tabpanel">
+                            <div class="row g-4">
+                                <!-- Upcoming Events Section -->
+                                <div class="col-12">
+                                    <h3 class="mb-4 text-primary">Upcoming Events</h3>
+                                    <div class="row g-4">
+                                        <!-- Event Card 1 -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="event-card" data-category="health">
+                                                <div class="event-date">
+                                                    <span class="event-day">25</span>
+                                                    <span class="event-month">NOV</span>
+                                                </div>
+                                                <div class="event-content">
+                                                    <span class="event-category health">Health</span>
+                                                    <h4 class="event-title">Free Medical Camp</h4>
+                                                    <p class="event-description">Providing free health checkups and consultations in underserved communities.</p>
+                                                    
+                                                    <div class="event-details">
+                                                        <div class="detail-item">
+                                                            <i class="bi bi-geo-alt"></i>
+                                                            <span>Central Park, Downtown</span>
+                                                        </div>
+                                                        <div class="detail-item">
+                                                            <i class="bi bi-clock"></i>
+                                                            <span>9:00 AM - 4:00 PM</span>
+                                                        </div>
+                                                        <div class="detail-item">
+                                                            <i class="bi bi-people"></i>
+                                                            <span>Capacity: 200 participants</span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="event-actions">
+                                                        <button class="btn btn-register" data-bs-toggle="modal" data-bs-target="#eventModal" data-event="medical-camp">
+                                                            <i class="bi bi-calendar-plus me-2"></i>Register Now
+                                                        </button>
+                                                        <span class="event-slots">42 slots remaining</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Event Card 2 -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="event-card" data-category="education">
+                                                <div class="event-date">
+                                                    <span class="event-day">02</span>
+                                                    <span class="event-month">DEC</span>
+                                                </div>
+                                                <div class="event-content">
+                                                    <span class="event-category education">Education</span>
+                                                    <h4 class="event-title">Digital Literacy Workshop</h4>
+                                                    <p class="event-description text-dark">Teaching basic computer skills to seniors and underprivileged youth.</p>
+                                                    
+                                                    <div class="event-details">
+                                                        <div class="detail-item">
+                                                            <i class="bi bi-geo-alt"></i>
+                                                            <span>Community Center</span>
+                                                        </div>
+                                                        <div class="detail-item">
+                                                            <i class="bi bi-clock"></i>
+                                                            <span>10:00 AM - 2:00 PM</span>
+                                                        </div>
+                                                        <div class="detail-item">
+                                                            <i class="bi bi-people"></i>
+                                                            <span>Capacity: 50 participants</span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="event-actions">
+                                                        <button class="btn btn-register" data-bs-toggle="modal" data-bs-target="#eventModal" data-event="digital-workshop">
+                                                            <i class="bi bi-calendar-plus me-2"></i>Register Now
+                                                        </button>
+                                                        <span class="event-slots">18 slots remaining</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Event Card 3 -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="event-card" data-category="environment">
+                                                <div class="event-date">
+                                                    <span class="event-day">10</span>
+                                                    <span class="event-month">DEC</span>
+                                                </div>
+                                                <div class="event-content">
+                                                    <span class="event-category environment">Environment</span>
+                                                    <h4 class="event-title">City Cleanup Drive</h4>
+                                                    <p class="event-description">Join us in cleaning up public parks and promoting environmental awareness.</p>
+                                                    
+                                                    <div class="event-details">
+                                                        <div class="detail-item">
+                                                            <i class="bi bi-geo-alt"></i>
+                                                            <span>Riverside Park</span>
+                                                        </div>
+                                                        <div class="detail-item">
+                                                            <i class="bi bi-clock"></i>
+                                                            <span>8:00 AM - 12:00 PM</span>
+                                                        </div>
+                                                        <div class="detail-item">
+                                                            <i class="bi bi-people"></i>
+                                                            <span>Capacity: 100 volunteers</span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="event-actions">
+                                                        <button class="btn btn-register" data-bs-toggle="modal" data-bs-target="#eventModal" data-event="cleanup-drive">
+                                                            <i class="bi bi-calendar-plus me-2"></i>Register Now
+                                                        </button>
+                                                        <span class="event-slots">67 slots remaining</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Event Card 4 -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="event-card" data-category="relief">
+                                                <div class="event-date">
+                                                    <span class="event-day">15</span>
+                                                    <span class="event-month">DEC</span>
+                                                </div>
+                                                <div class="event-content">
+                                                    <span class="event-category relief">Relief</span>
+                                                    <h4 class="event-title">Winter Relief Distribution</h4>
+                                                    <p class="event-description">Distributing winter clothes and blankets to homeless communities.</p>
+                                                    
+                                                    <div class="event-details">
+                                                        <div class="detail-item">
+                                                            <i class="bi bi-geo-alt"></i>
+                                                            <span>Downtown Shelter</span>
+                                                        </div>
+                                                        <div class="detail-item">
+                                                            <i class="bi bi-clock"></i>
+                                                            <span>11:00 AM - 3:00 PM</span>
+                                                        </div>
+                                                        <div class="detail-item">
+                                                            <i class="bi bi-people"></i>
+                                                            <span>Capacity: 75 volunteers</span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="event-actions">
+                                                        <button class="btn btn-register" data-bs-toggle="modal" data-bs-target="#eventModal" data-event="winter-relief">
+                                                            <i class="bi bi-calendar-plus me-2"></i>Register Now
+                                                        </button>
+                                                        <span class="event-slots">25 slots remaining</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Event Card 5 -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="event-card" data-category="education">
+                                                <div class="event-date">
+                                                    <span class="event-day">18</span>
+                                                    <span class="event-month">DEC</span>
+                                                </div>
+                                                <div class="event-content">
+                                                    <span class="event-category education">Education</span>
+                                                    <h4 class="event-title">STEM Workshop for Girls</h4>
+                                                    <p class="event-description">Encouraging young girls to pursue careers in science and technology.</p>
+                                                    
+                                                    <div class="event-details">
+                                                        <div class="detail-item">
+                                                            <i class="bi bi-geo-alt"></i>
+                                                            <span>Innovation Hub</span>
+                                                        </div>
+                                                        <div class="detail-item">
+                                                            <i class="bi bi-clock"></i>
+                                                            <span>1:00 PM - 5:00 PM</span>
+                                                        </div>
+                                                        <div class="detail-item">
+                                                            <i class="bi bi-people"></i>
+                                                            <span>Capacity: 60 participants</span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="event-actions">
+                                                        <button class="btn btn-register" data-bs-toggle="modal" data-bs-target="#eventModal" data-event="stem-workshop">
+                                                            <i class="bi bi-calendar-plus me-2"></i>Register Now
+                                                        </button>
+                                                        <span class="event-slots">32 slots remaining</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Event Card 6 -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="event-card" data-category="health">
+                                                <div class="event-date">
+                                                    <span class="event-day">22</span>
+                                                    <span class="event-month">DEC</span>
+                                                </div>
+                                                <div class="event-content">
+                                                    <span class="event-category health">Health</span>
+                                                    <h4 class="event-title">Mental Health Awareness Seminar</h4>
+                                                    <p class="event-description">Promoting mental wellbeing and providing coping strategies.</p>
+                                                    
+                                                    <div class="event-details">
+                                                        <div class="detail-item">
+                                                            <i class="bi bi-geo-alt"></i>
+                                                            <span>Convention Center</span>
+                                                        </div>
+                                                        <div class="detail-item">
+                                                            <i class="bi bi-clock"></i>
+                                                            <span>6:00 PM - 8:00 PM</span>
+                                                        </div>
+                                                        <div class="detail-item">
+                                                            <i class="bi bi-people"></i>
+                                                            <span>Capacity: 150 participants</span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="event-actions">
+                                                        <button class="btn btn-register" data-bs-toggle="modal" data-bs-target="#eventModal" data-event="mental-health">
+                                                            <i class="bi bi-calendar-plus me-2"></i>Register Now
+                                                        </button>
+                                                        <span class="event-slots">89 slots remaining</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Other category tabs would have filtered content -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Past Events Section -->
+        <section class="section-padding bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Past Event Highlights</h2>
+                
+                <div class="row g-5 align-items-center mb-5">
+                    <div class="col-lg-6">
+                        <div class="past-events-highlight">
+                            <h3 class="mb-4">Making Lasting Impact Together</h3>
+                            <p class="mb-4">Our past events have created meaningful change in communities across the region. Here's what we've achieved together:</p>
+                            
+                            <div class="impact-stats">
+                                <div class="row g-4">
+                                    <div class="col-sm-6">
+                                        <div class="impact-stat">
+                                            <div class="impact-number">1,250+</div>
+                                            <div class="impact-label text-dark ">People Received Medical Aid</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="impact-stat">
+                                            <div class="impact-number">850+</div>
+                                            <div class="impact-label text-dark">Students Educated</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="impact-stat">
+                                            <div class="impact-number">15K</div>
+                                            <div class="impact-label text-dark">Meals Served</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="impact-stat">
+                                            <div class="impact-number">5.2K</div>
+                                            <div class="impact-label text-dark">Trees Planted</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <a href="#" class="btn btn-outline-primary">
+                                    <i class="bi bi-images me-2"></i>View Full Gallery
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="gallery-preview">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <div class="gallery-item">
+                                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                             alt="Medical camp event" class="img-fluid rounded">
+                                        <div class="gallery-overlay">
+                                            <span>Medical Camp 2023</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="gallery-item">
+                                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w-800&q=80" 
+                                             alt="Education workshop" class="img-fluid rounded">
+                                        <div class="gallery-overlay">
+                                            <span>Education Fair</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="gallery-item">
+                                        <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                             alt="Tree planting event" class="img-fluid rounded">
+                                        <div class="gallery-overlay">
+                                            <span>Green Initiative</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="gallery-item">
+                                        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                             alt="Food distribution" class="img-fluid rounded">
+                                        <div class="gallery-overlay">
+                                            <span>Food Drive 2023</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How Events Work Section -->
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">How Our Events Work</h2>
+                
+                <div class="row g-4">
+                    <!-- Step 1 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="process-step">
+                            <div class="step-number">01</div>
+                            <div class="step-icon">
+                                <i class="bi bi-clipboard-check"></i>
+                            </div>
+                            <h4 class="step-title">Strategic Planning</h4>
+                            <p class="step-description text-dark">We identify community needs and design events with clear objectives and measurable outcomes.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="process-step">
+                            <div class="step-number">02</div>
+                            <div class="step-icon">
+                                <i class="bi bi-megaphone"></i>
+                            </div>
+                            <h4 class="step-title">Community Promotion</h4>
+                            <p class="step-description text-dark">We engage communities through multiple channels to maximize participation and impact.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="process-step">
+                            <div class="step-number">03</div>
+                            <div class="step-icon">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <h4 class="step-title">Expert Execution</h4>
+                            <p class="step-description text-dark">Our trained volunteers and partners ensure smooth event execution with safety protocols.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="process-step">
+                            <div class="step-number">04</div>
+                            <div class="step-icon">
+                                <i class="bi bi-file-bar-graph"></i>
+                            </div>
+                            <h4 class="step-title">Impact Reporting</h4>
+                            <p class="step-description text-dark">We measure outcomes, gather feedback, and share transparent reports with stakeholders.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Details Modal -->
+        <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="eventModalLabel text-dark ">Event Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="modal-event-image mb-4">
+                                    <img src="https://images.unsplash.com/photo-1516549655669-df6654e435de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                         alt="Event Image" class="img-fluid rounded">
+                                </div>
+                                <div class="event-quick-info">
+                                    <div class="info-item">
+                                        <i class="bi bi-calendar-event"></i>
+                                        <div>
+                                            <strong>Date:</strong>
+                                            <span id="modalDate">December 25, 2023</span>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="bi bi-clock"></i>
+                                        <div>
+                                            <strong>Time:</strong>
+                                            <span id="modalTime">9:00 AM - 4:00 PM</span>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="bi bi-geo-alt"></i>
+                                        <div>
+                                            <strong>Location:</strong>
+                                            <span id="modalLocation">Central Park, Downtown</span>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="bi bi-people"></i>
+                                        <div>
+                                            <strong>Capacity:</strong>
+                                            <span id="modalCapacity">200 participants</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <h4 id="modalEventTitle">Free Medical Camp</h4>
+                                <span class="badge bg-primary mb-3" id="modalCategory">Health</span>
+                                
+                                <div class="event-description-full">
+                                    <h6>About This Event</h6>
+                                    <p id="modalDescription">Join us for a day of free medical services including health checkups, consultations, and basic screenings. Our team of volunteer doctors and nurses will provide essential healthcare services to underserved communities.</p>
+                                    
+                                    <h6 class="mt-4">What to Expect</h6>
+                                    <ul id="modalExpectations">
+                                        <li>Free health checkups and consultations</li>
+                                        <li>Blood pressure and sugar level tests</li>
+                                        <li>Basic medical screenings</li>
+                                        <li>Health education sessions</li>
+                                        <li>Free medication for common ailments</li>
+                                    </ul>
+                                    
+                                    <h6 class="mt-4">Who Can Attend</h6>
+                                    <p id="modalAudience">This event is open to all community members, with priority given to low-income families and individuals without access to regular healthcare.</p>
+                                    
+                                    <div class="alert alert-info mt-4">
+                                        <i class="bi bi-info-circle me-2"></i>
+                                        <span id="modalNote">Please bring any existing medical records. No registration fee required.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="registerModalBtn">
+                            <i class="bi bi-calendar-plus me-2"></i>Register for Event
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+  {% include "web/footer.html" %}

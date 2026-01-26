@@ -18,8 +18,8 @@ from django.contrib import admin
 from django.urls import path
 from adpanel import views as adpanel
 from website import views as users
-from django.contrib.auth.views import LogoutView   # ✅ योग्य import
-from adpanel.views import dashboard_view , login_view  # ✅ FIXED
+from django.contrib.auth.views import LogoutView  
+from adpanel.views import dashboard_view , login_view  
 from website import views as ui
 from django.urls import reverse_lazy
 
@@ -32,6 +32,13 @@ urlpatterns = [
     path('faq/',ui.faq),
     path('contact/',ui.contact),
     path('donate/',ui.donate),
+    path('about/',ui.about),
+    path('events/',ui.events),
+    path('volunteers/',ui.volunteers),
+    path('gallery/',ui.gallery),
+    path('causes_programs/',ui.causes_programs),
+    path('testimonials/',ui.testimonials),
+    path('blog_news/',ui.blog_news),
     path("login/", login_view, name="login"),
 
     path("admin/", dashboard_view, name="dashboard"),
