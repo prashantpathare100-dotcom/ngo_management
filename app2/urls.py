@@ -23,6 +23,11 @@ from adpanel.views import dashboard_view , login_view  # ✅ FIXED
 from website import views as ui
 from django.contrib.auth import views as auth_views
 
+from django.contrib.auth.views import LogoutView   
+from adpanel.views import dashboard_view , login_view  
+from django.urls import reverse_lazy
+
+
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
