@@ -1,0 +1,344 @@
+ {% include "web/navbar.html" %}
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/web/css/causes_programs.css">
+</head>
+<body>
+      <!-- Main Container -->
+    <div class="container-fluid p-0">
+        
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <h1 class="display-4 fw-bold mb-4">Our Causes & Programs</h1>
+                        <p class="lead mb-5">We're addressing the world's most pressing challenges through targeted, sustainable programs that create lasting change in communities worldwide.</p>
+                        <div class="d-flex flex-wrap justify-content-center gap-3">
+                            <a href="#" class="btn btn-primary btn-lg px-4 py-3">
+                                <i class="bi bi-heart-fill me-2"></i>Donate Now
+                            </a>
+                            <a href="#" class="btn btn-outline-primary btn-lg px-4 py-3">
+                                <i class="bi bi-people-fill me-2"></i>Become a Volunteer
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <!-- Filter Tabs Section -->
+        <section class="section-padding bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h2 class="section-title text-center mb-5">Browse Our Programs</h2>
+                        <div class="d-flex flex-wrap justify-content-center mb-5">
+                            <!-- Filter Tabs -->
+                            <ul class="nav nav-pills mb-4 justify-content-center" id="programTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="all-tab" data-bs-toggle="pill" data-bs-target="#all" type="button" role="tab">All Programs</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="education-tab" data-bs-toggle="pill" data-bs-target="#education" type="button" role="tab">
+                                        <i class="bi bi-book me-2"></i>Education
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="health-tab" data-bs-toggle="pill" data-bs-target="#health" type="button" role="tab">
+                                        <i class="bi bi-heart-pulse me-2"></i>Health
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="women-tab" data-bs-toggle="pill" data-bs-target="#women" type="button" role="tab">
+                                        <i class="bi bi-gender-female me-2"></i>Women Empowerment
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="environment-tab" data-bs-toggle="pill" data-bs-target="#environment" type="button" role="tab">
+                                        <i class="bi bi-tree me-2"></i>Environment
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="relief-tab" data-bs-toggle="pill" data-bs-target="#relief" type="button" role="tab">
+                                        <i class="bi bi-cloud-lightning-rain me-2"></i>Disaster Relief
+                                    </button>
+                                </li>
+                            </ul>
+                            
+                            <!-- Tab Content -->
+                            <div class="tab-content" id="programTabsContent">
+                                <!-- All Programs Tab -->
+                                <div class="tab-pane fade show active" id="all" role="tabpanel">
+                                    <div class="row g-4">
+                                        <!-- Cause Card 1 - Education -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="cause-card" data-category="education">
+                                                <div class="cause-icon">
+                                                    <i class="bi bi-laptop"></i>
+                                                </div>
+                                                <h4 class="cause-title">Digital Literacy Program</h4>
+                                                <p class="cause-description text-info ">Providing computer education and digital skills to underprivileged youth in rural communities.</p>
+                                                <div class="cause-impact">
+                                                    <i class="bi bi-people"></i>
+                                                    <span>2,500+ students trained</span>
+                                                </div>
+                                                <a href="#" class="btn cause-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Cause Card 2 - Education -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="cause-card" data-category="education">
+                                                <div class="cause-icon">
+                                                    <i class="bi bi-book-half"></i>
+                                                </div>
+                                                <h4 class="cause-title">School for All</h4>
+                                                <p class="cause-description">Building and supporting schools in remote areas with no access to formal education.</p>
+                                                <div class="cause-impact">
+                                                    <i class="bi bi-building"></i>
+                                                    <span>12 schools established</span>
+                                                </div>
+                                                <a href="#" class="btn cause-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Cause Card 3 - Health -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="cause-card" data-category="health">
+                                                <div class="cause-icon">
+                                                    <i class="bi bi-heart-pulse"></i>
+                                                </div>
+                                                <h4 class="cause-title">Mobile Health Clinics</h4>
+                                                <p class="cause-description">Bringing essential healthcare services to remote villages through mobile medical units.</p>
+                                                <div class="cause-impact">
+                                                    <i class="bi bi-activity"></i>
+                                                    <span>15,000+ patients treated</span>
+                                                </div>
+                                                <a href="#" class="btn cause-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Cause Card 4 - Health -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="cause-card" data-category="health">
+                                                <div class="cause-icon">
+                                                    <i class="bi bi-droplet"></i>
+                                                </div>
+                                                <h4 class="cause-title">Clean Water Initiative</h4>
+                                                <p class="cause-description">Installing water purification systems and wells in communities with contaminated water sources.</p>
+                                                <div class="cause-impact">
+                                                    <i class="bi bi-water"></i>
+                                                    <span>50,000+ people served</span>
+                                                </div>
+                                                <a href="#" class="btn cause-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Cause Card 5 - Women -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="cause-card" data-category="women">
+                                                <div class="cause-icon">
+                                                    <i class="bi bi-gender-female"></i>
+                                                </div>
+                                                <h4 class="cause-title">Women Entrepreneurship</h4>
+                                                <p class="cause-description">Providing business training, mentorship, and microloans to women entrepreneurs.</p>
+                                                <div class="cause-impact">
+                                                    <i class="bi bi-cash-coin"></i>
+                                                    <span>800+ women supported</span>
+                                                </div>
+                                                <a href="#" class="btn cause-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Cause Card 6 - Environment -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="cause-card" data-category="environment">
+                                                <div class="cause-icon">
+                                                    <i class="bi bi-tree"></i>
+                                                </div>
+                                                <h4 class="cause-title">Reforestation Project</h4>
+                                                <p class="cause-description">Planting native trees and promoting sustainable land management in deforested regions.</p>
+                                                <div class="cause-impact">
+                                                    <i class="bi bi-tree-fill"></i>
+                                                    <span>100,000+ trees planted</span>
+                                                </div>
+                                                <a href="#" class="btn cause-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How Causes Work Section -->
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">How Our Programs Work</h2>
+                <div class="row g-4">
+                    <!-- Step 1 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="process-step">
+                            <div class="step-number">01</div>
+                            <div class="step-icon">
+                                <i class="bi bi-search"></i>
+                            </div>
+                            <h4 class="step-title">Identify Needs</h4>
+                            <p class="step-description">We conduct thorough community assessments to identify the most pressing challenges and opportunities.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="process-step">
+                            <div class="step-number">02</div>
+                            <div class="step-icon">
+                                <i class="bi bi-clipboard-check"></i>
+                            </div>
+                            <h4 class="step-title">Strategic Planning</h4>
+                            <p class="step-description">We design evidence-based programs with clear objectives, timelines, and measurable outcomes.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="process-step">
+                            <div class="step-number">03</div>
+                            <div class="step-icon">
+                                <i class="bi bi-gear"></i>
+                            </div>
+                            <h4 class="step-title">Execute & Implement</h4>
+                            <p class="step-description">Our trained teams and local partners implement programs with community participation.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="process-step">
+                            <div class="step-number">04</div>
+                            <div class="step-icon">
+                                <i class="bi bi-graph-up"></i>
+                            </div>
+                            <h4 class="step-title">Measure Impact</h4>
+                            <p class="step-description">We continuously monitor progress and evaluate impact to ensure effectiveness and accountability.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Program Section -->
+        <section class="section-padding bg-light">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <div class="featured-program-image rounded overflow-hidden">
+                            <img src="https://media.gettyimages.com/id/1224309929/photo/digital-native-students-e-learning-over-computers-at-school.jpg?s=612x612&w=gi&k=20&c=LsnxulrPYsVahz9K56iNRr10EeioZIj1QmTI84QKbZ0=" 
+                                 alt="Education program for children" class="img-fluid">
+                            <div class="program-badge">
+                                <span>Featured Program</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="featured-program-content">
+                            <h2 class="section-title mb-4">Digital Literacy for Rural Youth</h2>
+                            <p class="mb-4">Our flagship program brings computer education and digital skills to remote communities, preparing youth for the digital economy and breaking the cycle of poverty through technology access.</p>
+                            
+                            <div class="program-highlights mb-4">
+                                <h5 class="fw-bold mb-3">Key Achievements:</h5>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="highlight-item mb-3">
+                                            <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                                            <span>50+ computer labs established</span>
+                                        </div>
+                                        <div class="highlight-item mb-3">
+                                            <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                                            <span>120 teachers trained</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="highlight-item mb-3">
+                                            <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                                            <span>2,500+ students graduated</span>
+                                        </div>
+                                        <div class="highlight-item mb-3">
+                                            <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                                            <span>85% employment rate</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="program-progress">
+                                <h5 class="fw-bold mb-3">Program Funding Progress</h5>
+                                <div class="progress mb-2" style="height: 12px;">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                                         role="progressbar" 
+                                         style="width: 78%" 
+                                         aria-valuenow="78" 
+                                         aria-valuemin="0" 
+                                         aria-valuemax="100">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted">$78,000 raised</span>
+                                    <span class="fw-bold text-primary">78% of $100,000 goal</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-5">
+                                <a href="#" class="btn btn-primary btn-lg px-4 me-3">
+                                    <i class="bi bi-heart-fill me-2"></i>Support This Program
+                                </a>
+                                <a href="#" class="btn btn-outline-primary btn-lg px-4">
+                                    View Full Report
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support a Cause CTA -->
+        <section class="section-padding cta-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="cta-card rounded p-5">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8">
+                                    <h2 class="cta-title mb-3 text-dark ">Your Support Can Change Lives</h2>
+                                    <p class="cta-text mb-0 text-dark  ">Join us in creating sustainable change. Every donation, no matter the size, helps us expand our programs and reach more communities in need.</p>
+                                </div>
+                                <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                                    <div class="d-flex flex-column flex-md-row justify-content-lg-end gap-3">
+                                        <a href="#" class="btn btn-light btn-lg px-4">
+                                            <i class="bi bi-currency-dollar me-2"></i>Make a Donation
+                                        </a>
+                                        <a href="#" class="btn btn-outline-light btn-lg px-4">
+                                            <i class="bi bi-envelope me-2"></i>Contact Us
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+  {% include "web/footer.html" %}

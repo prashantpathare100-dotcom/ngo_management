@@ -1,0 +1,200 @@
+/* Marathi Font and General Settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+.navbar {
+    padding: 15px 0;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: #2c3e50 !important;
+}
+
+.nav-link {
+    font-weight: 500;
+    margin: 0 10px;
+    color: #555 !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #3498db !important;
+}
+
+/* FAQ Header */
+.faq-header {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    padding: 30px !important;
+    border: 1px solid #dee2e6;
+}
+
+.faq-header h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+}
+
+.faq-header .lead {
+    color: #6c757d;
+    font-size: 1.2rem;
+}
+
+/* Search Box */
+.search-box {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.search-box input {
+    border: none;
+    padding: 15px 20px;
+    font-size: 1rem;
+}
+
+.search-box input:focus {
+    box-shadow: none;
+    border: 1px solid #3498db;
+}
+
+.search-box button {
+    border-radius: 0 50px 50px 0;
+    padding: 15px 30px;
+    font-weight: 600;
+}
+
+/* Category Buttons */
+.category-btn {
+    border-radius: 30px;
+    padding: 8px 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.category-btn:hover, .category-btn.active {
+    background-color: #3498db;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+/* FAQ Questions */
+.accordion-item {
+    border: none;
+    margin-bottom: 15px;
+    border-radius: 10px !important;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.accordion-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-button {
+    background-color: white;
+    color: #2c3e50;
+    font-weight: 600;
+    padding: 20px;
+    font-size: 1.1rem;
+    border: none;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #e8f4fc;
+    color: #2c3e50;
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(52, 152, 219, 0.5);
+}
+
+.accordion-body {
+    background-color: white;
+    padding: 25px;
+    color: #555;
+    line-height: 1.8;
+}
+
+.accordion-body ul, .accordion-body ol {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.accordion-body li {
+    margin-bottom: 8px;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+}
+
+footer h5 {
+    color: #fff;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+footer a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #3498db !important;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #3498db;
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .faq-header h1 {
+        font-size: 2rem;
+    }
+    
+    .faq-header .lead {
+        font-size: 1rem;
+    }
+    
+    .accordion-button {
+        font-size: 1rem;
+        padding: 15px;
+    }
+    
+    .search-box button {
+        padding: 15px 20px;
+    }
+}

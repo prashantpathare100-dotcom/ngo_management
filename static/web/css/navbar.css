@@ -1,0 +1,197 @@
+:root{
+  --bg1: rgba(10, 14, 30, .90);
+  --bg2: rgba(35, 18, 70, .72);
+  --line: rgba(255,255,255,.16);
+  --glass: rgba(255,255,255,.12);
+  --glass2: rgba(255,255,255,.06);
+
+  --text: #f5f7ff;
+  --muted: rgba(245,247,255,.78);
+
+  --shadow: 0 18px 45px rgba(0,0,0,.28);
+  --shadow2: 0 16px 35px rgba(0,0,0,.22);
+}
+
+/* Navbar shell */
+.ngo-navbar{
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: 10px 0;
+  animation: navIn .55s ease both;
+}
+@keyframes navIn{from{transform:translateY(-10px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+/* Brand */
+.ngo-logo{
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,.25);
+  box-shadow: 0 12px 24px rgba(0,0,0,.18);
+  transition: transform .35s ease;
+}
+.navbar-brand:hover .ngo-logo{ transform: rotate(-6deg) scale(1.08); }
+
+.ngo-title{ color: var(--text); font-weight: 900; letter-spacing: .5px; line-height: 1.1; }
+.ngo-subtitle{ color: var(--muted); font-weight: 600; font-size: 12px; }
+
+/* Links */
+.ngo-navbar .nav-link{
+  color: var(--muted);
+  font-weight: 750;
+  padding: 10px 12px !important;
+  border-radius: 14px;
+  position: relative;
+  transition: .25s ease;
+  overflow: hidden;
+}
+
+/* shine */
+.ngo-navbar .nav-link::before{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.15), transparent);
+  transform: translateX(-120%);
+  transition: transform .45s ease;
+}
+.ngo-navbar .nav-link:hover::before{ transform: translateX(120%); }
+
+/* underline */
+.ngo-navbar .nav-link::after{
+  content:"";
+  position:absolute; left:14px; right:14px; bottom:7px;
+  height:2px; border-radius:999px;
+  background: rgba(255,255,255,.72);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: .25s ease;
+  opacity:.85;
+}
+.ngo-navbar .nav-link:hover,
+.ngo-navbar .nav-link.active{
+  color: var(--text);
+  background: linear-gradient(180deg, var(--glass), var(--glass2));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.18);
+}
+.ngo-navbar .nav-link:hover::after,
+.ngo-navbar .nav-link.active::after{ transform: scaleX(1); }
+
+/* Donate */
+.ngo-donate{
+  border-radius: 16px;
+  padding: 10px 16px;
+  font-weight: 900;
+  color: #0b1020 !important;
+  background: linear-gradient(135deg, #ffd56a, #ff6bd6);
+  border: none;
+  box-shadow: 0 16px 30px rgba(255, 107, 214, .22);
+  transition: .25s ease;
+  animation: pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+.ngo-donate:hover{ transform: translateY(-3px) scale(1.02); box-shadow: 0 22px 45px rgba(255,107,214,.32); }
+
+/* Dropdown (Hover open) */
+.ngo-dd{ position: relative; }
+.ngo-dropdown{
+  list-style: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  min-width: 260px;
+  padding: 10px;
+  margin: 0;
+  background: rgba(10, 14, 30, .92);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 16px;
+  box-shadow: var(--shadow2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px) scale(.98);
+  transition: .22s ease;
+}
+.ngo-dd:hover .ngo-dropdown{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+.ngo-dropdown .dropdown-item{
+  display: block;
+  color: rgba(245,247,255,.86);
+  border-radius: 14px;
+  padding: 10px 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: .22s ease;
+}
+.ngo-dropdown .dropdown-item:hover{
+  color:#fff;
+  background: rgba(255,255,255,.12);
+  transform: translateX(6px);
+}
+.ngo-divider{
+  border-color: rgba(255,255,255,.18);
+  opacity: 1;
+  margin: 8px 10px;
+}
+
+/* ====== NO-JS Mobile Menu ====== */
+.ngo-toggle{ display: none; }
+
+.ngo-burger{
+  display: none;
+  width: 46px; height: 40px;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 14px;
+  padding: 8px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.ngo-burger span{
+  display:block;
+  height:2px;
+  width:22px;
+  background:#fff;
+  border-radius:99px;
+  transition:.25s ease;
+}
+
+.ngo-menu{ display: flex; }
+
+@media (max-width: 991px){
+  .ngo-burger{ display:flex; }
+
+  .ngo-menu{
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease;
+  }
+  .ngo-toggle:checked ~ .ngo-menu{ max-height: 520px; }
+
+  .navbar-nav{ padding: 14px 0; }
+  .ngo-navbar .nav-link{ margin: 4px 0; }
+  .ngo-donate{ width: 100%; text-align: center; margin-top: 8px; animation: none; }
+
+  /* dropdown mobile: flow inside */
+  .ngo-dropdown{
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    margin-top: 8px;
+    display: none;
+  }
+  .ngo-dd:hover .ngo-dropdown{ display:block; }
+}
+
+/* burger animation */
+.ngo-toggle:checked + .ngo-burger span:nth-child(1){ transform: translateY(6px) rotate(45deg); }
+.ngo-toggle:checked + .ngo-burger span:nth-child(2){ opacity: 0; }
+.ngo-toggle:checked + .ngo-burger span:nth-child(3){ transform: translateY(-6px) rotate(-45deg); }

@@ -1,0 +1,226 @@
+ {% include "web/navbar.html" %}
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Marathi Support -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="static/web/css/faq.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Main Content -->
+    <main class="container mt-5 pt-5">
+        <!-- Header Section -->
+        <header class="text-center my-5 py-4 faq-header">
+            <h1 class="display-5 fw-bold text-primary mb-3">
+                <i class="fas fa-question-circle me-2"></i>Frequently Asked Questions
+            </h1>
+            <p class="lead text-muted">Find answers to all your questions here</p>
+            
+            <!-- Search Box -->
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-8">
+                    <div class="input-group search-box">
+                        <input type="text" class="form-control" id="faqSearch" placeholder="Search your question...">
+                        <button class="btn btn-primary" type="button">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                    <div class="mt-2">
+                        <small class="text-muted">Example: How to donate, How to volunteer, etc.</small>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- FAQ Categories -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h3 class="mb-4"><i class="fas fa-filter text-secondary me-2"></i>Browse by Category:</h3>
+                <div class="d-flex flex-wrap gap-2">
+                    <button class="btn btn-outline-primary category-btn active" data-category="all">All</button>
+                    <button class="btn btn-outline-primary category-btn" data-category="general">General</button>
+                    <button class="btn btn-outline-primary category-btn" data-category="donation">Donation</button>
+                    <button class="btn btn-outline-primary category-btn" data-category="volunteer">Volunteer</button>
+                    <button class="btn btn-outline-primary category-btn" data-category="programs">Programs</button>
+                    <button class="btn btn-outline-primary category-btn" data-category="contact">Contact</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ List -->
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="accordion" id="faqAccordion">
+                    
+                    <!-- Question 1 -->
+                    <div class="accordion-item" data-category="general">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                <i class="fas fa-building me-3 text-primary"></i>
+                                <span>In which areas does your NGO work?</span>
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <p>Our organization primarily works in the fields of education, health, and women empowerment. Our main objectives are to provide educational materials to children in rural areas, organize health camps, and provide skill development training to make women self-reliant.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="accordion-item" data-category="donation">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                <i class="fas fa-hand-holding-heart me-3 text-primary"></i>
+                                <span>How to donate? Is the donation amount tax deductible?</span>
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <p>You can donate online by clicking on the "Donate Now" button on our website. You can also make direct bank transfers:</p>
+                                <ul>
+                                    <li><strong>Bank Details:</strong> [Enter your bank details here]</li>
+                                    <li><strong>UPI ID:</strong> donate@ngoname</li>
+                                    <li><strong>Check:</strong> [Enter address here]</li>
+                                </ul>
+                                <p>Yes, since our organization has 80G approval, you will get tax exemption on the donated amount. We will send you the donation receipt via email.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="accordion-item" data-category="volunteer">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                <i class="fas fa-users me-3 text-primary"></i>
+                                <span>How can I volunteer for your organization?</span>
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <p>To become a volunteer, you can fill out the application on our "Volunteer" page. We will assign appropriate work according to your skills. Our requirements for volunteers:</p>
+                                <ul>
+                                    <li>Guidance in the field of education</li>
+                                    <li>Assistance for health camps</li>
+                                    <li>Promotion on social media</li>
+                                    <li>Help in event organization</li>
+                                </ul>
+                                <a href="volunteer.html" class="btn btn-sm btn-outline-primary">Fill Volunteer Application</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="accordion-item" data-category="programs">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                <i class="fas fa-calendar-alt me-3 text-primary"></i>
+                                <span>What programs do you organize?</span>
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <p>We organize the following major programs:</p>
+                                <ol>
+                                    <li><strong>Education Jyoti:</strong> Free education classes for rural children</li>
+                                    <li><strong>Health Services:</strong> Free health checkup camps</li>
+                                    <li><strong>Empowered Women:</strong> Women's skill development training</li>
+                                    <li><strong>Environmental Awareness:</strong> Tree plantation and cleanliness campaigns</li>
+                                    <li><strong>Joy Festival:</strong> Celebrations for orphaned and homeless children</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 5 -->
+                    <div class="accordion-item" data-category="contact">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                <i class="fas fa-phone-alt me-3 text-primary"></i>
+                                <span>How to contact you?</span>
+                            </button>
+                        </h2>
+                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <p>You can contact us using the following methods:</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Address:</h6>
+                                        <p>[Enter your complete address here]<br>
+                                        [City, Pincode]</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Contact:</h6>
+                                        <p><i class="fas fa-phone me-2"></i> +91 78419156<br>
+                                        <i class="fas fa-envelope me-2"></i> info@ngoname.org<br>
+                                        <i class="fab fa-whatsapp me-2"></i> +91 7890324567</p>
+                                    </div>
+                                </div>
+                                <p>Or go to our <a href="contact.html">contact page</a> and fill out the contact form.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 6 -->
+                    <div class="accordion-item" data-category="donation">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                <i class="fas fa-chart-line me-3 text-primary"></i>
+                                <span>How do you use the donation funds? Is there transparency?</span>
+                            </button>
+                        </h2>
+                        <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <p>We use donation funds with complete transparency. We publish annual reports on our website. Fund allocation:</p>
+                                <ul>
+                                    <li>80% - Direct projects and programs</li>
+                                    <li>10% - Administrative expenses</li>
+                                    <li>10% - Reserve for future plans</li>
+                                </ul>
+                                <p>You can download our recent audit report and annual reports from our website.</p>
+                                <a href="reports.html" class="btn btn-sm btn-outline-primary">View Annual Reports</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- If more questions -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <div class="card border-primary">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3">Didn't find your question?</h4>
+                        <p class="card-text mb-4">Contact us directly, we will answer you as soon as possible.</p>
+                        <a href="contact.html" class="btn btn-primary btn-lg">
+                            <i class="fas fa-envelope me-2"></i>Fill Contact Form
+                        </a>
+                        <div class="mt-3">
+                            <small class="text-muted">Or call us: +91  5678943210</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+    
+
+    <!-- Bootstrap JS -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="/static/web/javac/faq.js"></script>
+ {% include "web/footer.html" %}
