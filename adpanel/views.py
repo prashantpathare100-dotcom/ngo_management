@@ -6,8 +6,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 
-@staff_member_required
+
+@login_required(login_url='login')
 def dashboard_view(request):
     totals  = {
         'total_donations': Donation.objects.count(),
@@ -96,13 +98,13 @@ def login_view(request):
 
         if user is not None and user.is_staff:
             login(request, user)
-            return redirect("/")   # dashboard
+            return redirect("dashboard")   # dashboard
         else:
             messages.error(request, "Invalid admin credentials")
 
     return render(request, 'ad/login.html')
 
-# # logout
-# def logout_view(request):
-#     logout(request)
-#     return redirect('/login/')
+# logout
+def logout_view(request):
+    logout(request)
+    return redirect('/')

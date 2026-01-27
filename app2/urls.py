@@ -21,7 +21,7 @@ from website import views as users
 from django.contrib.auth.views import LogoutView   # ✅ योग्य import
 from adpanel.views import dashboard_view , login_view  # ✅ FIXED
 from website import views as ui
-from django.urls import reverse_lazy
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
@@ -33,14 +33,11 @@ urlpatterns = [
     path('contact/',ui.contact),
     path('donate/',ui.donate),
     path("login/", login_view, name="login"),
-
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path("admin/", dashboard_view, name="dashboard"),
 
-    path(
-        "logout/",
-        LogoutView.as_view(next_page=reverse_lazy("login")),
-        name="logout"
-    )
+    
+
 ]
 
 
