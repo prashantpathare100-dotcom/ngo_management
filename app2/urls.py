@@ -39,9 +39,9 @@ urlpatterns = [
     path('causes_programs/',ui.causes_programs),
     path('testimonials/',ui.testimonials),
     path('blog_news/',ui.blog_news),
-    path("login/", login_view, name="login"),
+    path("admin/", login_view, name="login"),
 
-    path("admin/", dashboard_view, name="dashboard"),
+    path("login/", dashboard_view, name="dashboard"),
 
     path(
         "logout/",
