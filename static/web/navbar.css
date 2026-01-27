@@ -1,4 +1,6 @@
-
+/* =========================
+   NGO Navbar (Attractive)
+   ========================= */
 :root{
   --nav-bg1: rgba(10, 14, 30, .86);
   --nav-bg2: rgba(35, 18, 70, .68);
@@ -175,30 +177,32 @@
   transform: scaleY(1);
 }
 
-/* ✅ Dropdown animation only for desktop, Bootstrap show class वर */
+/* Bootstrap show animation */
 @media (min-width: 992px){
-  .ngo-dropdown{
+  .dropdown-menu{
+    display: block;
     opacity: 0;
     visibility: hidden;
     transform: translateY(14px) scale(.98);
     transition: opacity .22s ease, transform .22s ease, visibility .22s ease;
   }
-  .ngo-dropdown.show{
+  .dropdown-menu.show{
     opacity: 1;
     visibility: visible;
     transform: translateY(0) scale(1);
   }
 
-  .ngo-dropdown.show .dropdown-item{
+  /* Dropdown items stagger on open */
+  .dropdown-menu.show .dropdown-item{
     animation: itemIn .28s ease both;
   }
-  .ngo-dropdown.show .dropdown-item:nth-child(1){ animation-delay: .02s; }
-  .ngo-dropdown.show .dropdown-item:nth-child(2){ animation-delay: .05s; }
-  .ngo-dropdown.show .dropdown-item:nth-child(3){ animation-delay: .08s; }
-  .ngo-dropdown.show .dropdown-item:nth-child(5){ animation-delay: .11s; }
-  .ngo-dropdown.show .dropdown-item:nth-child(6){ animation-delay: .14s; }
-  .ngo-dropdown.show .dropdown-item:nth-child(7){ animation-delay: .17s; }
-  .ngo-dropdown.show .dropdown-item:nth-child(8){ animation-delay: .20s; }
+  .dropdown-menu.show .dropdown-item:nth-child(1){ animation-delay: .02s; }
+  .dropdown-menu.show .dropdown-item:nth-child(2){ animation-delay: .05s; }
+  .dropdown-menu.show .dropdown-item:nth-child(3){ animation-delay: .08s; }
+  .dropdown-menu.show .dropdown-item:nth-child(5){ animation-delay: .11s; }
+  .dropdown-menu.show .dropdown-item:nth-child(6){ animation-delay: .14s; }
+  .dropdown-menu.show .dropdown-item:nth-child(7){ animation-delay: .17s; }
+  .dropdown-menu.show .dropdown-item:nth-child(8){ animation-delay: .20s; }
 }
 
 @keyframes itemIn{
@@ -206,7 +210,7 @@
   to{ transform: translateX(0); opacity: 1; }
 }
 
-/* Donate button */
+/* Donate button (pulse + hover lift) */
 .btn-donate{
   border-radius: 16px;
   padding: 10px 16px;
@@ -217,6 +221,15 @@
   border: none;
   box-shadow: 0 16px 30px rgba(255, 107, 214, .22);
   transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-donate{
+  animation: donatePulse 2.2s ease-in-out infinite;
+}
+@keyframes donatePulse{
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(-2px); }
 }
 .btn-donate:hover{
   transform: translateY(-3px) scale(1.02);
@@ -226,22 +239,16 @@
 
 /* Mobile spacing */
 @media (max-width: 991px){
-  .ngo-navbar .navbar-nav{ padding: 14px 0; }
-  .ngo-navbar .nav-link{ margin: 4px 0; }
-  .btn-donate{ width: 100%; text-align: center; margin-top: 8px; }
-}
-/* Dropdown fix */
-.navbar .dropdown-menu {
-    display: none;
-    opacity: 0;
-    transition: all 0.2s ease;
-}
-
-.navbar .dropdown.show .dropdown-menu {
-    display: block;
-    opacity: 1;
-}
-.dropdown-menu {
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  .ngo-navbar .navbar-nav{
+    padding: 14px 0;
+  }
+  .ngo-navbar .nav-link{
+    margin: 4px 0;
+  }
+  .btn-donate{
+    width: 100%;
+    text-align: center;
+    margin-top: 8px;
+    animation: none; /* mobile वर pulse नको असेल तर */
+  }
 }
