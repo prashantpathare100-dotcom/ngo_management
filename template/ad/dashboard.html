@@ -93,11 +93,11 @@
 	</li>
 
     <li class="sidebar-item">
-		<a class="sidebar-link" href="#">
-			<i class="align-middle" data-feather="users"></i>
-			<span class="align-middle">Volunteers</span>
-		</a>
-	</li>
+    <a class="sidebar-link" href="{% url 'volunteer_list' %}">
+        <i class="align-middle" data-feather="users"></i>
+        <span class="align-middle">Volunteers Management</span>
+    </a>
+</li>
 
 	<li class="sidebar-item">
 		<a class="sidebar-link" href="#">
@@ -369,10 +369,12 @@
 			</nav>
 
 			<main class="content">
-				 <div class="container-fluid p-0">
-        
-                </div>
-			</main>
+    <div class="container-fluid p-0">
+        {% block content %}
+        {% endblock %}
+    </div>
+</main>
+
 
 			<footer class="footer">
 				<div class="container-fluid">

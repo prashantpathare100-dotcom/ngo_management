@@ -1,22 +1,27 @@
 from django.shortcuts import render
 from django.contrib.admin.views.decorators import staff_member_required
-from .models import Donation, Volunteer, Event
+
 # login
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+from volunteers.models import Volunteer
 
 
-@login_required(login_url='login')
+
+@login_required
 def dashboard_view(request):
-    totals  = {
-        'total_donations': Donation.objects.count(),
-        'total_volunteers': Volunteer.objects.count(),
-        'total_events': Event.objects.count(),
+
+    # Temporary static totals (NO DB access)
+    totals = {
+        'total_donations': 0,
+        'total_volunteers': 0,
+        'total_events': 0,
     }
-    # Dynamic management sections
+
     sections = [
         {
             "title": "Testimonials Management",
@@ -87,7 +92,6 @@ def dashboard_view(request):
         "sections": sections,
     })
 
-
 # login 
 def login_view(request):
     if request.method == 'POST':
@@ -108,3 +112,17 @@ def login_view(request):
 # def logout_view(request):
 #     logout(request)
 #     return redirect('/login/')
+
+
+
+
+
+
+def volunteer_list(request):
+    volunteers = Volunteer.objects.all()  # 🔥 NO filter
+    return render(
+        request,
+        'ad/volunteer_list.html',
+        {'volunteers': volunteers}
+    )
+

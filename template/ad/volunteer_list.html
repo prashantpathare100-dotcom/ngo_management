@@ -1,0 +1,45 @@
+{% extends "ad/dashboard.html" %}
+{% load static %}
+
+{% block content %}
+
+<h2 class="mb-4">Volunteers Management</h2>
+
+{% if volunteers %}
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Age</th>
+            <th>Type</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for v in volunteers %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ v.full_name }}</td>
+            <td>{{ v.email }}</td>
+            <td>{{ v.phone }}</td>
+            <td>{{ v.age }}</td>
+            <td>{{ v.volunteer_type }}</td>
+            <td>
+                {% if v.is_approved %}
+                    <span class="badge bg-success">Approved</span>
+                {% else %}
+                    <span class="badge bg-warning">Pending</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No volunteers found.</p>
+{% endif %}
+
+{% endblock %}

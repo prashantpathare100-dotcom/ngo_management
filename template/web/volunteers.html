@@ -12,6 +12,25 @@
     <!-- Custom JS -->
     <script src="/static/web/javac/volunteers.js"></script>
 
+
+    {% comment %} dashboard {% endcomment %}
+    {% for event in events %}
+<h3>{{ event.event_name }}</h3>
+
+<p>
+ <b>{{ event.total_volunteers }}</b> 
+</p>
+
+<ul>
+{% for role in event.roles.all %}
+  <li>{{ role.role_name }} – {{ role.volunteers_count }} स्वयंसेवक</li>
+{% endfor %}
+</ul>
+
+<hr>
+{% endfor %}
+
+
 </head>
 <body>
 
@@ -159,43 +178,55 @@
                         <h3 class="text-center fw-bold mb-4">Join as a Volunteer</h3>
                         <p class="text-center text-muted mb-4">Fill the form below and help us change lives.</p>
                         
-                        <form id="volunteerForm">
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label class="form-label">Full Name</label>
-                                    <input type="text" class="form-control" placeholder="John Doe" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Email Address</label>
-                                    <input type="email" class="form-control" placeholder="john@example.com" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Phone Number</label>
-                                    <input type="tel" class="form-control" placeholder="+91 98765 43210" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Age</label>
-                                    <input type="number" class="form-control" placeholder="25" required>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label">I want to volunteer as:</label>
-                                    <select class="form-select">
-                                        <option selected>Select Type...</option>
-                                        <option value="1">Field Volunteer (On Ground)</option>
-                                        <option value="2">Digital Volunteer (Online)</option>
-                                        <option value="3">Event Volunteer</option>
-                                        <option value="4">Teacher/Skill Trainer</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label">Why do you want to join us?</label>
-                                    <textarea class="form-control" rows="3" placeholder="Tell us about your skills..."></textarea>
-                                </div>
-                                <div class="col-12 text-center mt-4">
-                                    <button type="submit" class="btn btn-volunteer w-50">Submit Application</button>
-                                </div>
-                            </div>
-                        </form>
+                        <form id="volunteerForm" method="POST" action="">
+    {% csrf_token %}
+
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label class="form-label">Full Name</label>
+            <input type="text" name="full_name" class="form-control" placeholder="John Doe" required>
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Email Address</label>
+            <input type="email" name="email" class="form-control" placeholder="john@example.com" required>
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" name="phone" class="form-control" placeholder="+91 98765 43210" required>
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Age</label>
+            <input type="number" name="age" class="form-control" placeholder="25" required>
+        </div>
+
+        <div class="col-12">
+            <label class="form-label">I want to volunteer as:</label>
+            <select name="volunteer_type" class="form-select" required>
+                <option value="">Select Type...</option>
+                <option value="field">Field Volunteer (On Ground)</option>
+                <option value="online">Digital Volunteer (Online)</option>
+                <option value="event">Event Volunteer</option>
+                <option value="trainer">Teacher / Skill Trainer</option>
+            </select>
+        </div>
+
+        <div class="col-12">
+            <label class="form-label">Why do you want to join us?</label>
+            <textarea name="message" class="form-control" rows="3"
+                placeholder="Tell us about your skills..."></textarea>
+        </div>
+
+        <div class="col-12 text-center mt-4">
+            <button type="submit" class="btn btn-volunteer w-50">
+                Submit Application
+            </button>
+        </div>
+    </div>
+</form>
+
                     </div>
                 </div>
             </div>
