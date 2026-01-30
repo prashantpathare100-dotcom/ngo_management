@@ -16,6 +16,7 @@
             <th>Age</th>
             <th>Type</th>
             <th>Status</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -33,6 +34,20 @@
                 {% else %}
                     <span class="badge bg-warning">Pending</span>
                 {% endif %}
+            </td>
+            <td>
+                {% comment %} {% if not v.is_approved %}
+                    <a href="{% url 'approve_volunteer' v.id %}"
+                       class="btn btn-sm btn-success">
+                       Approve
+                    </a>
+                {% endif %} {% endcomment %}
+
+                <a href="{% url 'delete_volunteer' v.id %}"
+                   class="btn btn-sm btn-danger"
+                   onclick="return confirm('Are you sure?');">
+                   Delete
+                </a>
             </td>
         </tr>
         {% endfor %}

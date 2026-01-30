@@ -48,15 +48,15 @@
             </a>
 					</li>
 
-					<li class="sidebar-item">
+					{% comment %} <li class="sidebar-item">
 						<a class="sidebar-link" href="pages-sign-in.html">
-              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span>
+              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span> {% endcomment %}
             </a>
 					</li>
 
-					<li class="sidebar-item">
+					{% comment %} <li class="sidebar-item">
 						<a class="sidebar-link" href="pages-sign-up.html">
-              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span>
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span> {% endcomment %}
             </a>
 					</li>
 
@@ -109,7 +109,7 @@
     <li class="sidebar-header">Content Management</li>
 
 	<li class="sidebar-item">
-		<a class="sidebar-link" href="#">
+    <a class="sidebar-link" href="{% url 'gallery_list' %}">
 			<i class="align-middle" data-feather="image"></i>
 			<span class="align-middle">Gallery</span>
 		</a>
@@ -130,9 +130,9 @@
 	</li>
 
 	<li class="sidebar-item">
-		<a class="sidebar-link" href="#">
+		<a class="sidebar-link" href="{% url 'contact_list' %}">
 			<i class="align-middle" data-feather="phone"></i>
-			<span class="align-middle">Contact Management</span>
+			<span class="align-middle">contact</span>
 		</a>
 	</li>
 

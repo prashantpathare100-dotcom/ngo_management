@@ -16,12 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include
-from adpanel import views as adpanel
-from website import views as users
+from adpanel import views as adpanel 
+from website import views as users 
 from django.contrib.auth.views import LogoutView  
 from adpanel.views import dashboard_view , login_view  
 from website import views as ui
 from django.urls import reverse_lazy
+from adpanel.views import contact_list
+from django.conf import settings
+from django.conf.urls.static import static
+
+# contact
 
 
 urlpatterns = [
@@ -48,10 +53,17 @@ urlpatterns = [
         LogoutView.as_view(next_page=reverse_lazy("login")),
         name="logout"
     ),
-     path('', include('volunteers.urls')),
+    # gallery
+     path('volunteers/', ui.volunteers, name='website_volunteers'),
+     path('volunteer/', include('volunteers.urls')),
      path('dashboard/', include('adpanel.urls')),  # ✅ MUST
+    path('gallery/', include('gallery.urls')),
 
+    # contact
+    path('contact/', include('contact.urls')),
 
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

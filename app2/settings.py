@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'adpanel',
     'volunteers',
+    'gallery',  
+    'contact',
     
 ]
 
@@ -144,3 +146,5 @@ LOGOUT_REDIRECT_URL = '/login/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

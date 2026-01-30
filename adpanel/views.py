@@ -7,8 +7,20 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+
+# volunteers
 from django.shortcuts import render
 from volunteers.models import Volunteer
+from django.shortcuts import render, redirect, get_object_or_404
+
+# gallery
+
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
+from volunteers.models import Volunteer
+from gallery.models import Donation
+
 
 
 
@@ -125,4 +137,37 @@ def volunteer_list(request):
         'ad/volunteer_list.html',
         {'volunteers': volunteers}
     )
+def approve_volunteer(request, id):
+    volunteer = get_object_or_404(Volunteer, id=id)
+    volunteer.is_approved = True
+    volunteer.save()
+    return redirect('volunteer_list')
 
+
+def delete_volunteer(request, id):
+    volunteer = get_object_or_404(Volunteer, id=id)
+    volunteer.delete()
+    return redirect('volunteer_list')
+
+
+# gallery 
+
+
+@login_required(login_url='/login/')
+def gallery_list(request):
+    items = Donation.objects.all().order_by('-created_at')
+    return render(request, 'ad/gallery_list.html', {'items': items})
+
+
+
+@login_required
+def delete_gallery(request, id):
+    donation = get_object_or_404(Donation, id=id)
+    donation.delete()
+    return redirect('gallery_list')
+
+# contac
+@login_required
+def contact_list(request):
+    contacts = Contact.objects.all().order_by("-created_at")
+    return render(request, "ad/contact_list.html", {"contacts": contacts})
