@@ -15,3 +15,6 @@ def volunteers_page(request):
         return redirect("website_volunteers")
 
     return render(request, "web/volunteers.html")
+
+def volunteer_list(request):
+   return render(request, "ad/volunteer_list.html")

@@ -1,13 +1,20 @@
-from django.shortcuts import render
-from django.contrib.admin.views.decorators import staff_member_required
+
+from django.shortcuts import render, redirect, get_object_or_404
+from django.core.paginator import Paginator
+from django.contrib import messages
+# from .models import Cause, Donation
+from website import models
+from website import views
+
+
 
 # login
-from django.shortcuts import render, redirect
+
 from django.contrib.auth import authenticate, login, logout
-from django.contrib import messages
+
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+
 from volunteers.models import Volunteer
 
 
@@ -114,15 +121,48 @@ def login_view(request):
 #     return redirect('/login/')
 
 
-
-
-
-
 def volunteer_list(request):
     volunteers = Volunteer.objects.all()  # 🔥 NO filter
-    return render(
-        request,
-        'ad/volunteer_list.html',
+    return render(request, "ad/volunteer_list.html",
+
         {'volunteers': volunteers}
     )
+
+
+
+from django.contrib.auth.decorators import login_required
+
+from website.models import Donation, ContactMessage   # model नाव exact check कर
+
+
+@login_required
+def donations_list(request):
+    donations = Donation.objects.all().order_by('-created_at')
+    return render(request, 'donate_list.html', {
+        'donations': donations
+    })
+
+
+
+@login_required
+def messages_list(request):
+    msgs = ContactMessage.objects.all().order_by('-created_at')
+    return render(request, 'messages_list.html', {
+        'msgs': msgs
+    })
+
+
+def donation_delete(request, id):
+    d = get_object_or_404(Donation, id=id)
+    d.delete()
+    messages.success(request, "Donation deleted!")
+    return redirect("donations_list")
+
+def message_delete(request, id):
+    m = get_object_or_404(ContactMessage, id=id)
+    m.delete()
+    messages.success(request, "Message deleted!")
+    return redirect("messages_list")
+
+
 

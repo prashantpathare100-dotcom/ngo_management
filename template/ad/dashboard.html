@@ -86,14 +86,15 @@
     <li class="sidebar-header">Donation & Volunteers</li>
 
 	<li class="sidebar-item">
-		<a class="sidebar-link" href="#">
+<a class="sidebar-link" href="{% url 'donations_list' %}">
+
 			<i class="align-middle" data-feather="dollar-sign"></i>
 			<span class="align-middle">Donations</span>
 		</a>
 	</li>
 
     <li class="sidebar-item">
-    <a class="sidebar-link" href="{% url 'volunteer_list' %}">
+    <a class="sidebar-link" href="{% url 'volunteers:volunteer_list' %}">
         <i class="align-middle" data-feather="users"></i>
         <span class="align-middle">Volunteers Management</span>
     </a>
@@ -356,7 +357,7 @@
 
 	{% if user.is_authenticated %}
     <li class="nav-item">
-        <form method="post" action="{% url 'logout' %}">
+<form method="post" action="{% url 'logout' %}">
             {% csrf_token %}
             <button type="submit" class="btn btn-danger btn-sm">
                 Logout

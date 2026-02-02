@@ -1,696 +1,416 @@
  {% include "web/navbar.html" %}
 
-    <!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<!-- Your CSS -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap 5.3 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/static//web/css/about.css">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/static/web/css/about.css">
+</head>
+<body>
 
-    
-    <!-- Main Container -->
-    <div class="container-fluid p-0">
-        
-        <!-- Hero Section -->
-        <section class="hero-section d-flex align-items-center">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h1 class="display-3 fw-bold mb-4 animate-text">Hope For All</h1>
-                        <p class="lead mb-4">A global non-profit organization dedicated to empowering communities, providing humanitarian aid, and creating sustainable change for a better future.</p>
-                        <p>Founded in 2010, we've been working tirelessly to address poverty, education gaps, and healthcare disparities in underserved communities worldwide.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- Hero Section -->
+    <section class="hero-section d-flex align-items-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h1 class="display-3 fw-bold mb-4" data-aos="fade-down">About Us</h1>
+            <h6 class="display-6 fw-bold mb-4" data-aos="fade-down" data-aos-delay="150">Hope All</h6>
+            <p class="lead mb-4" data-aos="fade-up" data-aos-delay="250">
+              A global non-profit organization dedicated to empowering communities, providing humanitarian aid, and creating sustainable change for a better future.
+            </p>
+            <p data-aos="fade-up" data-aos-delay="350">
+              Founded in 2010, we've been working tirelessly to address poverty, education gaps, and healthcare disparities in underserved communities worldwide.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- HERO SECTION END -->
 
-        <!-- What is an NGO Section -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 mb-5 mb-lg-0">
-                        <h2 class="section-title mb-4 text-dark ">What is an NGO?</h2>
-                        <p class="mb-4">A Non-Governmental Organization (NGO) is a non-profit group that operates independently of any government, typically to address social or political issues.</p>
-                        <p class="mb-4">NGOs are driven by volunteers and funded through donations, grants, and philanthropic contributions. They work on the ground to implement programs, advocate for policy changes, and provide direct assistance to communities in need.</p>
-                        <div class="p-4 rounded shadow-sm bg-light">
-                            <h5 class="fw-bold"><i class="bi bi-info-circle me-2"></i>Key Characteristics:</h5>
-                            <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Non-profit and mission-driven</li>
-                                <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Independent from government control</li>
-                                <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Reliant on donations and volunteers</li>
-                                <li><i class="bi bi-check-circle text-primary me-2"></i>Focused on social, environmental, or humanitarian causes</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="img-container rounded shadow overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="NGO volunteers helping community" class="img-fluid">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        offset: 100
+    });
+</script>
 
-        <!-- How NGO Works Section -->
-        <section class="section-padding bg-light">
-            <div class="container">
-                <h2 class="section-title text-center text-dark mb-5">How We Work</h2>
-                <div class="row g-4">
-                    <!-- Step 1 -->
-                    <div class="col-md-6 col-lg-3">
-                        <div class="process-card text-center p-4 h-100">
-                            <div class="process-icon mb-3">
-                                <span class="step-number">1</span>
-                                <i class="bi bi-search"></i>
-                            </div>
-                            <h4 class="fw-bold mb-3">Identify Needs</h4>
-                            <p>We conduct field research and community assessments to identify the most pressing needs and challenges.</p>
-                        </div>
-                    </div>
-                    <!-- Step 2 -->
-                    <div class="col-md-6 col-lg-3">
-                        <div class="process-card text-center p-4 h-100">
-                            <div class="process-icon mb-3">
-                                <span class="step-number">2</span>
-                                <i class="bi bi-lightbulb"></i>
-                            </div>
-                            <h4 class="fw-bold mb-3">Plan Solutions</h4>
-                            <p>We design sustainable programs and interventions tailored to the specific context of each community.</p>
-                        </div>
-                    </div>
-                    <!-- Step 3 -->
-                    <div class="col-md-6 col-lg-3">
-                        <div class="process-card text-center p-4 h-100">
-                            <div class="process-icon mb-3">
-                                <span class="step-number">3</span>
-                                <i class="bi bi-people"></i>
-                            </div>
-                            <h4 class="fw-bold mb-3">Mobilize Resources</h4>
-                            <p>We gather volunteers, secure funding, and partner with local organizations to implement our programs.</p>
-                        </div>
-                    </div>
-                    <!-- Step 4 -->
-                    <div class="col-md-6 col-lg-3">
-                        <div class="process-card text-center p-4 h-100">
-                            <div class="process-icon mb-3">
-                                <span class="step-number">4</span>
-                                <i class="bi bi-graph-up-arrow"></i>
-                            </div>
-                            <h4 class="fw-bold mb-3">Measure Impact</h4>
-                            <p>We continuously monitor and evaluate our work to ensure effectiveness and make improvements.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Timeline Section -->
-        <section class="section-padding">
-            <div class="container">
-                <h2 class="section-title text-center mb-5 text-dark">Our Journey</h2>
-                <div class="timeline  ">
-                    <div class="timeline-item ">
-                        <div class="timeline-date bg-dark">2010</div>
-                        <div class="timeline-content ">
-                            <h4 class="fw-bold">Foundation Established</h4>
-                            <p>Hope For All was founded by a group of humanitarian workers to address poverty in rural communities.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date bg-dark bg-dark ">2013</div>
-                        <div class="timeline-content">
-                            <h4 class="fw-bold">First International Expansion</h4>
-                            <p>Extended operations to three additional countries, establishing regional offices and local partnerships.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date bg-dark">2016</div>
-                        <div class="timeline-content">
-                            <h4 class="fw-bold">Education Initiative Launched</h4>
-                            <p>Started the "Schools for All" program, building educational facilities in underserved areas.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date bg-dark ">2020</div>
-                        <div class="timeline-content ">
-                            <h4 class="fw-bold">Emergency Response Network</h4>
-                            <p>Created a rapid response team for disaster relief operations across multiple regions.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date bg-dark ">2023</div>
-                        <div class="timeline-content">
-                            <h4 class="fw-bold">Sustainable Development Goals</h4>
-                            <p>Aligned all programs with UN Sustainable Development Goals for greater global impact.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Impact Stats Section -->
-        <section class="section-padding bg-light">
-            <div class="container">
-                <h2 class="section-title text-center mb-5 text-dark" >Our Impact</h2>
-                <div class="row g-4 text-center">
-                    <div class="col-md-6 col-lg-3">
-                        <div class="stat-card p-4">
-                            <i class="bi bi-people-fill stat-icon "></i>
-                            <h3 class="stat-number mt-3" data-count="250">0</h3>
-                            <p class="stat-label text-dark">Thousand People Helped</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="stat-card p-4">
-                            <i class="bi bi-calendar-event stat-icon"></i>
-                            <h3 class="stat-number mt-3" data-count="540">0</h3>
-                            <p class="stat-label text-dark  ">Community Events</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="stat-card p-4">
-                            <i class="bi bi-person-heart stat-icon"></i>
-                            <h3 class="stat-number mt-3" data-count="1200">0</h3>
-                            <p class="stat-label text-dark ">Active Volunteers</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="stat-card p-4">
-                            <i class="bi bi-cash-coin stat-icon"></i>
-                            <h3 class="stat-number mt-3" data-count="5.2">0</h3>
-                            <p class="stat-label text-dark ">Million $ in Donations</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Benefits/Outcomes Section -->
-        <section class="section-padding">
-            <div class="container">
-                <h2 class="section-title text-center mb-5">How We've Helped Society</h2>
-                <div class="row g-4">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="outcome-card h-100 p-4">
-                            <div class="outcome-icon mb-3">
-                                <i class="bi bi-house-heart"></i>
-                            </div>
-                            <h4 class="fw-bold mb-3">Improved Living Conditions</h4>
-                            <p>Built over 500 sustainable homes and provided clean water access to 120,000 people in remote areas.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="outcome-card h-100 p-4">
-                            <div class="outcome-icon mb-3">
-                                <i class="bi bi-book"></i>
-                            </div>
-                            <h4 class="fw-bold mb-3">Education Access</h4>
-                            <p>Established 45 schools and provided scholarships to 2,500 children, increasing literacy rates by 40% in our focus regions.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="outcome-card h-100 p-4">
-                            <div class="outcome-icon mb-3">
-                                <i class="bi bi-heart-pulse"></i>
-                            </div>
-                            <h4 class="fw-bold mb-3">Healthcare Initiatives</h4>
-                            <p>Set up 12 mobile clinics serving 80,000 patients annually and trained 350 local healthcare workers.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="outcome-card h-100 p-4">
-                            <div class="outcome-icon mb-3">
-                                <i class="bi bi-tree"></i>
-                            </div>
-                            <h4 class="fw-bold mb-3">Environmental Projects</h4>
-                            <p>Planted 250,000 trees and implemented sustainable farming practices across 50 communities.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="outcome-card h-100 p-4">
-                            <div class="outcome-icon mb-3">
-                                <i class="bi bi-briefcase"></i>
-                            </div>
-                            <h4 class="fw-bold mb-3">Economic Empowerment</h4>
-                            <p>Trained 5,000 individuals in vocational skills and provided micro-loans to 800 small business owners.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="outcome-card h-100 p-4">
-                            <div class="outcome-icon mb-3">
-                                <i class="bi bi-shield-check"></i>
-                            </div>
-                            <h4 class="fw-bold mb-3">Disaster Relief</h4>
-                            <p>Provided emergency aid to 200,000 people affected by natural disasters and conflicts in 12 countries.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Our Values Section -->
-        <section class="section-padding bg-light">
-            <div class="container">
-                <h2 class="section-title text-center mb-5">Our Values</h2>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="values-card h-100">
-                            <div class="card-body p-4">
-                                <div class="values-icon mb-3">
-                                    <i class="bi bi-heart"></i>
-                                </div>
-                                <h4 class="card-title fw-bold mb-3">Compassion</h4>
-                                <p class="card-text">We approach every individual and community with empathy, understanding their unique circumstances and needs.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="values-card h-100">
-                            <div class="card-body p-4">
-                                <div class="values-icon mb-3">
-                                    <i class="bi bi-shield-check"></i>
-                                </div>
-                                <h4 class="card-title fw-bold mb-3">Integrity</h4>
-                                <p class="card-text">We maintain the highest ethical standards, ensuring transparency in all our operations and financial dealings.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="values-card h-100">
-                            <div class="card-body p-4">
-                                <div class="values-icon mb-3">
-                                    <i class="bi bi-arrow-repeat"></i>
-                                </div>
-                                <h4 class="card-title fw-bold mb-3">Sustainability</h4>
-                                <p class="card-text">We design programs that create long-term change, empowering communities to become self-reliant.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="values-card h-100">
-                            <div class="card-body p-4">
-                                <div class="values-icon mb-3">
-                                    <i class="bi bi-people"></i>
-                                </div>
-                                <h4 class="card-title fw-bold mb-3">Collaboration</h4>
-                                <p class="card-text">We believe in the power of partnerships, working with local communities, governments, and other organizations.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="values-card h-100">
-                            <div class="card-body p-4">
-                                <div class="values-icon mb-3">
-                                    <i class="bi bi-lightbulb"></i>
-                                </div>
-                                <h4 class="card-title fw-bold mb-3">Innovation</h4>
-                                <p class="card-text">We continuously seek creative solutions to complex problems, adapting our approaches based on evidence and learning.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="values-card h-100">
-                            <div class="card-body p-4">
-                                <div class="values-icon mb-3">
-                                    <i class="bi bi-award"></i>
-                                </div>
-                                <h4 class="card-title fw-bold mb-3">Excellence</h4>
-                                <p class="card-text">We strive for the highest quality in all our programs, constantly evaluating and improving our work for maximum impact.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- What is an NGO Section -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+            <h2 class="section-title mb-4 text-dark">What is an NGO?</h2>
+            <p class="mb-4">
+              A Non-Governmental Organization (NGO) is a non-profit group that operates independently of any government, typically to address social or political issues.
+            </p>
+            <p class="mb-4">
+              NGOs are driven by volunteers and funded through donations, grants, and philanthropic contributions. They work on the ground to implement programs, advocate for policy changes, and provide direct assistance to communities in need.
+            </p>
+            <div class="p-4 rounded shadow-sm bg-light" data-aos="zoom-in" data-aos-delay="150">
+              <h5 class="fw-bold"><i class="bi bi-info-circle me-2"></i>Key Characteristics:</h5>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Non-profit and mission-driven</li>
+                <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Independent from government control</li>
+                <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Reliant on donations and volunteers</li>
+                <li><i class="bi bi-check-circle text-primary me-2"></i>Focused on social, environmental, or humanitarian causes</li>
+              </ul>
             </div>
-        </section>
+          </div>
 
-        <!-- Closing Section -->
-        <section class="section-padding text-center">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <h2 class="mb-4">Join Us in Making a Difference</h2>
-                        <p class="lead mb-4">Together, we can create lasting change and build a brighter future for communities in need around the world.</p>
-                        <div class="mt-5">
-                            <p class="text-muted">Hope For All NGO • Founded in 2010 • Registered 501(c)(3) non-profit organization</p>
-                        </div>
-                    </div>
-                </div>
+          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="150">
+            <div class="img-container rounded shadow overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                alt="NGO volunteers helping community" class="img-fluid">
             </div>
-        </section>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+    <!-- Mission & Vision Section -->
+<section class="section-padding mission-vision-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title text-dark" data-aos="fade-up">Our Vision & Mission</h2>
+      <p class="mv-subtitle" data-aos="fade-up" data-aos-delay="120">
+        Clear purpose. Real impact. Together we build a better future.
+      </p>
     </div>
-<style>
-    
-:root {
-    --primary-color: #2a6e8f;
-    --secondary-color: #34a853;
-    --accent-color: #f9a826;
-    --light-color: #f8f9fa;
-    --dark-color: #343a40;
-    --text-color: #333;
-    --text-light: #6c757d;
-    --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    --transition: all 0.3s ease;
-}
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: var(--text-color);
-    line-height: 1.6;
-    background-color: #fff;
-    overflow-x: hidden;
-}
+    <div class="row g-4">
+      <!-- Vision -->
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="mv-card h-100">
+          <div class="mv-top">
+            <div class="mv-icon">
+              <i class="bi bi-eye-fill"></i>
+            </div>
+            <div>
+              <h3 class="mv-title">Our Vision</h3>
+              <p class="mv-text mb-0">
+                To create a world where every community has access to education, healthcare,
+                dignity and equal opportunities for a sustainable life.
+              </p>
+            </div>
+          </div>
 
-/* Section Padding */
-.section-padding {
-    padding: 80px 0;
-}
+          <div class="mv-points">
+            <div class="mv-point"><i class="bi bi-check2-circle"></i> Equal opportunities for all</div>
+            <div class="mv-point"><i class="bi bi-check2-circle"></i> Healthy & educated communities</div>
+            <div class="mv-point"><i class="bi bi-check2-circle"></i> Sustainable development mindset</div>
+          </div>
+        </div>
+      </div>
 
-/* Hero Section */
-.hero-section {
-    background:  
-                url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    min-height: 70vh;
-    position: relative;
-}
+      <!-- Mission -->
+      <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+        <div class="mv-card h-100">
+          <div class="mv-top">
+            <div class="mv-icon mv-icon2">
+              <i class="bi bi-bullseye"></i>
+            </div>
+            <div>
+              <h3 class="mv-title">Our Mission</h3>
+              <p class="mv-text mb-0">
+                To empower underserved communities through on-ground programs, partnerships,
+                volunteering and transparent support—creating measurable impact.
+              </p>
+            </div>
+          </div>
 
-.hero-section h1 {
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    animation: fadeInUp 1s ease-out;
-}
+          <div class="mv-points">
+            <div class="mv-point"><i class="bi bi-check2-circle"></i> Support education & skill programs</div>
+            <div class="mv-point"><i class="bi bi-check2-circle"></i> Improve health & wellbeing access</div>
+            <div class="mv-point"><i class="bi bi-check2-circle"></i> Mobilize volunteers & resources</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-.hero-section p {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto;
-    animation: fadeInUp 1s ease-out 0.2s both;
-}
-
-/* Section Titles */
-.section-title {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 30px;
-    color: black;
-    font-weight: 700;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    width: 70px;
-    height: 4px;
-    background-color: var(--accent-color);
-    bottom: -10px;
-    left: 0;
-    border-radius: 2px;
-}
-
-.section-title.text-center::after {
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* Image Container */
-.img-container {
-    transition: var(--transition);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.img-container:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow);
-}
-
-.img-container img {
-    transition: var(--transition);
-}
-
-.img-container:hover img {
-    transform: scale(1.05);
-}
-
-/* Process Cards */
-.process-card {
-    background-color: white;
-    border-radius: 10px;
-    transition: var(--transition);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.process-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow);
-}
-
-.process-icon {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    margin: 0 auto;
-    background-color: rgba(42, 110, 143, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary-color);
-    font-size: 2rem;
-}
-
-.step-number {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background-color: var(--accent-color);
-    color: white;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    font-weight: bold;
-}
-
-/* Timeline */
-.timeline {
-    position: relative;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    width: 4px;
-    background-color: var(--primary-color);
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 50px;
-    width: 100%;
-}
-
-.timeline-date {
-    position: absolute;
-    width: 120px;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--primary-color);
-    color: white;
-    padding: 8px 15px;
-    border-radius: 30px;
-    text-align: center;
-    font-weight: 600;
-    z-index: 1;
-}
-
-.timeline-content {
-    position: relative;
-    width: 45%;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-}
-
-.timeline-content:hover {
-    transform: translateY(-5px);
-}
-
-.timeline-item:nth-child(odd) .timeline-content {
-    left: 0;
-    margin-left: 0;
-}
-
-.timeline-item:nth-child(even) .timeline-content {
-    left: 55%;
-    margin-left: 0;
-}
-
-.timeline-item:nth-child(odd) .timeline-content::before {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: white;
-    transform: rotate(45deg);
-    right: -10px;
-    top: 25px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.timeline-item:nth-child(even) .timeline-content::before {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: white;
-    transform: rotate(45deg);
-    left: -10px;
-    top: 25px;
-    box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-/* Stats Cards */
-.stat-card {
-    background-color: white;
-    border-radius: 10px;
-    transition: var(--transition);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.stat-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow);
-}
-
-.stat-icon {
-    font-size: 3rem;
-    color: var(--primary-color);
-    transition: var(--transition);
-}
-
-.stat-card:hover .stat-icon {
-    color: var(--secondary-color);
-    transform: scale(1.1);
-}
-
-.stat-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-}
-
-.stat-label {
-    color: var(--text-light);
-    font-weight: 500;
-}
-
-/* Outcome Cards */
-.outcome-card {
-    background-color: white;
-    border-radius: 10px;
-    border-left: 5px solid var(--primary-color);
-    transition: var(--transition);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-}
-
-.outcome-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow);
-    border-left-color: var(--secondary-color);
-}
-
-.outcome-icon {
-    width: 60px;
-    height: 60px;
-    background-color: rgba(42, 110, 143, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary-color);
-    font-size: 1.8rem;
-    transition: var(--transition);
-}
-
-.outcome-card:hover .outcome-icon {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-/* Values Cards */
-.values-card {
-    background-color: white;
-    border-radius: 10px;
-    transition: var(--transition);
-    border: none;
-    overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-}
-
-.values-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow);
-}
-
-.values-card .card-body {
-    position: relative;
-    z-index: 1;
-}
-
-.values-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    transition: var(--transition);
-    transform: scaleX(0);
-    transform-origin: left;
-}
-
-.values-card:hover::before {
-    transform: scaleX(1);
-}
-
-.values-icon {
-    width: 70px;
-    height: 70px;
-    background-color: rgba(42, 110, 143, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary-color);
-    font-size: 2rem;
-    transition: var(--transition);
-}
-
-.values-card:hover .values-icon {
-    background-color: var(--primary-color);
-    color: white;
-    transform: rotate(360deg);
-}
+  </div>
+</section>
 
 
-</style>
+
+
+
+
+    <!-- How NGO Works Section -->
+    <section class="section-padding bg-light">
+      <div class="container">
+        <h2 class="section-title text-center text-dark mb-5" data-aos="fade-up">How We Work</h2>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="0">
+            <div class="process-card text-center p-4 h-100">
+              <div class="process-icon mb-3">
+                <span class="step-number">1</span>
+                <i class="bi bi-search"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Identify Needs</h4>
+              <p>We conduct field research and community assessments to identify the most pressing needs and challenges.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+            <div class="process-card text-center p-4 h-100">
+              <div class="process-icon mb-3">
+                <span class="step-number">2</span>
+                <i class="bi bi-lightbulb"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Plan Solutions</h4>
+              <p>We design sustainable programs and interventions tailored to the specific context of each community.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+            <div class="process-card text-center p-4 h-100">
+              <div class="process-icon mb-3">
+                <span class="step-number">3</span>
+                <i class="bi bi-people"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Mobilize Resources</h4>
+              <p>We gather volunteers, secure funding, and partner with local organizations to implement our programs.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+            <div class="process-card text-center p-4 h-100">
+              <div class="process-icon mb-3">
+                <span class="step-number">4</span>
+                <i class="bi bi-graph-up-arrow"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Measure Impact</h4>
+              <p>We continuously monitor and evaluate our work to ensure effectiveness and make improvements.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact Stats Section -->
+    <section class="section-padding bg-light">
+      <div class="container">
+        <h2 class="section-title text-center mb-5 text-dark" data-aos="fade-up">Our Impact</h2>
+        <div class="row g-4 text-center">
+          <div class="col-md-6 col-lg-3" data-aos="flip-left" data-aos-delay="0">
+            <div class="stat-card p-4">
+              <i class="bi bi-people-fill stat-icon"></i>
+              <h3 class="stat-number mt-3" data-count="250">0</h3>
+              <p class="stat-label text-dark">Thousand People Helped</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="flip-left" data-aos-delay="100">
+            <div class="stat-card p-4">
+              <i class="bi bi-calendar-event stat-icon"></i>
+              <h3 class="stat-number mt-3" data-count="540">0</h3>
+              <p class="stat-label text-dark">Community Events</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="flip-left" data-aos-delay="200">
+            <div class="stat-card p-4">
+              <i class="bi bi-person-heart stat-icon"></i>
+              <h3 class="stat-number mt-3" data-count="1200">0</h3>
+              <p class="stat-label text-dark">Active Volunteers</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="flip-left" data-aos-delay="300">
+            <div class="stat-card p-4">
+              <i class="bi bi-cash-coin stat-icon"></i>
+              <h3 class="stat-number mt-3" data-count="5.2">0</h3>
+              <p class="stat-label text-dark">Million $ in Donations</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits/Outcomes Section -->
+    <section class="section-padding">
+      <div class="container">
+        <h2 class="section-title text-center mb-5" data-aos="fade-up">How We've Helped Society</h2>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+            <div class="outcome-card h-100 p-4">
+              <div class="outcome-icon mb-3"><i class="bi bi-tree"></i></div>
+              <h4 class="fw-bold mb-3">Environmental Projects</h4>
+              <p>Planted 250,000 trees and implemented sustainable farming practices across 50 communities.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="outcome-card h-100 p-4">
+              <div class="outcome-icon mb-3"><i class="bi bi-briefcase"></i></div>
+              <h4 class="fw-bold mb-3">Economic Empowerment</h4>
+              <p>Trained 5,000 individuals in vocational skills and provided micro-loans to 800 small business owners.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="outcome-card h-100 p-4">
+              <div class="outcome-icon mb-3"><i class="bi bi-shield-check"></i></div>
+              <h4 class="fw-bold mb-3">Disaster Relief</h4>
+              <p>Provided emergency aid to 200,000 people affected by natural disasters and conflicts in 12 countries.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Values Section -->
+    <section class="section-padding bg-light">
+      <div class="container">
+        <h2 class="section-title text-center mb-5" data-aos="fade-up">Our Values</h2>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4" data-aos="zoom-in-up" data-aos-delay="0">
+            <div class="values-card h-100">
+              <div class="card-body p-4">
+                <div class="values-icon mb-3"><i class="bi bi-heart"></i></div>
+                <h4 class="card-title fw-bold mb-3">Compassion</h4>
+                <p class="card-text">We approach every individual and community with empathy, understanding their unique circumstances and needs.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="zoom-in-up" data-aos-delay="100">
+            <div class="values-card h-100">
+              <div class="card-body p-4">
+                <div class="values-icon mb-3"><i class="bi bi-shield-check"></i></div>
+                <h4 class="card-title fw-bold mb-3">Integrity</h4>
+                <p class="card-text">We maintain the highest ethical standards, ensuring transparency in all our operations and financial dealings.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="zoom-in-up" data-aos-delay="200">
+            <div class="values-card h-100">
+              <div class="card-body p-4">
+                <div class="values-icon mb-3"><i class="bi bi-arrow-repeat"></i></div>
+                <h4 class="card-title fw-bold mb-3">Sustainability</h4>
+                <p class="card-text">We design programs that create long-term change, empowering communities to become self-reliant.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="zoom-in-up" data-aos-delay="300">
+            <div class="values-card h-100">
+              <div class="card-body p-4">
+                <div class="values-icon mb-3"><i class="bi bi-people"></i></div>
+                <h4 class="card-title fw-bold mb-3">Collaboration</h4>
+                <p class="card-text">We believe in the power of partnerships, working with local communities, governments, and other organizations.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="zoom-in-up" data-aos-delay="400">
+            <div class="values-card h-100">
+              <div class="card-body p-4">
+                <div class="values-icon mb-3"><i class="bi bi-lightbulb"></i></div>
+                <h4 class="card-title fw-bold mb-3">Innovation</h4>
+                <p class="card-text">We continuously seek creative solutions to complex problems, adapting our approaches based on evidence and learning.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="zoom-in-up" data-aos-delay="500">
+            <div class="values-card h-100">
+              <div class="card-body p-4">
+                <div class="values-icon mb-3"><i class="bi bi-award"></i></div>
+                <h4 class="card-title fw-bold mb-3">Excellence</h4>
+                <p class="card-text">We strive for the highest quality in all our programs, constantly evaluating and improving our work for maximum impact.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing Section -->
+    <section class="section-padding text-center" data-aos="fade-up">
+      <div class="container">   
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h2 class="mb-4">Join Us in Making a Difference</h2>
+            <p class="lead mb-4">Together, we can create lasting change and build a brighter future for communities in need around the world.</p>
+            <div class="mt-5">
+              <p class="text-muted">Hope For All NGO • Founded in 2010 • Registered 501(c)(3) non-profit organization</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Counter JS (Tuzach) -->
+  <script>
+    (function () {
+      const counters = document.querySelectorAll(".stat-number");
+
+      function animateCounter(el) {
+        const targetRaw = el.getAttribute("data-count");
+        const target = Number(targetRaw);
+        if (!Number.isFinite(target)) return;
+
+        const decimals = (targetRaw.includes(".") ? targetRaw.split(".")[1].length : 0);
+        const duration = 1400;
+        const start = 0;
+        const startTime = performance.now();
+
+        function update(now) {
+          const progress = Math.min((now - startTime) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const value = start + (target - start) * eased;
+
+          el.textContent = decimals ? value.toFixed(decimals) : Math.floor(value);
+
+          if (progress < 1) requestAnimationFrame(update);
+          else el.textContent = decimals ? target.toFixed(decimals) : Math.floor(target);
+        }
+        requestAnimationFrame(update);
+      }
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.35 });
+
+      counters.forEach(el => observer.observe(el));
+    })();
+  </script>
+
+  <!-- AOS JS + Init -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 900,
+      once: true,
+      offset: 120
+    });
+  </script>
+
+
+
   {% include "web/footer.html" %}
