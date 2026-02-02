@@ -20,7 +20,7 @@
                     <p class="lead">We're here to help with your questions, suggestions, or collaboration opportunities. Reach out to us by filling the form below or contacting us directly.</p>
                 </div>
                 <div class="col-lg-6 text-center">
-                    <img src="https://asset.lofaz.com/shop_category/1722342957369.png" alt="Contact Illustration" class="img-fluid hero-img">
+                    <img src="{{https://asset.lofaz.com/shop_category/1722342957369.png}}" alt="Contact Illustration" class="img-fluid hero-img">
                 </div>
             </div>
         </div>
@@ -39,11 +39,12 @@
 
 <div class="col-lg-7 mb-5">
                     <h3 class="section-title">Send Message</h3>
-                    <form id="contactForm">
+                        <form method="post" action="/contact/" enctype="multipart/form-data">
+                        {% csrf_token %}
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="name" class="form-label">Full Name *</label>
-                                <input type="text" class="form-control" id="name" required placeholder="Your Name">
+                                <label for="name"  name ="name" class="form-label">Full Name *</label>
+                                <input type="text"  name="email" class="form-control" id="name" required placeholder="Your Name">
                             </div>
           
                             <div class="col-md-6 mb-3">

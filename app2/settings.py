@@ -40,9 +40,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'website.apps.WebsiteConfig',
     'adpanel.apps.AdpanelConfig',
     'volunteers.apps.VolunteersConfig',
+
+    'adpanel',
+    'volunteers',
+    'gallery',  
+    'contact',
+    
+
 ]
 
 MIDDLEWARE = [

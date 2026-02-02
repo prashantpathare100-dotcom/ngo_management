@@ -178,28 +178,33 @@
                         <h3 class="text-center fw-bold mb-4">Join as a Volunteer</h3>
                         <p class="text-center text-muted mb-4">Fill the form below and help us change lives.</p>
                         
-                        <form id="volunteerForm" method="POST" action="">
+<form method="POST" action="{% url 'website_volunteer_submit' %}">
     {% csrf_token %}
 
     <div class="row g-3">
+
         <div class="col-md-6">
             <label class="form-label">Full Name</label>
-            <input type="text" name="full_name" class="form-control" placeholder="John Doe" required>
+            <input type="text" name="full_name" class="form-control"
+                   placeholder="John Doe" required>
         </div>
 
         <div class="col-md-6">
             <label class="form-label">Email Address</label>
-            <input type="email" name="email" class="form-control" placeholder="john@example.com" required>
+            <input type="email" name="email" class="form-control"
+                   placeholder="john@example.com" required>
         </div>
 
         <div class="col-md-6">
             <label class="form-label">Phone Number</label>
-            <input type="tel" name="phone" class="form-control" placeholder="+91 98765 43210" required>
+            <input type="tel" name="phone" class="form-control"
+                   placeholder="+91 98765 43210" required>
         </div>
 
         <div class="col-md-6">
             <label class="form-label">Age</label>
-            <input type="number" name="age" class="form-control" placeholder="25" required>
+            <input type="number" name="age" class="form-control"
+                   placeholder="25" required>
         </div>
 
         <div class="col-12">
@@ -216,7 +221,7 @@
         <div class="col-12">
             <label class="form-label">Why do you want to join us?</label>
             <textarea name="message" class="form-control" rows="3"
-                placeholder="Tell us about your skills..."></textarea>
+                      placeholder="Tell us about your skills..."></textarea>
         </div>
 
         <div class="col-12 text-center mt-4">
@@ -224,6 +229,7 @@
                 Submit Application
             </button>
         </div>
+
     </div>
 </form>
 

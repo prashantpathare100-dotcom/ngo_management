@@ -328,7 +328,8 @@
                 <div class="col-lg-8 mx-auto">
                     <div class="custom-donation-form">
                         <h3><i class="fa-solid fa-indian-rupee-sign"></i>Custom Donation</h3>
-                        <form id="donationForm">
+                        {% comment %} <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}    
                             <div class="row">
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" placeholder="Full Name" required>
@@ -363,7 +364,34 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn donate-btn">Submit Donation</button>
-                        </form>
+                        </form> {% endcomment %}
+
+
+<form method="POST" action="{% url 'gallery_page' %}">
+    
+    {% csrf_token %}
+
+    <input type="text" name="full_name" class="form-control" placeholder="Full Name" required>
+
+    <input type="email" name="email" class="form-control" placeholder="Email" required>
+
+    <input type="tel" name="phone" class="form-control" placeholder="Phone" required>
+
+    <input type="number" name="amount" class="form-control" placeholder="Amount" required>
+
+    <select name="cause" class="form-control" required>
+        <option value="education">Education</option>
+        <option value="healthcare">Healthcare</option>
+        <option value="community">Community</option>
+        <option value="environment">Environment</option>
+    </select>
+
+    <textarea name="message" class="form-control" placeholder="Message"></textarea>
+
+    <button type="submit" class="btn donate-btn">Submit Donation</button>
+</form>
+
+
                     </div>
                 </div>
             </div>

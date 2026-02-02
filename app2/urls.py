@@ -15,6 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+
 from django.urls import path, include, reverse_lazy
 from django.contrib.auth.views import LogoutView
 from django.conf import settings
@@ -22,6 +23,21 @@ from django.conf.urls.static import static
 from adpanel import views as ad
 from website import views as ui
 from adpanel.views import login_view, dashboard_view
+
+from django.urls import path , include
+from adpanel import views as adpanel 
+from website import views as users 
+from django.contrib.auth.views import LogoutView  
+from adpanel.views import dashboard_view , login_view  
+from website import views as ui
+from django.urls import reverse_lazy
+from adpanel.views import contact_list
+from django.conf import settings
+from django.conf.urls.static import static
+
+# contact
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -41,6 +57,7 @@ urlpatterns = [
     path('bnc/', ui.bnc, name='bnc'),
     path('donate/', ui.donate, name='donate_page'),
     path('volunteers/',ui.volunteers),
+
     path('volunteers/', include('volunteers.urls')),
     path('adminn/', login_view, name='login'),
     path('adminn/dashboard/', dashboard_view, name='dashboard'),
@@ -53,10 +70,35 @@ urlpatterns = [
     # admin/dashboard lists
     
 
+    path('gallery/',ui.gallery),
+    path('causes_programs/',ui.causes_programs),
+    path('testimonials/',ui.testimonials),
+    path('blog_news/',ui.blog_news),
+    path("admin/", login_view, name="login"),
+
+    path("login/", dashboard_view, name="dashboard"),
+
+    path(
+        "logout/",
+        LogoutView.as_view(next_page=reverse_lazy("login")),
+        name="logout"
+    ),
+    # gallery
+     path('volunteers/', ui.volunteers, name='website_volunteers'),
+     path('volunteer/', include('volunteers.urls')),
+     path('dashboard/', include('adpanel.urls')),  # ✅ MUST
+    path('gallery/', include('gallery.urls')),
+
+    # contact
+    path('contact/', include('contact.urls')),
+
+
     path("donations/delete/<int:id>/", ad.donation_delete, name="donation_delete"),
     path("messages/delete/<int:id>/", ad.message_delete, name="message_delete"),
     path("donation-submit/", ui.donation_submit, name="donation_submit"),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 
