@@ -52,7 +52,7 @@ img {
 }
 
 /* ===== Custom Scrollbar ===== */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     width: 10px;
 }
 
@@ -67,7 +67,7 @@ img {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--primary-dark);
-}
+} */
 
 /* ===== Hero Section ===== */
 .hero-section {

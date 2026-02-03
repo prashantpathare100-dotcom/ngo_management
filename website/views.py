@@ -71,7 +71,7 @@ def contact_submit(request):
 
 def donation_submit(request):
     if request.method == "POST":
-        Donation.objects.create(
+        donation = Donation(
             cause_id=request.POST.get("cause_id") or None,
             name=request.POST.get("name"),
             email=request.POST.get("email"),
@@ -79,11 +79,7 @@ def donation_submit(request):
             pan=request.POST.get("pan"),
             amount=int(request.POST.get("amount") or 0),
         )
+        donation.save()
         messages.success(request, "Donation submitted successfully!")
-        return redirect("donate_page")   # website donate page
+     # website donate page
     return redirect("/")
-
-def donar_list(request):
-    donations = Donation.objects.all().order_by("-id")
-    return render(request, "ad/donar_list.html", {"donations": donations})
-

@@ -29,7 +29,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from volunteers.models import Volunteer
-from gallery.models import Donation
+
 
 
 
@@ -159,9 +159,7 @@ from website.models import Donation, ContactMessage   # model नाव exact ch
 @login_required
 def donations_list(request):
     donations = Donation.objects.all().order_by('-created_at')
-    return render(request, 'donate_list.html', {
-        'donations': donations
-    })
+    return render(request, 'donate_list.html', {'donations': donations})
 
 def delete_volunteer(request, id):
     volunteer = get_object_or_404(Volunteer, id=id)
@@ -202,8 +200,6 @@ def message_delete(request, id):
     return redirect("messages_list")
 
 
-
-
 def delete_gallery(request, id):
     donation = get_object_or_404(Donation, id=id)
     donation.delete()
@@ -212,6 +208,9 @@ def delete_gallery(request, id):
 # contac
 @login_required
 def contact_list(request):
-    contacts = Contact.objects.all().order_by("-created_at")
-    return render(request, "ad/contact_list.html", {"contacts": contacts})
+    contacts = ContactMessage.objects.all().order_by('-created_at')
+    return render(request, 'ad/contact_list.html', {'contacts': contacts})
 
+def donar_list(request):
+    donations = Donation.objects.all().order_by('-id')
+    return render(request, 'ad/donar_list.html', {'donations': donations})

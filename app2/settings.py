@@ -45,10 +45,7 @@ INSTALLED_APPS = [
     'adpanel.apps.AdpanelConfig',
     'volunteers.apps.VolunteersConfig',
 
-    'adpanel',
-    'volunteers',
-    'gallery',  
-    'contact',
+    
     
 
 ]
@@ -84,9 +81,14 @@ WSGI_APPLICATION = 'app2.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "bndfmoeqodereozilnzt",
+        "USER": "u0zxky6xdpzrabnr",
+        "PASSWORD": "Vb7U0OXHWBw0k6oraT8y",
+        "HOST": "bndfmoeqodereozilnzt-mysql.services.clever-cloud.com",
+        "PORT": "3306",
+       
+    }   
 }
 
 # Password validation

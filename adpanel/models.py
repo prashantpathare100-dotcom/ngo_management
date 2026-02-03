@@ -2,7 +2,6 @@ from django.db import models
 
 
 
-
 # class Donation(models.Model):
 #     cause_id = models.IntegerField(blank=True, null=True)   # optional (जर cause table नसेल तर)
 #     name = models.CharField(max_length=120)

@@ -45,3 +45,6 @@ class Cause(models.Model):
         except:
             pass
         return 0
+    
+
+

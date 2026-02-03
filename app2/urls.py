@@ -25,8 +25,7 @@ from website import views as ui
 from adpanel.views import login_view, dashboard_view
 
 from django.urls import path , include
-from adpanel import views as adpanel 
-from website import views as users 
+
 from django.contrib.auth.views import LogoutView  
 from adpanel.views import dashboard_view , login_view  
 from website import views as ui
@@ -36,8 +35,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 # contact
-
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -54,29 +51,29 @@ urlpatterns = [
     path('blog_news/', ui.blog_news, name='blog_news'),
     path('bna/', ui.bna, name='bna'),
     path('bnb/', ui.bnb, name='bnb'),
-    path('bnc/', ui.bnc, name='bnc'),
+path('bnc/', ui.bnc, name='bnc'),  
     path('donate/', ui.donate, name='donate_page'),
     path('volunteers/',ui.volunteers),
 
-    path('volunteers/', include('volunteers.urls')),
+    path("volunteers/", include(("volunteers.urls", "volunteers"), namespace="volunteers")),
     path('adminn/', login_view, name='login'),
     path('adminn/dashboard/', dashboard_view, name='dashboard'),
-    path('login/', login_view, name='login2'),
+    # path('login/', login_view, name='login2'),
     path("logout/", LogoutView.as_view(next_page=reverse_lazy("login")), name="logout"),
     
     path("contact/submit/", ui.contact_submit, name="contact_submit"),
     path("donation/submit/", ui.donation_submit, name="donation_submit"),
-    path("donations/", ui.donar_list, name="donations_list"),
+    path("donations/", ad.donar_list, name="donations_list"),
     # admin/dashboard lists
     
 
-    path('gallery/',ui.gallery),
+    # path('gallerye/',ui.gallery_page),
     path('causes_programs/',ui.causes_programs),
     path('testimonials/',ui.testimonials),
     path('blog_news/',ui.blog_news),
-    path("admin/", login_view, name="login"),
+    # path("adminn/", login_view, name="login"),
 
-    path("login/", dashboard_view, name="dashboard"),
+    # path("login/", ad.dashboard_view, name="dashboard"),
 
     path(
         "logout/",
@@ -86,11 +83,8 @@ urlpatterns = [
     # gallery
      path('volunteers/', ui.volunteers, name='website_volunteers'),
      path('volunteer/', include('volunteers.urls')),
-     path('dashboard/', include('adpanel.urls')),  # ✅ MUST
-    path('gallery/', include('gallery.urls')),
-
-    # contact
-    path('contact/', include('contact.urls')),
+     path('dashboard/', include('adpanel.urls')),  
+    
 
 
     path("donations/delete/<int:id>/", ad.donation_delete, name="donation_delete"),

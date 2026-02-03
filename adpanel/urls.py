@@ -3,8 +3,8 @@ from django.urls import path
 from adpanel import views
 
 urlpatterns = [
-    path("donations/", views.admin_donations, name="admin_donations"),
-    path("donations/", views.admin_donations, name="admin_donations"),
+    # path("donations/", views.admin_donations, name="admin_donations"),
+    # path("donations/", views.admin_donations, name="admin_donations"),
     # path('donations/', views.donations_list, name='donations_list'),
     # path('donations/add/', views.donar_data, name='donar_data'),
     # path('donations/edit/<int:id>/', views.donation_edit, name='donation_edit'),
@@ -16,8 +16,8 @@ from .views import (
         volunteer_list,
         approve_volunteer,
         delete_volunteer,
-        gallery_list ,
-        delete_gallery,
+        # gallery_list ,
+        # delete_gallery,
         contact_list   
         
     )
@@ -32,9 +32,9 @@ urlpatterns = [
          # gallery (donation list)
     # path('gallery/', gallery_list, name='gallery_list'),
     # path('gallery/delete/<int:id>/', delete_gallery, name='delete_gallery'),
-    path('gallery/', gallery_list, name='gallery_list'),
-    path('gallery/delete/<int:id>/', delete_gallery, name='delete_gallery'),
-    path("contact/", contact_list, name="contact"),
+    # path('gallery/', gallery_list, name='gallery_list'),
+    # path('gallery/delete/<int:id>/', delete_gallery, name='delete_gallery'),
+    # path("contact/", contact_list, name="contact"),
 
 
     ]
