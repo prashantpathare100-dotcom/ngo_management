@@ -1,173 +1,170 @@
-from django.shortcuts import render
-from django.contrib.admin.views.decorators import staff_member_required
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse
 
-# login
-from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-from django.contrib import messages
-from django.contrib.auth import logout
-from django.contrib.auth.decorators import login_required
-
-# volunteers
-from django.shortcuts import render
-from volunteers.models import Volunteer
-from django.shortcuts import render, redirect, get_object_or_404
-
-# gallery
-
-from django.contrib import messages
-from django.contrib.auth.decorators import login_required
-
 from volunteers.models import Volunteer
 from gallery.models import Donation
 
+from adpanel import models
+from .models import ContactMessage
 
 
-
-@login_required
-def dashboard_view(request):
-
-    # Temporary static totals (NO DB access)
-    totals = {
-        'total_donations': 0,
-        'total_volunteers': 0,
-        'total_events': 0,
-    }
-
-    sections = [
-        {
-            "title": "Testimonials Management",
-            "icon": "fa-comments",
-            "admin_can": [
-                "Add testimonials",
-                "Edit testimonials",
-                "Delete testimonials",
-            ],
-            "fields": [
-                "Name",
-                "Image / Video",
-                "Review",
-                "Date",
-            ],
-        },
-        {
-            "title": "Contact Management",
-            "icon": "fa-address-book",
-            "admin_can": [
-                "NGO address",
-                "Phone number",
-                "Email",
-                "Social media links",
-                "Google map location",
-            ],
-            "fields": [],
-        },
-        {
-            "title": "Reports",
-            "icon": "fa-chart-line",
-            "admin_can": [
-                "Generate donation reports",
-                "Generate volunteer reports",
-                "Generate event reports",
-            ],
-            "fields": [
-                "Export PDF",
-                "Export Excel",
-            ],
-        },
-        {
-            "title": "Profile & Login System",
-            "icon": "fa-user-gear",
-            "admin_can": [
-                "Login",
-                "Logout",
-                "Change password",
-                "Update profile",
-            ],
-            "fields": [],
-        },
-        {
-            "title": "Role-Based Access",
-            "icon": "fa-shield-halved",
-            "admin_can": [
-                "Super Admin – Full control",
-                "Editor – Manage content only",
-                "Finance – Donations & reports",
-                "Volunteer Manager – Volunteers",
-            ],
-            "fields": [],
-        },
-    ]
-
-    return render(request, "ad/dashboard.html", {
-        "totals": totals,
-        "sections": sections,
-    })
-
-# login 
+# ================= LOGIN =================
 def login_view(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
 
         user = authenticate(request, username=username, password=password)
 
-        if user is not None and user.is_staff:
+        if user is not None:
             login(request, user)
-            return redirect("dashboard")   # dashboard
+            return redirect("dashboard")
         else:
-            messages.error(request, "Invalid admin credentials")
+            return render(request, "ad/login.html", {"error": "Invalid Login"})
 
-    return render(request, 'ad/login.html')
-
-# # logout
-# def logout_view(request):
-#     logout(request)
-#     return redirect('/login/')
+    return render(request, "ad/login.html")
 
 
+# ================= DASHBOARD =================
+@login_required
+def dashboard_view(request):
+    return render(request, "ad/dashboard.html")
 
 
+# ================= CONTACT LIST =================
+@login_required
+def contact_list(request):
+    contacts = ContactMessage.objects.all().order_by("-id")
+    return render(request, "ad/contact_list.html", {
+        "messages": contacts
+    })
 
 
+# ================= CONTACT PAGE =================
+def contact_page(request):
+
+    if request.method == "POST":
+        ContactMessage.objects.create(
+            name=request.POST.get("name"),
+            email=request.POST.get("email"),
+            subject=request.POST.get("subject"),
+            message=request.POST.get("message"),
+        )
+        return redirect("contact")
+
+    data = models.AdminInfo.objects.all()
+    return render(request, "web/contact.html", {"data": data})
+
+
+# ================= BASIC INFO =================
+def basic_info(request):
+    data = models.AdminInfo.objects.first()
+    return render(request, "ad/basic_info.html", {"data": data})
+
+
+# ================= SAVE PROFILE =================
+def save_profile(request):
+
+    data = models.AdminInfo.objects.first()
+
+    if request.method == "POST":
+
+        if data:
+            data.title = request.POST.get("title")
+            data.description = request.POST.get("description")
+
+            if request.FILES.get("image"):
+                data.image = request.FILES.get("image")
+
+            if request.FILES.get("photo"):
+                data.photo = request.FILES.get("photo")
+
+            data.map_embed_url = request.POST.get("map_embed_url")
+            data.direction_link = request.POST.get("direction_link")
+            data.card_title = request.POST.get("card_title")
+            data.card_details = request.POST.get("card_details")
+
+            data.save()
+
+        else:
+            models.AdminInfo.objects.create(
+                title=request.POST.get("title"),
+                description=request.POST.get("description"),
+                image=request.FILES.get("image"),
+                photo=request.FILES.get("photo"),
+                map_embed_url=request.POST.get("map_embed_url"),
+                direction_link=request.POST.get("direction_link"),
+                card_title=request.POST.get("card_title"),
+                card_details=request.POST.get("card_details"),
+            )
+
+        return redirect('basic_info')
+
+    return render(request, "ad/basic_info.html", {"data": data})
+
+
+# ================= PROFILE =================
+def profile(request):
+    return render(request, "ad/profile.html")
+
+
+# ================= DELETE BASIC INFO =================
+@login_required
+def delete_basic_info(request, id):
+    data = models.AdminInfo.objects.get(id=id)
+    data.delete()
+    return redirect("basic_info")
+@login_required
 def volunteer_list(request):
-    volunteers = Volunteer.objects.all()  # 🔥 NO filter
-    return render(
-        request,
-        'ad/volunteer_list.html',
-        {'volunteers': volunteers}
-    )
+    volunteers = Volunteer.objects.all().order_by("-id")
+    return render(request, "ad/volunteer_list.html", {
+        "volunteers": volunteers
+    })
+
+@login_required
 def approve_volunteer(request, id):
     volunteer = get_object_or_404(Volunteer, id=id)
-    volunteer.is_approved = True
+
+    volunteer.status = "approved"   # ⚠ field name तुमच्या model प्रमाणे change करा
     volunteer.save()
-    return redirect('volunteer_list')
 
-
+    return redirect("volunteer_list")
+@login_required
 def delete_volunteer(request, id):
     volunteer = get_object_or_404(Volunteer, id=id)
     volunteer.delete()
-    return redirect('volunteer_list')
-
-
-# gallery 
-
-
-@login_required(login_url='/login/')
+    return redirect("volunteer_list")   
+@login_required
 def gallery_list(request):
-    items = Donation.objects.all().order_by('-created_at')
-    return render(request, 'ad/gallery_list.html', {'items': items})
+    gallery = Donation.objects.all().order_by("-id")
 
-
-
+    return render(request, "ad/gallery_list.html", {
+        "gallery": gallery
+    })
 @login_required
 def delete_gallery(request, id):
+    gallery_item = get_object_or_404(Donation, id=id)
+    gallery_item.delete()
+    return redirect("gallery_list")
+
+
+def testionmals_info(request):
+    data = models.AdminInfo.objects.first()
+    return render(request, "ad/testimonials.html", {"data": data})
+def volunteer_submit(request):
+    return redirect("volunteer_list")
+
+@login_required
+def donation_delete(request, id):
     donation = get_object_or_404(Donation, id=id)
     donation.delete()
-    return redirect('gallery_list')
+    return redirect("gallery_list")
 
-# contac
-@login_required
-def contact_list(request):
-    contacts = Contact.objects.all().order_by("-created_at")
-    return render(request, "ad/contact_list.html", {"contacts": contacts})
+
+def message_delete(request, id):
+    message = get_object_or_404(ContactMessage, id=id)
+    message.delete()
+    return redirect("contact_list")   

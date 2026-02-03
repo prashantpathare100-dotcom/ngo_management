@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from website import views 
+from django.shortcuts import redirect
+from adpanel.models import ContactMessage
+from .import models
 # Create your views here.
 def home(req):
     return render(req,"web/index.html")
@@ -14,7 +17,8 @@ def faq(req):
     return render(req,"web/faq.html")
 
 def contact(req):
-    return render(req,"web/contact.html")
+    data = models.AdminInfo.Objects.all()
+    return render(req,"web/contact.html",{"data":data})
 def donate(req):
     return render(req,"web/donate.html")
     
@@ -38,3 +42,37 @@ def testimonials(req):
 
 def blog_news(req):
     return render(req,"web/blog_news.html")
+
+def bna(req):
+    return render(req,"web/b_n_a.html")
+
+def bnb(req):
+    return render(req,"web/b_n_b.html")
+
+def bnc(req):
+    return render(req,"web/b_n_c.html")
+
+
+def donation_submit(request):
+
+    if request.method == "POST":
+        ContactMessage.objects.create(
+            name=request.POST.get("name"),
+            email=request.POST.get("email"),
+            subject=request.POST.get("subject"),
+            message=request.POST.get("message"),
+        )
+
+
+
+def contact_submit(request):
+
+    if request.method == "POST":
+        ContactMessage.objects.create(
+            name=request.POST.get("name"),
+            email=request.POST.get("email"),
+            subject=request.POST.get("subject"),
+            message=request.POST.get("message"),
+        )
+
+    return redirect("contact")

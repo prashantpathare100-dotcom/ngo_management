@@ -1,67 +1,71 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+
+<!-- Your CSS -->
+<link rel="stylesheet" href="{% static 'web/css/navbar.css' %}">
 
 <!-- Bootstrap 5.3 CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <!-- Your CSS -->
-<link rel="stylesheet" href="{% static 'web/css/navbar.css' %}">
+
 
 <header class="sticky-top">
-  <nav class="navbar navbar-expand-lg ngo-navbar">
+  <nav class="navbar navbar-expand-lg ngo-navbar" data-aos="fade-down" data-aos-duration="650">
     <div class="container">
 
       <!-- Brand -->
-      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-        <img src="{% static 'web/css/ngo_logo.jpeg' %}" class="ngo-logo" alt="NGO Logo">
-        <div class="d-none d-sm-block">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html"
+         data-aos="fade-right" data-aos-delay="80" data-aos-duration="700">
+        <img src="https://t3.ftcdn.net/jpg/10/91/18/34/360_F_1091183481_lrB77TJUEMGmIpGZyYizS864CzsNf37J.jpg"
+             class="ngo-logo" alt="NGO Logo" data-aos="zoom-in" data-aos-delay="140">
+        <div class="d-none d-sm-block" data-aos="fade-right" data-aos-delay="200">
           <div class="ngo-title">NGO MANAGEMENT</div>
           <div class="ngo-subtitle">Together we can help</div>
         </div>
       </a>
 
-      <!-- CSS Toggler (NO JS) -->
+      <!-- CSS Toggler (NO JS for menu) -->
       <input type="checkbox" id="ngoNavToggle" class="ngo-toggle" />
-      <label for="ngoNavToggle" class="ngo-burger" aria-label="Toggle Menu">
+      <label for="ngoNavToggle" class="ngo-burger" aria-label="Toggle Menu"
+             data-aos="fade-left" data-aos-delay="140" data-aos-duration="650">
         <span></span><span></span><span></span>
       </label>
 
       <!-- Menu -->
-      <div class="ngo-menu">
+      <div class="ngo-menu" data-aos="fade-left" data-aos-delay="220">
         <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
 
-          <li class="nav-item">
-            <a class="nav-link active" href="/"><i class="fa-solid fa-house me-1"></i>Home</a>
+          <li class="nav-item" data-aos="fade-down" data-aos-delay="240">
+            <a class="nav-link" href="/"><i class="fa-solid fa-house me-1"></i>Home</a>
           </li>
-          <li class="nav-item">
+
+          <li class="nav-item" data-aos="fade-down" data-aos-delay="300">
             <a class="nav-link" href="/about"><i class="fa-solid fa-circle-info me-1"></i>About</a>
           </li>
-          <li class="nav-item">
+
+          <li class="nav-item" data-aos="fade-down" data-aos-delay="360">
             <a class="nav-link" href="/events"><i class="fa-solid fa-calendar-days me-1"></i>Events</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/volunteers"><i class="fa-solid fa-people-group me-1"></i>Volunteers</a>
+
+          <li class="nav-item" data-aos="fade-down" data-aos-delay="420">
+            <a class="nav-link" href="/volunteers"><i class="fa-solid fa-people-group me-1"></i>volunteers</a>
           </li>
-          <li class="nav-item">
+
+          <li class="nav-item" data-aos="fade-down" data-aos-delay="480">
             <a class="nav-link" href="/gallery"><i class="fa-solid fa-images me-1"></i>Gallery</a>
           </li>
 
           <!-- Hover Dropdown -->
-          <li class="nav-item ngo-dd">
+          <li class="nav-item ngo-dd" data-aos="fade-down" data-aos-delay="540">
             <a class="nav-link dd-btn" href="#">
               <i class="fa-solid fa-grid-2 me-1"></i>More
               <i class="fa-solid fa-chevron-down ms-1 dd-ic"></i>
             </a>
 
-            <ul class="ngo-dropdown">
+            <ul class="ngo-dropdown" data-aos="fade-up" data-aos-delay="620">
               <li><a class="dropdown-item" href="/causes_programs"><i class="fa-solid fa-hand-holding-heart me-2"></i>Causes / Programs</a></li>
               <li><a class="dropdown-item" href="/testimonials"><i class="fa-solid fa-star me-2"></i>Testimonials</a></li>
               <li><a class="dropdown-item" href="/blog_news"><i class="fa-solid fa-newspaper me-2"></i>Blog / News</a></li>
@@ -76,7 +80,7 @@
           </li>
 
           <!-- Donate -->
-          <li class="nav-item ms-lg-2">
+          <li class="nav-item ms-lg-2" data-aos="zoom-in" data-aos-delay="620">
             <a class="btn ngo-donate" href="/donate">
               <i class="fa-solid fa-heart me-1"></i>Donate
             </a>
@@ -89,4 +93,46 @@
   </nav>
 </header>
 
-</body></html>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  AOS.init({
+    once: true,
+    duration: 800,
+    easing: "ease-in-out",
+    offset: 80
+  });
+
+  /* ✅ AUTO ACTIVE CURRENT PAGE */
+  (function () {
+    // current filename (index.html, event_deepsik.html...)
+    const current = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+
+    // remove old actives
+    document.querySelectorAll(".ngo-navbar .active").forEach(el => el.classList.remove("active"));
+
+    // top links
+    document.querySelectorAll(".ngo-navbar .nav-link[href]").forEach(a => {
+      const href = (a.getAttribute("href") || "").toLowerCase();
+      if (href && href === current) a.classList.add("active");
+    });
+
+    // dropdown links + make "More" active too
+    let matchedDropdown = false;
+    document.querySelectorAll(".ngo-navbar .ngo-dropdown .dropdown-item[href]").forEach(a => {
+      const href = (a.getAttribute("href") || "").toLowerCase();
+      if (href && href === current) {
+        a.classList.add("active");
+        matchedDropdown = true;
+      }
+    });
+
+    if (matchedDropdown) {
+      document.querySelector(".ngo-navbar .dd-btn")?.classList.add("active");
+    }
+  })();
+</script>

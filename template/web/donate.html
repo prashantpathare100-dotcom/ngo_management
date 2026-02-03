@@ -491,7 +491,6 @@
             </div>
         </div>
     </section>
-
     <!-- Recent Donors Section -->
     <section class="donors-section" id="donors">
         <div class="container">
@@ -747,29 +746,34 @@
                 <div class="col-lg-6" data-aos="fade-left">
                     <div class="contact-form-wrap">
                         <h3>Send us a Message</h3>
-                        <form id="contactForm">
+                         
+                        <form id="contactForm" method="POST" action="{% url 'contact_submit' %}">
+
+                            {% csrf_token %}
                             <div class="row g-3">
+
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                        <input type="text" class="form-control"name="name" id="name" placeholder="Your Name" required>
                                         <label for="name">Your Name</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                                        <input type="email" class="form-control"name="email" id="email" placeholder="Your Email" required>
                                         <label for="email">Your Email</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="tel" class="form-control" id="phone" placeholder="Phone Number" required>
+                                        <input type="number" class="form-control"name="phone" id="phone" placeholder="Phone Number" required>
                                         <label for="phone">Phone Number</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <select class="form-select" id="subject" required>
+                                        <select class="form-select" id="subject" name="subject" required>
+
                                             <option value="">Select Subject</option>
                                             <option value="donation">Donation Inquiry</option>
                                             <option value="volunteer">Volunteer</option>
@@ -781,7 +785,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control" id="message" placeholder="Your Message" style="height: 120px" required></textarea>
+                                        <textarea class="form-control" id="message" name="message" placeholder="Your Message" style="height: 120px" required></textarea>
                                         <label for="message">Your Message</label>
                                     </div>
                                 </div>
@@ -919,11 +923,7 @@
                             <button type="button" class="amount-btn" data-amount="5000">₹5,000</button>
                             <button type="button" class="amount-btn" data-amount="10000">₹10,000</button>
                         </div>
-                        <div class="custom-amount-wrap">
-                            <span>₹</span>
-                            <input type="number" id="customDonationAmount" placeholder="Enter custom amount">
-                        </div>
-                    </div>
+                       
 
                     <!-- Payment Method Tabs -->
                     <div class="payment-tabs">
@@ -948,36 +948,46 @@
                         <div class="tab-content">
                             <!-- Online Payment -->
                             <div class="tab-pane fade show active" id="onlinePayment">
-                                <form id="onlinePaymentForm">
+                                <form id="onlinePaymentForm" action="{% url 'donation_submit' %}" method="POST" >
                                     <div class="row g-3">
+                                          {% csrf_token %}
+                                        <input type="hidden" name="cause_id" id="causeIdInput">
+                                        
                                         <div class="col-md-6">
                                             <label class="form-label">Full Name</label>
-                                            <input type="text" class="form-control" placeholder="Enter your name" required>
+                                            <input type="text" class="form-control" name="name" placeholder="Enter your name" required>
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-label">Email Address</label>
-                                            <input type="email" class="form-control" placeholder="Enter your email" required>
+                                            <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-label">Phone Number</label>
-                                            <input type="tel" class="form-control" placeholder="Enter phone number" required>
+                                            <input type="number" class="form-control" name="phone" placeholder="Enter phone number" required>
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-label">PAN Number (for 80G)</label>
-                                            <input type="text" class="form-control" placeholder="Enter PAN (optional)">
+                                            <input type="number" class="form-control"name="pan"  placeholder="Enter PAN (optional)">
                                         </div>
                                         <div class="col-12">
                                             <label class="form-label">Card Number</label>
-                                            <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                                            <input type="number"name="cardno" class="form-control"  id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-label">Expiry Date</label>
-                                            <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" maxlength="5">
+                                            <input type="text" class="form-control"name="expiry"  id="expiryDate" placeholder="MM/YY" maxlength="5">
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-label">CVV</label>
-                                            <input type="password" class="form-control" placeholder="***" maxlength="4">
+                                            <input type="password" class="form-control" name="cvv"  placeholder="***" maxlength="4">
                                         </div>
+                                         <div class="custom-amount-wrap">
+                            <span>₹</span>
+                           
+                        <input type="hidden" name="amount" id="amountHiddenInput">
+
+                        </div>
+                    </div>
                                         <div class="col-12">
                                             <button type="submit" class="btn btn-donate-submit">
                                                 <i class="bi bi-lock-fill me-2"></i>Donate ₹<span id="donateAmountBtn">1,000</span>

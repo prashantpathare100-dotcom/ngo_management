@@ -19,6 +19,10 @@ def volunteers_page(request):
     return render(request, "web/volunteers.html")
 
 
+def volunteer_list(request):
+   return render(request, "ad/volunteer_list.html")
+
+
 
 def website_volunteer_submit(request):
     if request.method == "POST":
@@ -41,3 +45,4 @@ def delete_volunteer(request, id):
     volunteer = get_object_or_404(Volunteer, id=id)
     volunteer.delete()
     return redirect('volunteer_list')
+
