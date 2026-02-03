@@ -34,10 +34,11 @@ from adpanel.views import contact_list
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 # contact
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('', ui.home, name='home'),
     path('terms/', ui.terms, name='terms'),
     path('privacy/', ui.privacy, name='privacy'),
@@ -62,8 +63,13 @@ path('bnc/', ui.bnc, name='bnc'),
     path("logout/", LogoutView.as_view(next_page=reverse_lazy("login")), name="logout"),
     
     path("contact/submit/", ui.contact_submit, name="contact_submit"),
+<<<<<<< HEAD
     path("donation/submit/", ui.donation_submit, name="donation_submit"),
     path("donations/", ad.donar_list, name="donations_list"),
+=======
+    # path("donation/submit/", ui.donation_submit, name="donation_submit"),
+    # path("donations/", ui.donar_list, name="donations_list"),
+>>>>>>> 200db6d5490057d1df43e554794e297daf680807
     # admin/dashboard lists
     
 
@@ -83,13 +89,30 @@ path('bnc/', ui.bnc, name='bnc'),
     # gallery
      path('volunteers/', ui.volunteers, name='website_volunteers'),
      path('volunteer/', include('volunteers.urls')),
+<<<<<<< HEAD
      path('dashboard/', include('adpanel.urls')),  
     
+=======
+     path('dashboard/', include('adpanel.urls')),  # ✅ MUST
+    path('gallery/', include('gallery.urls')),
+
+    # contact
+    # path('contact/', include('contact.urls')),
+>>>>>>> 200db6d5490057d1df43e554794e297daf680807
 
 
     path("donations/delete/<int:id>/", ad.donation_delete, name="donation_delete"),
     path("messages/delete/<int:id>/", ad.message_delete, name="message_delete"),
     path("donation-submit/", ui.donation_submit, name="donation_submit"),
+    # path('contact/', include('contact.urls')),
+    # path("", views.contact_page, name="contact"),
+    path('basic_info/',adpanel.basic_info),
+    path('profile/',adpanel.profile),
+    path("save_profile/",adpanel.save_profile),
+    
+
+    # testimoinals
+    path("testionmals_info/",adpanel.testionmals_info),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

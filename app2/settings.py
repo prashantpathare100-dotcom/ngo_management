@@ -41,11 +41,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'website.apps.WebsiteConfig',
-    'adpanel.apps.AdpanelConfig',
-    'volunteers.apps.VolunteersConfig',
+    # 'website.apps.WebsiteConfig',
+    # 'adpanel.apps.AdpanelConfig',
+    # 'volunteers.apps.VolunteersConfig',
 
+<<<<<<< HEAD
     
+=======
+    'adpanel',
+    'volunteers',
+    'gallery',
+    'website', 
+   
+>>>>>>> 200db6d5490057d1df43e554794e297daf680807
     
 
 ]

@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from website import views 
+from django.shortcuts import redirect
+from adpanel.models import ContactMessage
+from .import models
 # Create your views here.
 def home(req):
     return render(req,"web/index.html")
@@ -14,7 +17,8 @@ def faq(req):
     return render(req,"web/faq.html")
 
 def contact(req):
-    return render(req,"web/contact.html")
+    data = models.AdminInfo.Objects.all()
+    return render(req,"web/contact.html",{"data":data})
 def donate(req):
     return render(req,"web/donate.html")
     
@@ -49,37 +53,38 @@ def bnc(req):
     return render(req,"web/b_n_c.html")
 
 
+def donation_submit(request):
 
-from django.shortcuts import redirect
-from django.contrib import messages
-from website.models import Donation, ContactMessage
-
-def contact_submit(request):
     if request.method == "POST":
         ContactMessage.objects.create(
             name=request.POST.get("name"),
             email=request.POST.get("email"),
-            phone=request.POST.get("phone"),
             subject=request.POST.get("subject"),
             message=request.POST.get("message"),
         )
-        messages.success(request, "Message sent successfully!")
-        return redirect(request.META.get("HTTP_REFERER", "/"))
-    return redirect("/")
 
 
 
-def donation_submit(request):
+def contact_submit(request):
+
     if request.method == "POST":
+<<<<<<< HEAD
         donation = Donation(
             cause_id=request.POST.get("cause_id") or None,
+=======
+        ContactMessage.objects.create(
+>>>>>>> 200db6d5490057d1df43e554794e297daf680807
             name=request.POST.get("name"),
             email=request.POST.get("email"),
-            phone=request.POST.get("phone"),
-            pan=request.POST.get("pan"),
-            amount=int(request.POST.get("amount") or 0),
+            subject=request.POST.get("subject"),
+            message=request.POST.get("message"),
         )
+<<<<<<< HEAD
         donation.save()
         messages.success(request, "Donation submitted successfully!")
      # website donate page
     return redirect("/")
+=======
+
+    return redirect("contact")
+>>>>>>> 200db6d5490057d1df43e554794e297daf680807

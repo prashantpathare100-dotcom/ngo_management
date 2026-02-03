@@ -21,7 +21,7 @@
 </thead>
 
     <tbody>
-  {% for d in donations %}
+  {% for d in donation %}
   <tr>
     <td>{{ d.name }}</td>
     <td>{{ d.email }}</td>
@@ -30,7 +30,7 @@
     <td>₹{{ d.amount }}</td>
     <td>{{ d.cause }}</td>
     <td>
-      <a href="{% url 'donation_edit' d.id %}" class="btn btn-sm btn-warning">Edit</a>
+      <!-- <a href="{% url 'donation_edit' d.id %}" class="btn btn-sm btn-warning">Edit</a> -->
       <a href="{% url 'donation_delete' d.id %}" class="btn btn-sm btn-danger"
          onclick="return confirm('Delete this donation?')">Delete</a>
     </td>

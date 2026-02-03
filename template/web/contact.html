@@ -19,9 +19,20 @@
                     <h1 class="display-4 fw-bold">Contact Us</h1>
                     <p class="lead">We're here to help with your questions, suggestions, or collaboration opportunities. Reach out to us by filling the form below or contacting us directly.</p>
                 </div>
+<<<<<<< HEAD
                 <div class="col-lg-6 text-center">
                     <img src="https://asset.lofaz.com/shop_category/1722342957369.png" alt="Contact Illustration" class="img-fluid hero-img">
                 </div>
+=======
+               {% for item in data %}
+<div class="col-lg-6 text-center">
+    {% if item.image %}
+    <img src="{{ item.image.url }}" alt="Contact Illustration" class="img-fluid hero-img">
+    {% endif %}
+</div>
+{% endfor %}
+
+>>>>>>> 200db6d5490057d1df43e554794e297daf680807
             </div>
         </div>
     </section>
