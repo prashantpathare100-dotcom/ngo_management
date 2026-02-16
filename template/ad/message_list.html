@@ -1,0 +1,51 @@
+{% include "ad/navbar.html" %}
+
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="mb-0">Messages</h4>
+    <span class="badge bg-dark">Total: {{ messages|length }}</span>
+  </div>
+
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped align-middle mb-0">
+          <thead class="table-dark">
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Subject</th>
+              <th>Message</th>
+              <th>Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for d in messages %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ d.name }}</td>
+              <td>{{ d.email }}</td>
+              <td>{{ d.phone }}</td>
+              <td><span class="badge bg-info text-dark">{{ d.subject }}</span></td>
+              <td>{{ d.message|truncatechars:50 }}</td>
+              <td>{{ d.created_at|date:"d M Y, h:i A" }}</td>
+              <td><a href="{% url 'donation_message_delete' d.id %}" class="btn btn-danger btn-sm">
+  Delete
+</a>
+</td>
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="7" class="text-center text-muted py-4">No messages found</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% include "ad/footer.html" %}

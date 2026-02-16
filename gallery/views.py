@@ -1,21 +1,35 @@
-from django.shortcuts import render, redirect
-from .models import Donation
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
+from .models import Donation, GalleryItem
+
+
+
+# ---------------- Donation part (as it is) ----------------
 def gallery_page(request):
     if request.method == "POST":
-        print("🔥 POST RECEIVED 🔥")
-        print(request.POST)
-
         Donation.objects.create(
-            full_name=request.POST['full_name'],
-            email=request.POST['email'],
-            phone=request.POST['phone'],
-            amount=request.POST['amount'],
-            cause=request.POST['cause'],
-            message=request.POST.get('message', ''),
+            full_name=request.POST.get("full_name", "").strip(),
+            email=request.POST.get("email", "").strip(),
+            phone=request.POST.get("phone", "").strip(),
+            amount=request.POST.get("amount") or 0,
+            cause=request.POST.get("cause", "").strip(),
+            message=request.POST.get("message", "").strip(),
         )
+        return redirect("gallery_list")
 
-        print("✅ SAVED TO DB")
-        return redirect('gallery_page')
+    donation = Donation.objects.all().order_by("-id")
+    return render(request, "ad/gallery_list.html", {"donation": donation})
 
-    return render(request, 'web/gallery.html')
+
+def gallery_list(request):
+    donation = Donation.objects.all().order_by("-id")
+    return render(request, "ad/gallery_list.html", {"donation": donation})
+
+
+def delete_gallery(request, id):
+    obj = get_object_or_404(Donation, id=id)
+    obj.delete()
+    return redirect("gallery_list")
+
+

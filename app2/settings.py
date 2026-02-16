@@ -40,21 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    # 'website.apps.WebsiteConfig',
-    # 'adpanel.apps.AdpanelConfig',
-    # 'volunteers.apps.VolunteersConfig',
-
-<<<<<<< HEAD
-    
-=======
     'adpanel',
     'volunteers',
     'gallery',
     'website', 
-   
->>>>>>> 200db6d5490057d1df43e554794e297daf680807
-    
+
+
+        'django.contrib.humanize',   
 
 ]
 
@@ -66,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 ROOT_URLCONF = 'app2.urls'
 
@@ -127,6 +120,9 @@ TIME_ZONE = 'Asia/Kolkata'
 USE_I18N = True
 
 USE_TZ = True
+RAZORPAY_KEY_ID = "rzp_test_xxxxxx"
+RAZORPAY_KEY_SECRET = "xxxxxxxx"
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/

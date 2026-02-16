@@ -52,74 +52,58 @@ urlpatterns = [
     path('blog_news/', ui.blog_news, name='blog_news'),
     path('bna/', ui.bna, name='bna'),
     path('bnb/', ui.bnb, name='bnb'),
-path('bnc/', ui.bnc, name='bnc'),  
+    path('bnc/', ui.bnc, name='bnc'),  
     path('donate/', ui.donate, name='donate_page'),
-    path('volunteers/',ui.volunteers),
-
+    path('volunteer/',ui.volunteers),
     path("volunteers/", include(("volunteers.urls", "volunteers"), namespace="volunteers")),
     path('adminn/', login_view, name='login'),
-    path('adminn/dashboard/', dashboard_view, name='dashboard'),
-    # path('login/', login_view, name='login2'),
     path("logout/", LogoutView.as_view(next_page=reverse_lazy("login")), name="logout"),
-    
-    path("contact/submit/", ui.contact_submit, name="contact_submit"),
-<<<<<<< HEAD
     path("donation/submit/", ui.donation_submit, name="donation_submit"),
-    path("donations/", ad.donar_list, name="donations_list"),
-=======
-    # path("donation/submit/", ui.donation_submit, name="donation_submit"),
-    # path("donations/", ui.donar_list, name="donations_list"),
->>>>>>> 200db6d5490057d1df43e554794e297daf680807
-    # admin/dashboard lists
-    
-
-    # path('gallerye/',ui.gallery_page),
+    path("donation_s/", ui.donation_s, name="donation_s"),
     path('causes_programs/',ui.causes_programs),
     path('testimonials/',ui.testimonials),
     path('blog_news/',ui.blog_news),
-    # path("adminn/", login_view, name="login"),
-
-    # path("login/", ad.dashboard_view, name="dashboard"),
-
     path(
         "logout/",
         LogoutView.as_view(next_page=reverse_lazy("login")),
         name="logout"
     ),
-    # gallery
-     path('volunteers/', ui.volunteers, name='website_volunteers'),
+    path("adminn/dashboard/", ad.dashboard_view, name="dashboard"),
      path('volunteer/', include('volunteers.urls')),
-<<<<<<< HEAD
-     path('dashboard/', include('adpanel.urls')),  
-    
-=======
-     path('dashboard/', include('adpanel.urls')),  # ✅ MUST
-    path('gallery/', include('gallery.urls')),
 
-    # contact
-    # path('contact/', include('contact.urls')),
->>>>>>> 200db6d5490057d1df43e554794e297daf680807
-
-
+    path('dashboard/', include('adpanel.urls')),   
+    path("", include("gallery.urls")),
     path("donations/delete/<int:id>/", ad.donation_delete, name="donation_delete"),
-    path("messages/delete/<int:id>/", ad.message_delete, name="message_delete"),
-    path("donation-submit/", ui.donation_submit, name="donation_submit"),
-    # path('contact/', include('contact.urls')),
-    # path("", views.contact_page, name="contact"),
-    path('basic_info/',adpanel.basic_info),
-    path('profile/',adpanel.profile),
-    path("save_profile/",adpanel.save_profile),
-    
+        path("profile/delete/<int:id>/", ad.profile_delete, name="profile_delete"),
+    path('basic_info/',ad.basic_info),
 
+    # path('profile/',ad.profile),
+    # path("save_profile/",ad.save_profile),
+    path("gallery_list/", ad.gallery_list, name="gallery_list"),
+    path("donation-submit/", ui.donation_submit, name="donation_submit"),
+    path('donations/',ad.donar,name="donations"),
     # testimoinals
-    path("testionmals_info/",adpanel.testionmals_info),
-]
+    path("testionmals_info/",ad.testionmals_info),
+    path("volunteers/", ad.volunteer_list, name="volunteers"),
+    path("donation/<int:pk>/receipt/", ad.donation_receipt_pdf, name="donation_receipt_pdf"),
+    path("messages/", ad.message_list, name="message_list"),
+    path("messages/delete/<int:id>/", ad.donation_message_delete, name="donation_message_delete"),
+
+    path("event/", ad.events_page, name="events_page"),
+    path("message_donate/", ui.message_donate, name="message_donate"),
+    path("messages/", ad.message_list, name="message_list"),
+    path("contcontact_page/", ui.contact_page, name="contact_page"),
+    path("dashboard/contact/", ad.dashboard_contact, name="dashboard_contact"),
+    path('adminn/dashboard/', ad.dashboard_view, name='dashboard'),
+    path("dashboard/report/", ad.donations_report_pdf, name="donations_report_pdf"),
+
+    ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 
-
+   
 
 
     

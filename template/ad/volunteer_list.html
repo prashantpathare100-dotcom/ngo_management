@@ -1,8 +1,8 @@
-{% extends "ad/dashboard.html" %}
+{% include "ad/navbar.html" %}
+
 {% load static %}
 
 {% block content %}
-
 <h2 class="mb-4">Volunteers Management</h2>
 
 {% if volunteers %}
@@ -13,10 +13,8 @@
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
-            <th>Age</th>
-            <th>Type</th>
-            <th>Status</th>
             <th>Action</th>
+            <th>Status</th>
         </tr>
     </thead>
     <tbody>
@@ -26,8 +24,9 @@
             <td>{{ v.full_name }}</td>
             <td>{{ v.email }}</td>
             <td>{{ v.phone }}</td>
-            <td>{{ v.age }}</td>
-            <td>{{ v.volunteer_type }}</td>
+            <td>
+                <a href="" class="btn btn-sm btn-danger">Delete</a>
+            </td>
             <td>
                 {% if v.is_approved %}
                     <span class="badge bg-success">Approved</span>
@@ -35,22 +34,10 @@
                     <span class="badge bg-warning">Pending</span>
                 {% endif %}
             </td>
-            <td>
-                {% comment %} {% if not v.is_approved %}
-                    <a href="{% url 'approve_volunteer' v.id %}"
-                       class="btn btn-sm btn-success">
-                       Approve
-                    </a>
-                {% endif %} {% endcomment %}
-
-                <a href="{% url 'delete_volunteer' v.id %}"
-                   class="btn btn-sm btn-danger"
-                   onclick="return confirm('Are you sure?');">
-                   Delete
-                </a>
-            </td>
         </tr>
         {% endfor %}
+
+        
     </tbody>
 </table>
 {% else %}
@@ -58,3 +45,4 @@
 {% endif %}
 
 {% endblock %}
+{% include "ad/footer.html" %}

@@ -13,7 +13,7 @@
         .hero-section {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%), 
                         url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200') center/cover;
-            min-height: 100vh;
+            min-height: 75vh;
             display: flex;
             align-items: center;
             color: white;

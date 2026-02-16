@@ -1,6 +1,4 @@
-
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +15,7 @@
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-	<title>AdminKit Demo - Bootstrap 5 Admin Template</title>
+	<title>Ngo Management</title>
 
     <link rel="stylesheet" href="{% static 'ad/css/app.css' %}">
 
@@ -40,17 +38,11 @@
 					</li>
 
 					<li class="sidebar-item active">
-						<a class="sidebar-link" href="">
+						<a class="sidebar-link" href="/dashboard/">
                          <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
             </a>
 					</li>
 
-			<li class="sidebar-item">
-    <a class="sidebar-link" href="/profile">
-        <i class="align-middle" data-feather="home"></i>
-        <span class="align-middle">profile</span>
-    </a>
-</li> 
 
 
 					{% comment %} <li class="sidebar-item">
@@ -82,7 +74,7 @@
 	</li>
 
     <li class="sidebar-item">
-		<a class="sidebar-link" href="#">
+		<a class="sidebar-link" href="/event/">
 			<i class="align-middle" data-feather="calendar"></i>
 			<span class="align-middle">Events Management</span>
 		</a>
@@ -91,11 +83,42 @@
     <li class="sidebar-header">Donation & Volunteers</li>
 
 	<li class="sidebar-item">
-		<a class="sidebar-link" href="#">
-			<i class="align-middle" data-feather="dollar-sign"></i>
-			<span class="align-middle">Donations</span>
-		</a>
-	</li>
+  <a class="sidebar-link collapsed"
+     data-bs-toggle="collapse"
+     href="#donationMenu"
+     role="button"
+     aria-expanded="false"
+     aria-controls="donationMenu">
+     
+    <i class="fa-solid fa-indian-rupee-sign align-middle"></i>
+    <span class="align-middle">Donations</span>
+    <i class="fa-solid fa-angle-down float-end mt-1"></i>
+  </a>
+
+  <!-- Dropdown items -->
+  <ul class="collapse list-unstyled ps-4" id="donationMenu">
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="/donations/">
+        All Donations
+      </a>
+    </li>
+
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="/messages/">
+        Message Donar Page
+      </a>
+    </li>
+
+    <!-- tu ikde ajun pages add karu shakto -->
+    
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="//">
+        
+      </a>
+    </li>
+   
+  </ul>
+</li>
 
     <li class="sidebar-item">
     <a class="sidebar-link" href="{% url 'volunteer_list' %}">
@@ -104,43 +127,99 @@
     </a>
 </li>
 
-	<li class="sidebar-item">
-		<a class="sidebar-link" href="#">
-			<i class="align-middle" data-feather="file-text"></i>
-			<span class="align-middle">Download Receipt (PDF)</span>
-		</a>
-	</li>
-
     <li class="sidebar-header">Content Management</li>
 
-	<li class="sidebar-item">
-    <a class="sidebar-link" href="{% url 'gallery_list' %}">
-			<i class="align-middle" data-feather="image"></i>
-			<span class="align-middle">Gallery</span>
-		</a>
-	</li>
+<!-- ================= GALLERY DROPDOWN ================= -->
+<li class="sidebar-item">
+    <a class="sidebar-link collapsed"
+       data-bs-toggle="collapse"
+       href="#galleryMenu"
+       role="button"
+       aria-expanded="false"
+       aria-controls="galleryMenu">
 
-	<li class="sidebar-item">
-		<a class="sidebar-link" href="#">
-			<i class="align-middle" data-feather="edit"></i>
-			<span class="align-middle">Blog / News</span>
-		</a>
-	</li>
+        <i class="align-middle" data-feather="image"></i>
+        <span class="align-middle">Gallery</span>
+        <i class="align-middle float-end" data-feather="chevron-down"></i>
+    </a>
 
-	<li class="sidebar-item">
-		<a class="sidebar-link" href="/testionmals_info">
-			<i class="align-middle" data-feather="message-square"></i>
-			<span class="align-middle">Testimonials</span>
-		</a>
-	</li>
+    <ul class="collapse list-unstyled ps-4" id="galleryMenu">
 
-	
-			<li class="sidebar-item">
-    <a class="sidebar-link" href="/basic_info">
-        <i class="align-middle" data-feather="home"></i>
-        <span class="align-middle">Contact us</span>
+        <!-- 1️⃣ All Gallery Items -->
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="/dashboard/gallery/">
+                All Gallery Items
+            </a>
+        </li>
+
+        <!-- 2️⃣ Edit 9 Images -->
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="/dashboard/gallery/bulk/">
+                Edit Gallery (9 Images)
+            </a>
+        </li>
+
+        <!-- 3️⃣ Public Gallery -->
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="/gallery/">
+                Public Gallery View
+            </a>
+        </li>
+
+    </ul>
+</li>
+
+
+<!-- ================= BLOG / NEWS (Separate) ================= -->
+<li class="sidebar-item">
+    <a class="sidebar-link" href="/blog/">
+        <i class="align-middle" data-feather="edit"></i>
+        <span class="align-middle">Blog / News</span>
     </a>
 </li>
+
+
+<!-- ================= TESTIMONIALS (Separate) ================= -->
+<li class="sidebar-item">
+    <a class="sidebar-link" href="/testionmals_info">
+        <i class="align-middle" data-feather="message-square"></i>
+        <span class="align-middle">Testimonials</span>
+    </a>
+</li>
+
+
+<!-- ================= CONTACT US (Separate Dropdown) ================= -->
+<li class="sidebar-item">
+  <a class="sidebar-link collapsed"
+     data-bs-toggle="collapse"
+     href="#contactMenu"
+     role="button"
+     aria-expanded="false"
+     aria-controls="contactMenu">
+     
+    <i class="align-middle" data-feather="home"></i>
+    <span class="align-middle">Contact Us</span>
+    <i class="fa-solid fa-angle-down float-end mt-1"></i>
+  </a>
+
+  <ul class="collapse list-unstyled ps-4" id="contactMenu">
+
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="/basic_info/">
+        Basic Info
+      </a>
+    </li>
+
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="/dashboard/contact/">
+        Messages
+      </a>
+    </li>
+
+  </ul>
+</li>
+
+
 
     
 					<li class="sidebar-header">
@@ -205,4 +284,4 @@
 				<a class="sidebar-toggle js-sidebar-toggle">
           <i class="hamburger align-self-center"></i>
         </a>
-		<body>
+		</nav>

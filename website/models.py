@@ -11,7 +11,7 @@ class ContactHero(models.Model):
     def __str__(self):
         return self.title
 
-<<<<<<< HEAD
+
     @property
     def progress_percent(self):
         try:
@@ -22,8 +22,6 @@ class ContactHero(models.Model):
         return 0
     
 
-
-=======
 
 # Contact Information
 class ContactInfo(models.Model):
@@ -56,4 +54,44 @@ class ContactTeam(models.Model):
 
     def __str__(self):
         return self.name
->>>>>>> 200db6d5490057d1df43e554794e297daf680807
+
+class Donation(models.Model):
+    name= models.CharField(max_length=200)
+    phone   = models.CharField(max_length=15, blank=True, null=True)
+    email= models.EmailField()
+    cardno = models.CharField(max_length=200)
+    amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    cause = models.CharField(max_length=50)
+    created_at = models.DateTimeField(auto_now_add=True) 
+
+
+class DonationMessage(models.Model):
+    SUBJECT_CHOICES = [
+        ("donation", "Donation Inquiry"),
+        ("volunteer", "Volunteer"),
+        ("partnership", "Partnership"),
+        ("other", "Other"),
+    ]
+
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.CharField(max_length=15)
+    subject = models.CharField(max_length=20, choices=SUBJECT_CHOICES)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.subject}"
+    
+
+from django.db import models
+
+class Contact(models.Model):
+    name = models.CharField(max_length=200)
+    email = models.EmailField()
+    subject = models.CharField(max_length=300, blank=True, null=True)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name

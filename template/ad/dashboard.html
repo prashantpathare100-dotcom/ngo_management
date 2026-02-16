@@ -1,372 +1,845 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
-	<meta name="author" content="AdminKit">
-	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
-
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="{% static 'ad/img/icons/icon-48x48.png' %}">
-
-	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
-
-	<title>AdminKit Demo - Bootstrap 5 Admin Template</title>
-
-    <link rel="stylesheet" href="{% static 'ad/css/app.css' %}">
-
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
-
-<body>
-	<div class="wrapper">
-		<nav id="sidebar" class="sidebar js-sidebar">
-			<div class="sidebar-content js-simplebar">
-				<a class="sidebar-brand" href="index.html">
-          <span class="align-middle">NGO Managemen</span>
-        </a>
-
-				<ul class="sidebar-nav">
-					<li class="sidebar-header">
-						Pages
-					</li>
-
-					<li class="sidebar-item active">
-						<a class="sidebar-link" href="index.html">
-                         <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-profile.html">
-              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
-            </a>
-					</li>
-
-					{% comment %} <li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-in.html">
-              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span> {% endcomment %}
-            </a>
-					</li>
-
-					{% comment %} <li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-up.html">
-              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span> {% endcomment %}
-            </a>
-					</li>
-
-					<li class="sidebar-header">NGO Management</li>
-
-	<li class="sidebar-item">
-		<a class="sidebar-link" href="#">
-			<i class="align-middle" data-feather="info"></i>
-			<span class="align-middle">About NGO</span>
-		</a>
-	</li>
-
-    <li class="sidebar-item">
-		<a class="sidebar-link" href="#">
-			<i class="align-middle" data-feather="target"></i>
-			<span class="align-middle">Causes / Programs</span>
-		</a>
-	</li>
-
-    <li class="sidebar-item">
-		<a class="sidebar-link" href="#">
-			<i class="align-middle" data-feather="calendar"></i>
-			<span class="align-middle">Events Management</span>
-		</a>
-	</li>
-
-    <li class="sidebar-header">Donation & Volunteers</li>
-
-	<li class="sidebar-item">
-<a class="sidebar-link" href="{% url 'donations_list' %}">
-
-			<i class="align-middle" data-feather="dollar-sign"></i>
-			<span class="align-middle">Donations</span>
-		</a>
-	</li>
-
-    <li class="sidebar-item">
-    <a class="sidebar-link" href="{% url 'volunteers:website_volunteer_submit' %}
-">
-        <i class="align-middle" data-feather="users"></i>
-        <span class="align-middle">Volunteers Management</span>
-    </a>
-</li>
-
-	<li class="sidebar-item">
-		<a class="sidebar-link" href="#">
-			<i class="align-middle" data-feather="file-text"></i>
-			<span class="align-middle">Download Receipt (PDF)</span>
-		</a>
-	</li>
-
-    <li class="sidebar-header">Content Management</li>
-
-	<li class="sidebar-item">
-    <a class="sidebar-link" href="#">
-			<i class="align-middle" data-feather="image"></i>
-			<span class="align-middle">Gallery</span>
-		</a>
-	</li>
-
-	<li class="sidebar-item">
-		<a class="sidebar-link" href="#">
-			<i class="align-middle" data-feather="edit"></i>
-			<span class="align-middle">Blog / News</span>
-		</a>
-	</li>
-
-	<li class="sidebar-item">
-		<a class="sidebar-link" href="#">
-			<i class="align-middle" data-feather="message-square"></i>
-			<span class="align-middle">Testimonials</span>
-		</a>
-	</li>
-
-	<li class="sidebar-item">
-		<a class="sidebar-link" href="">
-			<i class="align-middle" data-feather="phone"></i>
-			<span class="align-middle">contact</span>
-		</a>
-	</li>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>NGO Dashboard - Helping Hands Foundation</title> -->
     
-					<li class="sidebar-header">
-						Tools & Components
-					</li>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        :root {
+            --primary-color: #2E8B57;
+            --secondary-color: #FF6B6B;
+            --accent-color: #4ECDC4;
+            --dark-color: #2C3E50;
+            --light-color: #F8F9FA;
+            --success-color: #28A745;
+            --warning-color: #FFC107;
+            --danger-color: #DC3545;
+            --info-color: #17A2B8;
+        }
+        
+        body {
+            background-color: #f5f7fb;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+        
+        /* Sidebar Styles */
+        .sidebar {
+            width: 280px;
+            min-height: 100vh;
+            background: linear-gradient(180deg, var(--dark-color) 0%, #1a252f 100%);
+            color: white;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 3px 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sidebar-brand {
+            padding: 25px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .sidebar-brand h3 {
+            font-weight: 700;
+            margin: 0;
+            color: white;
+        }
+        
+        .sidebar-brand span {
+            color: var(--accent-color);
+        }
+        
+        .sidebar-nav {
+            padding: 20px 15px;
+        }
+        
+        .nav-item {
+            margin-bottom: 5px;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 12px 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .nav-link i {
+            width: 25px;
+            font-size: 1.2rem;
+            margin-right: 12px;
+        }
+        
+        .nav-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            margin: 25px 15px 10px;
+            letter-spacing: 1px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+        
+        @media (max-width: 992px) {
+            .sidebar {
+                margin-left: -280px;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .sidebar.active {
+                margin-left: 0;
+            }
+        }
+        
+        /* Topbar */
+        .topbar {
+            background: white;
+            padding: 15px 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        
+        .search-box {
+            max-width: 400px;
+        }
+        
+        .search-box input {
+            border: 1px solid #e0e0e0;
+            border-radius: 50px;
+            padding: 10px 20px;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Stats Cards */
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: none;
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .stat-icon.donation { background: linear-gradient(45deg, #FF6B6B, #FF8E53); }
+        .stat-icon.amount { background: linear-gradient(45deg, #4ECDC4, #44A08D); }
+        .stat-icon.volunteer { background: linear-gradient(45deg, #96C93D, #00B09B); }
+        .stat-icon.enquiry { background: linear-gradient(45deg, #4776E6, #8E54E9); }
+        
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+        
+        .stat-title {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .stat-change {
+            font-size: 0.85rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        .change-up { background: #d4edda; color: #155724; }
+        .change-down { background: #f8d7da; color: #721c24; }
+        
+        /* Charts */
+        .chart-container {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+        
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .chart-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            margin: 0;
+        }
+        
+        /* Recent Activities */
+        .activity-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+        
+        .activity-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            color: white;
+        }
+        
+        .activity-icon.donation { background: var(--success-color); }
+        .activity-icon.volunteer { background: var(--info-color); }
+        .activity-icon.event { background: var(--warning-color); }
+        .activity-icon.enquiry { background: var(--danger-color); }
+        
+        .activity-content h6 {
+            margin: 0 0 5px;
+            font-weight: 600;
+        }
+        
+        .activity-content p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .activity-time {
+            font-size: 0.8rem;
+            color: #999;
+        }
+        
+        /* Tables */
+        .data-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .table-header {
+            padding: 20px 25px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .table-header h5 {
+            margin: 0;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .table-responsive {
+            padding: 0 25px 25px;
+        }
+        
+        .table thead th {
+            border: none;
+            border-bottom: 1px solid #f0f0f0;
+            font-weight: 600;
+            color: #666;
+            padding: 15px;
+            white-space: nowrap;
+        }
+        
+        .table tbody td {
+            padding: 15px;
+            vertical-align: middle;
+            border-color: #f8f9fa;
+        }
+        
+        .table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .badge {
+            padding: 5px 12px;
+            font-weight: 500;
+            border-radius: 20px;
+        }
+        
+        .badge-success { background: #d4edda; color: #155724; }
+        .badge-warning { background: #fff3cd; color: #856404; }
+        .badge-danger { background: #f8d7da; color: #721c24; }
+        .badge-info { background: #d1ecf1; color: #0c5460; }
+        
+        /* Quick Actions */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .action-btn {
+            background: white;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--dark-color);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 120px;
+        }
+        
+        .action-btn:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            color: var(--primary-color);
+        }
+        
+        .action-btn i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .action-btn span {
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        .main-footer {
+            background: white;
+            padding: 20px 30px;
+            margin-top: 30px;
+            border-top: 1px solid #f0f0f0;
+        }
+        
+        .copyright {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 3px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+        
+        /* Mobile Toggle */
+        .mobile-toggle {
+            display: none;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 992px) {
+            .mobile-toggle {
+                display: flex;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    {% include "ad/navbar.html" %}
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Topbar -->
+        <div class="topbar">
+            <div class="container-fluid">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="mobile-toggle" id="sidebarToggle">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <div>
+                            <h4 class="mb-0 fw-bold">Welcome back, Admin!</h4>
+                            <small class="text-muted">Here's what's happening with your NGO today</small>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="search-box">
+                            <div class="input-group">
+                                <span class="input-group-text bg-transparent border-0">
+                                    <i class="bi bi-search"></i>
+                                </span>
+                                <input type="text" class="form-control border-0" placeholder="Search donations, volunteers, events...">
+                            </div>
+                        </div>
+                        
+                        <div class="dropdown">
+                            <button class="btn btn-light border rounded-pill px-3 dropdown-toggle d-flex align-items-center gap-2" 
+                                    type="button" data-bs-toggle="dropdown">
+                                <div class="user-avatar">A</div>
+                                <div class="d-none d-md-block">
+                                    <div class="x-small text-muted"> Admin</div>
+                                </div>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i> Profile</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i> Settings</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-question-circle me-2"></i> Help Center</a></li>
+                                <li><a class="dropdown-item text-danger" href="login/"><i class="bi bi-box-arrow-right me-2"></i> Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-buttons.html">
-              <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>
-            </a>
-					</li>
+        <!-- Main Content Area -->
+        <div class="container-fluid py-4">
+            <!-- Stats Cards -->
+            <div class="row g-4 mb-4">
+                <div class="col-xl-3 col-lg-6">
+                    <div class="stat-card fade-in">
+                        <div class="stat-icon donation">
+                            <i class="bi bi-cash-coin"></i>
+                        </div>
+                        <div class="stat-number">₹{{ total_amount }}</div>
+                        <div class="stat-title">Total Donations</div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="stat-change change-up">
+                                <i class="bi bi-arrow-up"></i> 12% this month
+                            </span>
+                            <span class="text-muted small">{{ donation_count }} donations</span>
+                        </div>
+                    </div>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-forms.html">
-              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Forms</span>
-            </a>
-					</li>
+                </div>
+                
+                <div class="col-xl-3 col-lg-6">
+                    <div class="stat-card fade-in" style="animation-delay: 0.1s;">
+                        <div class="stat-icon amount">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+                        <div class="stat-number">{{ volunteer_count|default:"0" }}</div>
+                        <div class="stat-title">Active Volunteers</div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="stat-change change-up">
+                                <i class="bi bi-arrow-up"></i> 8% this month
+                            </span>
+                            <span class="text-muted small">25 new joined</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-3 col-lg-6">
+                    <div class="stat-card fade-in" style="animation-delay: 0.2s;">
+                        <div class="stat-icon volunteer">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <div class="stat-number">{{ enquiry_count|default:"0" }}</div>
+                        <div class="stat-title">Pending Enquiries</div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="stat-change change-down">
+                                <i class="bi bi-arrow-down"></i> 3% this week
+                            </span>
+                            <span class="text-muted small">Need response</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-3 col-lg-6">
+                    <div class="stat-card fade-in" style="animation-delay: 0.3s;">
+                        <div class="stat-icon enquiry">
+                            <i class="bi bi-calendar-event"></i>
+                        </div>
+                        <div class="stat-number">8</div>
+                        <div class="stat-title">Upcoming Events</div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="stat-change change-up">
+                                <i class="bi bi-arrow-up"></i> 2 new events
+                            </span>
+                            <span class="text-muted small">Next: Tomorrow</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Charts & Recent Activities -->
+            <div class="row g-4 mb-4">
+                <div class="col-lg-8">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h5 class="chart-title">Donation Overview</h5>
+                            <div class="dropdown">
+                                <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                    This Month
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">This Week</a></li>
+                                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <canvas id="donationChart" height="300"></canvas>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                   <h5 class="chart-title mb-4">Recent Activities</h5>
+<div class="activity-list">
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-cards.html">
-              <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Cards</span>
-            </a>
-					</li>
+    {% for d in recent_donations %}
+    <div class="activity-item">
+        <div class="activity-icon donation">
+            <i class="bi bi-cash"></i>
+        </div>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-typography.html">
-              <i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Typography</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="icons-feather.html">
-              <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>
-            </a>
-					</li>
-
-					<li class="sidebar-header">
-						Plugins & Addons
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="charts-chartjs.html">
-              <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Charts</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="maps-google.html">
-              <i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>
-            </a>
-					</li>
-				</ul>
-
-				<div class="sidebar-cta">
-					
-				</div>
-			</div>
-		</nav>
-=======
-{% include "ad/navbar.html"%}
->>>>>>> 200db6d5490057d1df43e554794e297daf680807
-
-		<div class="main">
-			<nav class="navbar navbar-expand navbar-light navbar-bg">
-				<a class="sidebar-toggle js-sidebar-toggle">
-          <i class="hamburger align-self-center"></i>
-        </a>
-
-				<div class="navbar-collapse collapse">
-	<div class="navbar-collapse collapse">
-					 <ul class="navbar-nav navbar-align">
-					{% comment %}
-						<li class="nav-item dropdown">
-							<a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
-								<div class="position-relative">
-									<i class="align-middle" data-feather="bell"></i>
-									<span class="indicator">4</span>
-								</div>
-							</a>
-							<div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
-								<div class="dropdown-menu-header">
-									4 New Notifications
-								</div>
-								<div class="list-group">
-									<a href="#" class="list-group-item">
-										<div class="row g-0 align-items-center">
-											<div class="col-2">
-												<i class="text-danger" data-feather="alert-circle"></i>
-											</div>
-											<div class="col-10">
-												<div class="text-dark">Update completed</div>
-												<div class="text-muted small mt-1">Restart server 12 to complete the update.</div>
-												<div class="text-muted small mt-1">30m ago</div>
-											</div>
-										</div>
-									</a>
-									<a href="#" class="list-group-item">
-										<div class="row g-0 align-items-center">
-											<div class="col-2">
-												<i class="text-warning" data-feather="bell"></i>
-											</div>
-											<div class="col-10">
-												<div class="text-dark">Lorem ipsum</div>
-												<div class="text-muted small mt-1">Aliquam ex eros, imperdiet vulputate hendrerit et.</div>
-												<div class="text-muted small mt-1">2h ago</div>
-											</div>
-										</div>
-									</a>
-									<a href="#" class="list-group-item">
-										<div class="row g-0 align-items-center">
-											<div class="col-2">
-												<i class="text-primary" data-feather="home"></i>
-											</div>
-											<div class="col-10">
-												<div class="text-dark">Login from 192.186.1.8</div>
-												<div class="text-muted small mt-1">5h ago</div>
-											</div>
-										</div>
-									</a>
-									<a href="#" class="list-group-item">
-										<div class="row g-0 align-items-center">
-											<div class="col-2">
-												<i class="text-success" data-feather="user-plus"></i>
-											</div>
-											<div class="col-10">
-												<div class="text-dark">New connection</div>
-												<div class="text-muted small mt-1">Christina accepted your request.</div>
-												<div class="text-muted small mt-1">14h ago</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="dropdown-menu-footer">
-									<a href="#" class="text-muted">Show all notifications</a>
-								</div>
-							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown" data-bs-toggle="dropdown">
-								<div class="position-relative">
-									<i class="align-middle" data-feather="message-square"></i>
-								</div>
-							</a>
-							<div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="messagesDropdown">
-								<div class="dropdown-menu-header">
-									<div class="position-relative">
-										4 New Messages
-									</div>
-								</div>
-								<div class="list-group">
-									<a href="#" class="list-group-item">
-										<div class="row g-0 align-items-center">
-											<div class="col-2">
-												<img src="img/avatars/avatar-5.jpg" class="avatar img-fluid rounded-circle" alt="Vanessa Tucker">
-											</div>
-											<div class="col-10 ps-2">
-												<div class="text-dark">Vanessa Tucker</div>
-												<div class="text-muted small mt-1">Nam pretium turpis et arcu. Duis arcu tortor.</div>
-												<div class="text-muted small mt-1">15m ago</div>
-											</div>
-										</div>
-									</a>
-									<a href="#" class="list-group-item">
-										<div class="row g-0 align-items-center">
-											<div class="col-2">
-												<img src="img/avatars/avatar-2.jpg" class="avatar img-fluid rounded-circle" alt="William Harris">
-											</div>
-											<div class="col-10 ps-2">
-												<div class="text-dark">William Harris</div>
-												<div class="text-muted small mt-1">Curabitur ligula sapien euismod vitae.</div>
-												<div class="text-muted small mt-1">2h ago</div>
-											</div>
-										</div>
-									</a>
-									<a href="#" class="list-group-item">
-										<div class="row g-0 align-items-center">
-											<div class="col-2">
-												<img src="img/avatars/avatar-4.jpg" class="avatar img-fluid rounded-circle" alt="Christina Mason">
-											</div>
-											<div class="col-10 ps-2">
-												<div class="text-dark">Christina Mason</div>
-												<div class="text-muted small mt-1">Pellentesque auctor neque nec urna.</div>
-												<div class="text-muted small mt-1">4h ago</div>
-											</div>
-										</div>
-									</a>
-									<a href="#" class="list-group-item">
-										<div class="row g-0 align-items-center">
-											<div class="col-2">
-												<img src="img/avatars/avatar-3.jpg" class="avatar img-fluid rounded-circle" alt="Sharon Lessman">
-											</div>
-											<div class="col-10 ps-2">
-												<div class="text-dark">Sharon Lessman</div>
-												<div class="text-muted small mt-1">Aenean tellus metus, bibendum sed, posuere ac, mattis non.</div>
-												<div class="text-muted small mt-1">5h ago</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="dropdown-menu-footer">
-									<a href="#" class="text-muted">Show all messages</a>
-								</div>
-							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
-                <i class="align-middle" data-feather="settings"></i>
-              </a>
-
-							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
-              </a>
-							<div class="dropdown-menu dropdown-menu-end">
-								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
-								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
-								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Log out</a>
-							</div>
-						</li>{% endcomment %}
-
-	{% if user.is_authenticated %}
-    <li class="nav-item">
-        <form method="post" action="{% url 'logout' %}">
-        {% endif %}
+        <div class="activity-content flex-grow-1">
+            <h6>New Donation Received</h6>
+            <p>₹{{ d.amount }} from {{ d.name }}</p>
+            <div class="activity-time">
+                {{ d.created_at|timesince }} ago
+            </div>
+        </div>
     </div>
-</main>
-{% include "ad/footer.html"%}
+    {% empty %}
+    <div class="text-muted">No recent donations</div>
+    {% endfor %}
 
+</div>
 
-			
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon volunteer">
+                                    <i class="bi bi-person-plus"></i>
+                                </div>
+                                <div class="activity-content flex-grow-1">
+                                    <h6>New Volunteer Joined</h6>
+                                    <p>Priya Sharma registered as volunteer</p>
+                                    <div class="activity-time">5 hours ago</div>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon event">
+                                    <i class="bi bi-calendar-check"></i>
+                                </div>
+                                <div class="activity-content flex-grow-1">
+                                    <h6>Event Completed</h6>
+                                    <p>Medical Camp in Dharavi</p>
+                                    <div class="activity-time">Yesterday</div>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon enquiry">
+                                    <i class="bi bi-envelope"></i>
+                                </div>
+                                <div class="activity-content flex-grow-1">
+                                    <h6>New Enquiry Received</h6>
+                                    <p>From corporate for CSR partnership</p>
+                                    <div class="activity-time">2 days ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+      <!-- Recent Donations Table -->
+<div class="data-table mb-4">
+  <div class="table-header">
+    <h5>Recent Donations</h5>
+    <div>
+      <a href="/donations/" class="btn btn-outline-primary btn-sm me-2">
+        <i class="bi bi-eye"></i> View All
+      </a>
+
+      <a href="{% url 'donations_report_pdf' %}" class="btn btn-outline-secondary btn-sm">
+        <i class="bi bi-file-earmark-text"></i> Export PDF
+      </a>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-hover align-middle mb-0">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Donor Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Amount</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for d in donation %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+
+          <td>
+            <div class="d-flex align-items-center">
+              <div class="user-avatar me-2" style="width:20px;height:10px;;margin-left: 250px;">
+                {{ d.name|first }}
+              </div>
+              <div class="fw-semibold">{{ d.name }}</div>
+            </div>
+          </td>
+
+          <td>{{ d.email }}</td>
+          <td>{{ d.phone }}</td>
+          <td class="fw-bold text-success">₹{{ d.amount }}</td>
+          <td>{{ d.created_at|date:"d M Y" }}</td>
+
+          <td><span class="badge bg-success">Completed</span></td>
+
+          <td>
+            <div class="btn-group btn-group-sm">
+              <a href="{% url 'donation_receipt_pdf' d.id %}" class="btn btn-outline-success">
+                <i class="bi bi-file-earmark-pdf"></i>
+              </a>
+
+              <a href="{% url 'donation_delete' d.id %}"
+                 class="btn btn-outline-danger"
+                 onclick="return confirm('Delete this donation?')">
+                <i class="bi bi-trash"></i>
+              </a>
+            </div>
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="8" class="text-center py-4 text-muted">
+            No donations found
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+            
+            <!-- Quick Actions -->
+            <div class="mb-4">
+                <h5 class="mb-3">Quick Actions</h5>
+                <div class="action-buttons">
+                    <a href="#" class="action-btn">
+                        <i class="bi bi-person-plus"></i>
+                        <span>Add Volunteer</span>
+                    </a>
+                    <a href="#" class="action-btn">
+                        <i class="bi bi-calendar-plus"></i>
+                        <span>Create Event</span>
+                    </a>
+                    <a href="#" class="action-btn">
+                        <i class="bi bi-image"></i>
+                        <span>Upload Gallery</span>
+                    </a>
+                    <a href="{% url 'donations_report_pdf' %}" class="action-btn">
+    <i class="bi bi-file-earmark-text"></i>
+    <span>Generate Report</span>
+</a>
+
+                    <a href="#" class="action-btn">
+                        <i class="bi bi-envelope-plus"></i>
+                        <span>Send Newsletter</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        {% include "ad/footer.html" %}
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Mobile sidebar toggle
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+            document.querySelector('.main-content').classList.toggle('active');
+        });
+        
+        // Chart.js Implementation
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('donationChart').getContext('2d');
+            
+            // Sample data
+            const donationChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Donations (₹)',
+                        data: [12000, 19000, 15000, 25000, 22000, 30000, 35000, 28000, 40000, 38000, 42000, 50000],
+                        borderColor: '#2E8B57',
+                        backgroundColor: 'rgba(46, 139, 87, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                drawBorder: false
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return '₹' + value.toLocaleString('en-IN');
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        });
+        
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all stat cards
+        document.querySelectorAll('.stat-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

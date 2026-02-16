@@ -19,11 +19,22 @@
 <body>
 
     {% include "web/navbar.html" %}
+    {% if messages %}
+  <div class="container mt-3">
+    {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
 
     <!-- Hero Section with Video Background -->
    <section class="hero-section">
 
-    <<div class="video-container">
+    <div class="video-container">
         <iframe 
   
   src="https://www.youtube.com/embed/0CbFrom3Qkk?autoplay=1&mute=1"
@@ -46,7 +57,7 @@
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBC2rCb_6dfNyudA3MBKGWzVQedvFX0gAc4w&s" alt="Helping" class="floating-img">
                         <div class="experience-badge">
                             <h3>15+</h3>
-                            <p>Years of Service</p>
+                            <p class="text-muted">Years of Service</p>
                         </div>
                     </div>
                 </div>
@@ -60,25 +71,25 @@
                                 <div class="feature-icon"><i class="bi bi-check-circle-fill"></i></div>
                                 <div>
                                     <h5>Transparent Operations</h5>
-                                    <p>100% transparency in fund utilization</p>
+                                    <p class="text-muted">100% transparency in fund utilization</p>
                                 </div>
                             </div>
                             <div class="feature-item">
                                 <div class="feature-icon"><i class="bi bi-check-circle-fill"></i></div>
                                 <div>
                                     <h5>Direct Impact</h5>
-                                    <p>85% of donations go directly to beneficiaries</p>
+                                    <p class="text-muted">85% of donations go directly to beneficiaries</p>
                                 </div>
                             </div>
                             <div class="feature-item">
                                 <div class="feature-icon"><i class="bi bi-check-circle-fill"></i></div>
                                 <div>
                                     <h5>Tax Benefits</h5>
-                                    <p>80G certified - Get tax exemption on donations</p>
+                                    <p class="text-muted">80G certified - Get tax exemption on donations</p>
                                 </div>
                             </div>
                         </div>
-                        <a href="#causes" class="btn btn-primary-custom mt-3">Start Donating <i class="bi bi-arrow-right"></i></a>
+                        <a href="#causes" class="btn btn-primary mt-3">Start Donating <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -91,14 +102,14 @@
             <div class="section-header text-center" data-aos="fade-up">
                 <span class="section-tag">Our Work</span>
                 <h2>Samajseva Initiatives</h2>
-                <p>We work across multiple areas to create comprehensive social impact</p>
+                <p class="text-muted">We work across multiple areas to create comprehensive social impact</p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="seva-card">
                         <div class="seva-icon"><i class="bi bi-book"></i></div>
                         <h4>Shikshan Seva</h4>
-                        <p>Free education & scholarships for underprivileged children</p>
+                        <p class="text-muted">Free education & scholarships for underprivileged children</p>
                         <span class="seva-count">15,000+ Students</span>
                     </div>
                 </div>
@@ -106,7 +117,7 @@
                     <div class="seva-card">
                         <div class="seva-icon"><i class="bi bi-hospital"></i></div>
                         <h4>Arogya Seva</h4>
-                        <p>Free medical camps & healthcare facilities</p>
+                        <p class="text-muted">Free medical camps & healthcare facilities</p>
                         <span class="seva-count">200+ Camps/Year</span>
                     </div>
                 </div>
@@ -114,7 +125,7 @@
                     <div class="seva-card">
                         <div class="seva-icon"><i class="bi bi-cup-hot"></i></div>
                         <h4>Anna Daan</h4>
-                        <p>Daily meals for homeless & needy families</p>
+                        <p class="text-muted">Daily meals for homeless & needy families</p>
                         <span class="seva-count">5,000+ Meals/Day</span>
                     </div>
                 </div>
@@ -122,7 +133,7 @@
                     <div class="seva-card">
                         <div class="seva-icon"><i class="bi bi-house-heart"></i></div>
                         <h4>Gruh Nirman</h4>
-                        <p>Building homes for homeless families</p>
+                        <p class="text-muted">Building homes for homeless families</p>
                         <span class="seva-count">500+ Homes Built</span>
                     </div>
                 </div>
@@ -130,7 +141,7 @@
                     <div class="seva-card">
                         <div class="seva-icon"><i class="bi bi-tree"></i></div>
                         <h4>Paryavaran Seva</h4>
-                        <p>Tree plantation & environmental conservation</p>
+                        <p class="text-muted">Tree plantation & environmental conservation</p>
                         <span class="seva-count">1 Lakh+ Trees</span>
                     </div>
                 </div>
@@ -138,7 +149,7 @@
                     <div class="seva-card">
                         <div class="seva-icon"><i class="bi bi-gender-female"></i></div>
                         <h4>Mahila Sashaktikaran</h4>
-                        <p>Women empowerment & skill development</p>
+                        <p class="text-muted">Women empowerment & skill development</p>
                         <span class="seva-count">10,000+ Women</span>
                     </div>
                 </div>
@@ -146,7 +157,7 @@
                     <div class="seva-card">
                         <div class="seva-icon"><i class="bi bi-person-heart"></i></div>
                         <h4>Vruddh Seva</h4>
-                        <p>Care & support for elderly citizens</p>
+                        <p class="text-muted">Care & support for elderly citizens</p>
                         <span class="seva-count">3 Old Age Homes</span>
                     </div>
                 </div>
@@ -154,7 +165,7 @@
                     <div class="seva-card">
                         <div class="seva-icon"><i class="bi bi-droplet"></i></div>
                         <h4>Jal Seva</h4>
-                        <p>Clean drinking water projects in villages</p>
+                        <p class="text-muted">Clean drinking water projects in villages</p>
                         <span class="seva-count">300+ Villages</span>
                     </div>
                 </div>
@@ -168,7 +179,7 @@
             <div class="section-header text-center" data-aos="fade-up">
                 <span class="section-tag">Support a Cause</span>
                 <h2>Choose a Cause to Donate</h2>
-                <p>Your contribution can change lives. Select a cause close to your heart.</p>
+                <p class="text-muted">Your contribution can change lives. Select a cause close to your heart.</p>
             </div>
             <div class="row g-4">
                 <!-- Card 1 -->
@@ -185,7 +196,7 @@
                         </div>
                         <div class="cause-content">
                             <h4>Education for Every Child</h4>
-                            <p>Help underprivileged children get quality education and bright future.</p>
+                            <p class="text-muted">Help underprivileged children get quality education and bright future.</p>
                             <div class="cause-stats">
                                 <div><span>Raised</span><strong>₹7.5L</strong></div>
                                 <div><span>Goal</span><strong>₹10L</strong></div>
@@ -210,7 +221,7 @@
                         </div>
                         <div class="cause-content">
                             <h4>Free Medical Camps</h4>
-                            <p>Support free health checkups and medical treatment for the poor.</p>
+                            <p class="text-muted">Support free health checkups and medical treatment for the poor.</p>
                             <div class="cause-stats">
                                 <div><span>Raised</span><strong>₹4.5L</strong></div>
                                 <div><span>Goal</span><strong>₹7.5L</strong></div>
@@ -235,7 +246,7 @@
                         </div>
                         <div class="cause-content">
                             <h4>Feed The Hungry</h4>
-                            <p>Provide daily meals to homeless and hungry people in need.</p>
+                            <p class="text-muted">Provide daily meals to homeless and hungry people in need.</p>
                             <div class="cause-stats">
                                 <div><span>Raised</span><strong>₹12.7L</strong></div>
                                 <div><span>Goal</span><strong>₹15L</strong></div>
@@ -260,7 +271,7 @@
                         </div>
                         <div class="cause-content">
                             <h4>Build Homes for Homeless</h4>
-                            <p>Help construct safe homes for families living on streets.</p>
+                            <p class="text-muted">Help construct safe homes for families living on streets.</p>
                             <div class="cause-stats">
                                 <div><span>Raised</span><strong>₹22.5L</strong></div>
                                 <div><span>Goal</span><strong>₹50L</strong></div>
@@ -285,7 +296,7 @@
                         </div>
                         <div class="cause-content">
                             <h4>Women Empowerment</h4>
-                            <p>Support skill training and employment for rural women.</p>
+                            <p class="text-muted">Support skill training and employment for rural women.</p>
                             <div class="cause-stats">
                                 <div><span>Raised</span><strong>₹5.6L</strong></div>
                                 <div><span>Goal</span><strong>₹8L</strong></div>
@@ -310,7 +321,7 @@
                         </div>
                         <div class="cause-content">
                             <h4>Plant Trees, Save Earth</h4>
-                            <p>Join our green initiative to plant 1 million trees.</p>
+                            <p class="text-muted">Join our green initiative to plant 1 million trees.</p>
                             <div class="cause-stats">
                                 <div><span>Raised</span><strong>₹2.75L</strong></div>
                                 <div><span>Goal</span><strong>₹5L</strong></div>
@@ -335,7 +346,7 @@
                         </div>
                         <div class="cause-content">
                             <h4>Care for Elderly</h4>
-                            <p>Support old age homes and senior citizen care programs.</p>
+                            <p class="text-muted">Support old age homes and senior citizen care programs.</p>
                             <div class="cause-stats">
                                 <div><span>Raised</span><strong>₹3.25L</strong></div>
                                 <div><span>Goal</span><strong>₹5L</strong></div>
@@ -360,7 +371,7 @@
                         </div>
                         <div class="cause-content">
                             <h4>Disaster Relief Fund</h4>
-                            <p>Emergency support for natural disaster affected families.</p>
+                            <p class="text-muted">Emergency support for natural disaster affected families.</p>
                             <div class="cause-stats">
                                 <div><span>Raised</span><strong>₹18L</strong></div>
                                 <div><span>Goal</span><strong>₹20L</strong></div>
@@ -381,7 +392,7 @@
             <div class="section-header text-center" data-aos="fade-up">
                 <span class="section-tag text-danger">Our Impact</span>
                 <h2>Watch Our Work in Action</h2>
-                <p>See how your donations are making real difference in people's lives</p>
+                <p class="text-muted">See how your donations are making real difference in people's lives</p>
             </div>
             <div class="row g-4">
                 <!-- Video 1 -->
@@ -393,7 +404,7 @@
                         </div>
                         <div class="video-info">
                             <h5>Education Camp 2024</h5>
-                            <p><i class="bi bi-geo-alt"></i> Maharashtra</p>
+                            <p class="text-primary"><i class="bi bi-geo-alt "></i> Maharashtra</p>
                         </div>
                     </div>
                 </div>
@@ -406,7 +417,7 @@
                         </div>
                         <div class="video-info">
                             <h5>Medical Camp Story</h5>
-                            <p><i class="bi bi-geo-alt"></i> Gujarat</p>
+                            <p class="text-primary"><i class="bi bi-geo-alt "></i> Gujarat</p>
                         </div>
                     </div>
                 </div>
@@ -419,7 +430,7 @@
                         </div>
                         <div class="video-info">
                             <h5>Food Distribution Drive</h5>
-                            <p><i class="bi bi-geo-alt"></i> Delhi</p>
+                            <p class="text-primary"><i class="bi bi-geo-alt  "></i> Delhi</p>
                         </div>
                     </div>
                 </div>
@@ -432,7 +443,7 @@
                         </div>
                         <div class="video-info">
                             <h5>Tree Plantation 2024</h5>
-                            <p><i class="bi bi-geo-alt"></i> Karnataka</p>
+                            <p class="text-primary"><i class="bi bi-geo-alt "></i> Karnataka</p>
                         </div>
                     </div>
                 </div>
@@ -445,7 +456,7 @@
                         </div>
                         <div class="video-info">
                             <h5>Flood Relief Work</h5>
-                            <p><i class="bi bi-geo-alt"></i> Bihar</p>
+                            <p class="text-primary"><i class="bi bi-geo-alt "></i> Bihar</p>
                         </div>
                     </div>
                 </div>
@@ -458,7 +469,7 @@
                         </div>
                         <div class="video-info">
                             <h5>Women Skill Training</h5>
-                            <p><i class="bi bi-geo-alt"></i> Rajasthan</p>
+                            <p class="text-primary"><i class="bi bi-geo-alt "></i> Rajasthan</p>
                         </div>
                     </div>
                 </div>
@@ -471,7 +482,7 @@
                         </div>
                         <div class="video-info">
                             <h5>Home Construction</h5>
-                            <p><i class="bi bi-geo-alt"></i> Tamil Nadu</p>
+                            <p class="text-primary"><i class="bi bi-geo-alt "></i> Tamil Nadu</p>
                         </div>
                     </div>
                 </div>
@@ -484,209 +495,130 @@
                         </div>
                         <div class="video-info">
                             <h5>Annual Day 2024</h5>
-                            <p><i class="bi bi-geo-alt"></i> Mumbai</p>
+                            <p class="text-primary"><i class="bi bi-geo-alt"></i> Mumbai</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Recent Donors Section -->
-    <section class="donors-section" id="donors">
-        <div class="container">
-            <div class="section-header text-center" data-aos="fade-up">
-                <span class="section-tag">Our Heroes</span>
-                <h2>Recent Donors</h2>
-                <p>Thank you to all our generous donors for their support</p>
-            </div>
-            <div class="donors-marquee">
-                <div class="donors-track">
-                    <!-- Donor Cards -->
-                    <div class="donor-card">
-                        <div class="donor-avatar">
-                            <img src="https://media.licdn.com/dms/image/v2/C4D03AQG1ALCGzWjaPw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1516776070127?e=2147483647&v=beta&t=Je8L69ckstSvT_kbS3a1qzuqoIdNB6sD8jlvXr783tg" alt="Donor">
-                        </div>
-                        <div class="donor-info">
-                            <h5>Rajesh</h5>
-                            <p><i class="bi bi-geo-alt-fill"></i> Mumbai</p>
-                            <span class="donation-amount">₹25,000</span>
-                            <span class="donation-cause">Education</span>
-                        </div>
-                        <div class="donation-time">2 hours ago</div>
-                    </div>
-                    <div class="donor-card">
-                        <div class="donor-avatar">
-                            <img src="https://pbs.twimg.com/profile_images/1777566752429531136/WLt5uXOi_400x400.jpg" alt="Donor">
-                        </div>
-                        <div class="donor-info">
-                            <h5>Priya</h5>
-                            <p><i class="bi bi-geo-alt-fill"></i> Ahmedabad</p>
-                            <span class="donation-amount">₹15,000</span>
-                            <span class="donation-cause">Healthcare</span>
-                        </div>
-                        <div class="donation-time">5 hours ago</div>
-                    </div>
-                    <div class="donor-card">
-                        <div class="donor-avatar">
-                            <img src="https://pbs.twimg.com/profile_images/1579856472330362881/kFQJo7p3_400x400.jpg" alt="Donor">
-                        </div>
-                        <div class="donor-info">
-                            <h5>Amit</h5>
-                            <p><i class="bi bi-geo-alt-fill"></i> Delhi</p>
-                            <span class="donation-amount">₹50,000</span>
-                            <span class="donation-cause">Food Relief</span>
-                        </div>
-                        <div class="donation-time">1 day ago</div>
-                    </div>
-                    <div class="donor-card">
-                        <div class="donor-avatar">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFCUea0_OW5lq8fCBhJ-AcKjJDBJMeqxD6aw&s" alt="Donor">
-                        </div>
-                        <div class="donor-info">
-                            <h5>Sneha Reddy</h5>
-                            <p><i class="bi bi-geo-alt-fill"></i> Hyderabad</p>
-                            <span class="donation-amount">₹10,000</span>
-                            <span class="donation-cause">Women Empowerment</span>
-                        </div>
-                        <div class="donation-time">1 day ago</div>
-                    </div>
-                    <div class="donor-card">
-                        <div class="donor-avatar">
-                            <img src="https://randomuser.me/api/portraits/men/5.jpg" alt="Donor">
-                        </div>
-                        <div class="donor-info">
-                            <h5>Vikram Singh</h5>
-                            <p><i class="bi bi-geo-alt-fill"></i> Jaipur</p>
-                            <span class="donation-amount">₹1,00,000</span>
-                            <span class="donation-cause">Disaster Relief</span>
-                        </div>
-                        <div class="donation-time">2 days ago</div>
-                    </div>
-                    <div class="donor-card">
-                        <div class="donor-avatar">
-                            <img src="https://randomuser.me/api/portraits/women/6.jpg" alt="Donor">
-                        </div>
-                        <div class="donor-info">
-                            <h5>Ananya Gupta</h5>
-                            <p><i class="bi bi-geo-alt-fill"></i> Bangalore</p>
-                            <span class="donation-amount">₹5,000</span>
-                            <span class="donation-cause">Environment</span>
-                        </div>
-                        <div class="donation-time">3 days ago</div>
-                    </div>
-                    <div class="donor-card">
-                        <div class="donor-avatar">
-                            <img src="https://randomuser.me/api/portraits/men/7.jpg" alt="Donor">
-                        </div>
-                        <div class="donor-info">
-                            <h5>Suresh Menon</h5>
-                            <p><i class="bi bi-geo-alt-fill"></i> Kochi</p>
-                            <span class="donation-amount">₹20,000</span>
-                            <span class="donation-cause">Elderly Care</span>
-                        </div>
-                        <div class="donation-time">3 days ago</div>
-                    </div>
-                    <div class="donor-card">
-                        <div class="donor-avatar">
-                            <img src="https://randomuser.me/api/portraits/women/8.jpg" alt="Donor">
-                        </div>
-                        <div class="donor-info">
-                            <h5>Kavitha Nair</h5>
-                            <p><i class="bi bi-geo-alt-fill"></i> Chennai</p>
-                            <span class="donation-amount">₹30,000</span>
-                            <span class="donation-cause">Education</span>
-                        </div>
-                        <div class="donation-time">4 days ago</div>
-                    </div>
-                </div>
-            </div>
-            <!-- All Donors Stats -->
-            <div class="donors-stats" data-aos="fade-up">
-                <div class="row g-4">
-                    <div class="col-md-3 col-6">
-                        <div class="donor-stat-card">
-                            <i class="bi bi-people-fill"></i>
-                            <h3><span class="counter" data-target="12500">0</span>+</h3>
-                            <p>Total Donors</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <div class="donor-stat-card">
-                            <i class="bi bi-currency-rupee"></i>
-                            <h3>₹<span class="counter" data-target="25">0</span>Cr+</h3>
-                            <p>Total Raised</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <div class="donor-stat-card">
-                            <i class="bi bi-calendar-heart"></i>
-                            <h3><span class="counter" data-target="2500">0</span>+</h3>
-                            <p>Monthly Donors</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <div class="donor-stat-card">
-                            <i class="bi bi-globe"></i>
-                            <h3><span class="counter" data-target="28">0</span></h3>
-                            <p>States Covered</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  {% load humanize %}
 
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
-        <div class="container">
-            <div class="section-header text-center" data-aos="fade-up">
-                <span class="section-tag">Testimonials</span>
-                <h2>Stories of Hope</h2>
-                <p>Hear from the people whose lives have been transformed</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="testimonial-card">
-                        <div class="testimonial-quote"><i class="bi bi-quote"></i></div>
-                        <p>"Thanks to Samajseva Foundation's scholarship, I completed my engineering degree. Today I work at a top IT company and support my family."</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Author">
-                            <div>
-                                <h5>Rahul Jadhav</h5>
-                                <span>Scholarship Recipient, Pune</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="testimonial-card">
-                        <div class="testimonial-quote"><i class="bi bi-quote"></i></div>
-                        <p>"The free medical camp saved my father's life. They detected his heart condition early and arranged for his surgery. We are forever grateful."</p>
-                        <div class="testimonial-author">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6q7os0CuWyBpL8wx6tat9hIPz5va8I8qfxw&s" alt="Author">
-                            <div>
-                                <h5>Sunita Devi</h5>
-                                <span>Beneficiary, Bihar</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="testimonial-card">
-                        <div class="testimonial-quote"><i class="bi bi-quote"></i></div>
-                        <p>"After learning tailoring through their women empowerment program, I started my own boutique. Now I employ 5 other women from my village."</p>
-                        <div class="testimonial-author">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWPvoZqHKzKInfMXKE3-KVdZ2UW6jDxxfnZg&s" alt="Author">
-                            <div>
-                                <h5>Lakshmi Rao</h5>
-                                <span>Entrepreneur, Andhra Pradesh</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+   <!-- Recent Donors Section -->
+<section class="donors-section" id="donors">
+  <div class="container">
+    <div class="section-header text-center" data-aos="fade-up">
+      <span class="section-tag">Our Heroes</span>
+      <h2>Recent Donors</h2>
+      <p class="text-muted">Thank you to all our generous donors for their support</p>
+    </div>
+
+    <div class="donors-marquee">
+      <div class="donors-track">
+
+        {% for d in recent_donors %}
+        <div class="donor-card">
+          <div class="donor-avatar">
+            <img
+              src="https://ui-avatars.com/api/?name={{ d.name|urlencode }}&background=0D6EFD&color=fff"
+              alt="{{ d.name }}"
+            >
+          </div>
+
+          <div class="donor-info">
+            <h5>{{ d.name }}</h5>
+            <p class="text-muted">
+              <i class="bi bi-geo-alt-fill"></i> India
+            </p>
+
+            <span class="donation-amount">₹{{ d.amount|intcomma }}</span>
+            <span class="donation-cause">{{ d.cause }}</span>
+          </div>
+
+          <div class="donation-time">
+            {{ d.created_at|timesince }} ago
+          </div>
         </div>
-    </section>
+        {% empty %}
+        <div class="text-center text-muted w-100 py-4">
+          No donations yet.
+        </div>
+        {% endfor %}
+
+        <!-- {# ✅ marquee smooth scroll साठी duplicate list #} -->
+        {% for d in recent_donors %}
+        <div class="donor-card">
+          <div class="donor-avatar">
+            <img
+              src="https://ui-avatars.com/api/?name={{ d.name|urlencode }}&background=0D6EFD&color=fff"
+              alt="{{ d.name }}"
+            >
+          </div>
+
+          <div class="donor-info">
+            <h5>{{ d.name }}</h5>
+            <p class="text-muted">
+              <i class="bi bi-geo-alt-fill"></i> India
+            </p>
+
+            <span class="donation-amount">₹{{ d.amount|intcomma }}</span>
+            <span class="donation-cause">{{ d.cause }}</span>
+          </div>
+
+          <div class="donation-time">
+            {{ d.created_at|timesince }} ago
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+
+    <!-- All Donors Stats -->
+    <div class="donors-stats" data-aos="fade-up">
+      <div class="row g-4">
+
+        <div class="col-md-3 col-6">
+          <div class="donor-stat-card">
+            <i class="bi bi-people-fill"></i>
+            <h3><span class="counter" data-target="{{ total_donors }}">0</span>+</h3>
+            <p class="text-muted">Total Donors</p>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-6">
+          <div class="donor-stat-card">
+            <i class="bi bi-currency-rupee"></i>
+            <h3>₹<span class="counter" data-target="{{ total_raised }}">0</span>+</h3>
+            <p class="text-dark">Total Raised</p>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-6">
+          <div class="donor-stat-card">
+            <i class="bi bi-calendar-heart"></i>
+            <h3><span class="counter" data-target="2500">0</span>+</h3>
+            <p class="text-muted">Monthly Donors</p>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-6">
+          <div class="donor-stat-card">
+            <i class="bi bi-globe"></i>
+            <h3><span class="counter" data-target="28">0</span></h3>
+            <p class="text-muted">States Covered</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  
+  
 
     <!-- Help & Contact Section -->
     <section class="contact-section" id="contact">
@@ -696,39 +628,39 @@
                     <div class="contact-info">
                         <span class="section-tag">Get in Touch</span>
                         <h2>Need Help? Contact Us</h2>
-                        <p>Have questions about donating or want to volunteer? We're here to help!</p>
+                        <p class="text-muted">Have questions about donating or want to volunteer? We're here to help!</p>
                         
                         <div class="contact-cards">
                             <div class="contact-card">
                                 <div class="contact-icon"><i class="bi bi-telephone-fill"></i></div>
                                 <div>
                                     <h5>Call Us</h5>
-                                    <p>+91 98765 43210</p>
-                                    <p>+91 12345 67890</p>
+                                    <p class="text-muted">+91 98765 43210</p>
+                                    <p class="text-muted">+91 12345 67890</p>
                                 </div>
                             </div>
                             <div class="contact-card">
                                 <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
                                 <div>
                                     <h5>Email Us</h5>
-                                    <p>donate@samajseva.org</p>
-                                    <p>info@samajseva.org</p>
+                                    <p class="text-muted">donate@samajseva.org</p>
+                                    <p class="text-muted">info@samajseva.org</p>
                                 </div>
                             </div>
                             <div class="contact-card">
-                                <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                                <div class="contact-icon"><i class="bi bi-geo-alt -fill"></i></div>
                                 <div>
                                     <h5>Visit Us</h5>
-                                    <p>123 Seva Marg, Andheri West</p>
-                                    <p>Mumbai - 400058, Maharashtra</p>
+                                    <p class="text-muted">123 Seva Marg, Andheri West</p>
+                                    <p class="text-muted">Mumbai - 400058, Maharashtra</p>
                                 </div>
                             </div>
                             <div class="contact-card">
                                 <div class="contact-icon"><i class="bi bi-clock-fill"></i></div>
                                 <div>
                                     <h5>Working Hours</h5>
-                                    <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
-                                    <p>Sunday: Closed</p>
+                                    <p class="text-muted">Mon - Sat: 9:00 AM - 6:00 PM</p>
+                                    <p class="text-muted">Sunday: Closed</p>
                                 </div>
                             </div>
                         </div>
@@ -747,26 +679,25 @@
                     <div class="contact-form-wrap">
                         <h3>Send us a Message</h3>
                          
-                        <form id="contactForm" method="POST" action="{% url 'contact_submit' %}">
-
-                            {% csrf_token %}
-                            <div class="row g-3">
+                        <form id="contactForm" action="{% url 'message_donate' %}" method="POST">
+                            {% csrf_token %}                                          
+                             <div class="row g-3">
 
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control"name="name" id="name" placeholder="Your Name" required>
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" required>
                                         <label for="name">Your Name</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control"name="email" id="email" placeholder="Your Email" required>
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
                                         <label for="email">Your Email</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="number" class="form-control"name="phone" id="phone" placeholder="Phone Number" required>
+                                        <input type="number" class="form-control" name="phone" id="phone" placeholder="Phone Number" required>
                                         <label for="phone">Phone Number</label>
                                     </div>
                                 </div>
@@ -790,114 +721,18 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary-custom w-100">
-                                        <i class="bi bi-send-fill me-2"></i>Send Message
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                                    <button type="submit" class="btn btn-primary w-100">Send Message</button>
 
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="container">
-            <div class="section-header text-center" data-aos="fade-up">
-                <span class="section-tag">FAQ</span>
-                <h2>Frequently Asked Questions</h2>
-                <p>Find answers to common questions about donations</p>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="accordion" id="faqAccordion">
-                        <div class="accordion-item" data-aos="fade-up">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                    Is my donation tax-deductible?
-                                </button>
-                            </h2>
-                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Yes! Samajseva Foundation is registered under 80G of Income Tax Act. All donations are eligible for 50% tax deduction. You will receive an 80G certificate via email within 24 hours of your donation.
                                 </div>
                             </div>
-                        </div>
-                        <div class="accordion-item" data-aos="fade-up">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                    What payment methods do you accept?
-                                </button>
-                            </h2>
-                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    We accept all major payment methods including Credit/Debit Cards, UPI (GPay, PhonePe, Paytm), Net Banking, and Bank Transfers (NEFT/RTGS/IMPS). International donors can use PayPal or wire transfer.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item" data-aos="fade-up">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                    How is my donation used?
-                                </button>
-                            </h2>
-                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    85% of your donation goes directly to our programs and beneficiaries. 10% is used for administrative costs and 5% for fundraising. We maintain complete transparency and publish annual reports with detailed fund utilization.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item" data-aos="fade-up">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-                                    Can I donate in someone's memory?
-                                </button>
-                            </h2>
-                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Yes, you can make a tribute donation in honor or memory of someone special. During the donation process, you can add dedication details and we can send a notification to the honoree's family if you wish.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item" data-aos="fade-up">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
-                                    How can I become a volunteer?
-                                </button>
-                            </h2>
-                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    We welcome volunteers! You can fill out the contact form or email us at volunteer@samajseva.org with your details and areas of interest. We have opportunities for both on-ground and remote volunteering.
-                                </div>
-                            </div>
-                        </div>
+                            </form>
+                         </div>
+                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                 </div>
+                 </section>
 
-    <!-- Newsletter Section -->
-    <section class="newsletter-section">
-        <div class="container">
-            <div class="newsletter-wrap" data-aos="zoom-in">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <h3><i class="bi bi-envelope-heart-fill me-2"></i>Stay Updated</h3>
-                        <p>Subscribe to our newsletter for updates on our work, stories of impact, and upcoming events.</p>
-                    </div>
-                    <div class="col-lg-6">
-                        <form class="newsletter-form" id="newsletterForm">
-                            <input type="email" placeholder="Enter your email address" required>
-                            <button type="submit">Subscribe <i class="bi bi-arrow-right"></i></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  
 
     <!-- Payment Modal -->
     <div class="modal fade" id="paymentModal" tabindex="-1" >
@@ -946,13 +781,27 @@
                             </li>
                         </ul>
                         <div class="tab-content">
-                            <!-- Online Payment -->
+                           
+
+
                             <div class="tab-pane fade show active" id="onlinePayment">
-                                <form id="onlinePaymentForm" action="{% url 'donation_submit' %}" method="POST" >
+                                <form id="successAlert" action="{% url 'donation_s' %}" method="POST" >
                                     <div class="row g-3">
                                           {% csrf_token %}
-                                        <input type="hidden" name="cause_id" id="causeIdInput">
                                         
+                                       <label class="form-label">Select Cause</label>
+                                            <select name="cause" id="causeSelect" class="form-select" required>
+                                                        <option value="">-- Select a Cause --</option>
+                                             <option value="Education for Every Child">Education for Every Child</option>
+                                                 <option value="Free Medical Camps">Free Medical Camps</option>
+                                             <option value="Feed The Hungry">Feed The Hungry</option>
+                                                 <option value="Build Homes for Homeless">Build Homes for Homeless</option>
+                                                       <option value="Women Empowerment">Women Empowerment</option>
+                                                      <option value="Plant Trees, Save Earth">Plant Trees, Save Earth</option>
+                                                  <option value="Care for Elderly">Care for Elderly</option>
+                                           <option value="Disaster Relief Fund">Disaster Relief Fund</option>
+                                                     </select>
+
                                         <div class="col-md-6">
                                             <label class="form-label">Full Name</label>
                                             <input type="text" class="form-control" name="name" placeholder="Enter your name" required>
@@ -981,21 +830,21 @@
                                             <label class="form-label">CVV</label>
                                             <input type="password" class="form-control" name="cvv"  placeholder="***" maxlength="4">
                                         </div>
-                                         <div class="custom-amount-wrap">
-                            <span>₹</span>
+                                         <div class=-amount-wrap>
+                                 <span>₹</span>
                            
-                        <input type="hidden" name="amount" id="amountHiddenInput">
-
-                        </div>
-                    </div>
+                                  <input type="number" name="amount" class="form-control" placeholder="Enter amount" required>
+                                 </div>
+                                  </div>
                                         <div class="col-12">
-                                            <button type="submit" class="btn btn-donate-submit">
-                                                <i class="bi bi-lock-fill me-2"></i>Donate ₹<span id="donateAmountBtn">1,000</span>
+                                            <button type="submit" class="btn btn-donate-submit" >
+                                                <i class="bi bi-lock-fill me-2"></i>Donate <span ></span>
                                             </button>
                                         </div>
                                     </div>
                                 </form>
                             </div>
+
                             <!-- Bank Transfer -->
                             <div class="tab-pane fade" id="bankTransfer">
                                 <div class="bank-transfer-details">
@@ -1042,7 +891,7 @@
                                         <div class="col-md-6 text-center">
                                             <div class="qr-code-wrap">
                                                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=samajseva@upi" alt="UPI QR Code">
-                                                <p>Scan to Pay</p>
+                                                <p class="text-muted">Scan to Pay</p>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -1055,7 +904,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="upi-apps">
-                                                    <p>Pay using:</p>
+                                                    <p class="text-muted">Pay using:</p>
                                                     <div class="upi-app-icons">
                                                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Google_Pay_Logo.svg/512px-Google_Pay_Logo.svg.png" alt="GPay">
                                                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/PhonePe_Logo.svg/1024px-PhonePe_Logo.svg.png" alt="PhonePe">
@@ -1096,7 +945,7 @@
     </div>
 
     <!-- Success Modal -->
-    <div class="modal fade" id="successModal" tabindex="-1">
+   <div class="modal fade" id="successModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content text-center">
                 <div class="modal-body p-5">
@@ -1107,19 +956,38 @@
                     <p class="text-muted">Your donation of <strong id="successAmount">₹1,000</strong> has been received successfully.</p>
                     <p>A confirmation email with 80G certificate will be sent shortly.</p>
                     <p class="transaction-id">Transaction ID: <strong id="transactionId">TXN123456789</strong></p>
-                    <button class="btn btn-primary-custom" data-bs-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS Animation -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Custom JS -->
     <script src="{% static 'web/javac/donate.js' %}"></script>
+    
+
 
     {% include "web/footer.html" %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+   const videoModal = document.getElementById("videoModal");
+  const videoFrame = document.getElementById("videoFrame");
+
+   document.querySelectorAll(".video-thumbnail").forEach(v => {
+     v.addEventListener("click", () => {
+       videoFrame.src = v.dataset.video + "?autoplay=1";
+       new bootstrap.Modal(videoModal).show();
+     });
+   });
+
+   videoModal.addEventListener("hidden.bs.modal", () => {
+     videoFrame.src = "";
+  });
+ });
+ </script>
 </body>
 </html>

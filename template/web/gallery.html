@@ -25,8 +25,8 @@
                     <h1><i class="fas fa-heart"></i> Making a Difference Together</h1>
                     <p>Empowering communities, transforming lives, and building a better future for all.</p>
                     <div class="hero-buttons">
-                        <a href="/donate" class="btn btn-primary-custom hero-btn">Donate Now</a>
-                        <a href="#gallery" class="btn btn-outline-custom hero-btn">View Our Work</a>
+                        <a href="/donate" class="btn btn-primary hero-btn">Donate Now</a>
+                        <a href="#gallery" class="btn btn-primary hero-btn">View Our Work</a>
                     </div>
                 </div>
             </div>
@@ -216,6 +216,7 @@
         </div>
     </section>
 
+
     <!-- Video Section -->
     <section class="video-section" id="videos">
         <div class="container">
@@ -367,8 +368,7 @@
                         </form> {% endcomment %}
 
 
-<form method="POST" action="#">
-    
+<form action="{% url 'gallery_page' %}" method="POST">    
     {% csrf_token %}
 
     <input type="text" name="full_name" class="form-control" placeholder="Full Name" required>

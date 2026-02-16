@@ -180,7 +180,7 @@
             initMouseEffect();
             initRipple();
             initCardEffect();
-<<<<<<< Updated upstream
+           
         });
 
 
@@ -508,6 +508,4 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(modalStyle);
 });
-=======
-        });
->>>>>>> Stashed changes
+

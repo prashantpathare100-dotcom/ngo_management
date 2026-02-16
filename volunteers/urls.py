@@ -7,5 +7,4 @@ urlpatterns = [
         website_volunteer_submit,
         name='website_volunteer_submit'
     ),
-    
 ]
