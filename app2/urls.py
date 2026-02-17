@@ -1,111 +1,80 @@
-"""
-URL configuration for app2 project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
-
 from django.urls import path, include, reverse_lazy
-from django.contrib.auth.views import LogoutView
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.views import LogoutView
+
 from adpanel import views as ad
 from website import views as ui
-from adpanel.views import login_view, dashboard_view
 
-from django.urls import path , include
-
-from django.contrib.auth.views import LogoutView  
-from adpanel.views import dashboard_view , login_view  
-from website import views as ui
-from django.urls import reverse_lazy
-from adpanel.views import contact_list
-from django.conf import settings
-from django.conf.urls.static import static
-
-
-# contact
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
-    path('', ui.home, name='home'),
-    path('terms/', ui.terms, name='terms'),
-    path('privacy/', ui.privacy, name='privacy'),
-    path('faq/', ui.faq, name='faq'),
-    path('contact/', ui.contact, name='contact'),
-    path('about/', ui.about, name='about'),
-    path('events/', ui.events, name='events'),
-    path('gallery/', ui.gallery, name='gallery'),
-    path('causes_programs/', ui.causes_programs, name='causes_programs'),
-    path('testimonials/', ui.testimonials, name='testimonials'),
-    path('blog_news/', ui.blog_news, name='blog_news'),
-    path('bna/', ui.bna, name='bna'),
-    path('bnb/', ui.bnb, name='bnb'),
-    path('bnc/', ui.bnc, name='bnc'),  
-    path('donate/', ui.donate, name='donate_page'),
-    path('volunteer/',ui.volunteers),
-    path("volunteers/", include(("volunteers.urls", "volunteers"), namespace="volunteers")),
-    path('adminn/', login_view, name='login'),
-    path("logout/", LogoutView.as_view(next_page=reverse_lazy("login")), name="logout"),
-    path("donation/submit/", ui.donation_submit, name="donation_submit"),
-    path("donation_s/", ui.donation_s, name="donation_s"),
-    path('causes_programs/',ui.causes_programs),
-    path('testimonials/',ui.testimonials),
-    path('blog_news/',ui.blog_news),
-    path(
-        "logout/",
-        LogoutView.as_view(next_page=reverse_lazy("login")),
-        name="logout"
-    ),
-    path("adminn/dashboard/", ad.dashboard_view, name="dashboard"),
-     path('volunteer/', include('volunteers.urls')),
+    # ===================== WEBSITE PAGES =====================
+    path("", ui.home, name="home"),
+    path("terms/", ui.terms, name="terms"),
+    path("privacy/", ui.privacy, name="privacy"),
+    path("faq/", ui.faq, name="faq"),
+    path("contact/", ui.contact, name="contact"),
+    path("about/", ui.about, name="about"),
+    path("events/", ui.events, name="events"),
+    path("gallery/", ui.gallery, name="gallery"),
+    path("causes_programs/", ui.causes_programs, name="causes_programs"),
+    path("testimonials/", ui.testimonials, name="testimonials"),
+    path("blog_news/", ui.blog_news, name="blog_news"),
+    path("bna/", ui.bna, name="bna"),
+    path("bnb/", ui.bnb, name="bnb"),
+    path("bnc/", ui.bnc, name="bnc"),
 
-    path('dashboard/', include('adpanel.urls')),   
-    path("", include("gallery.urls")),
-    path("donations/delete/<int:id>/", ad.donation_delete, name="donation_delete"),
-        path("profile/delete/<int:id>/", ad.profile_delete, name="profile_delete"),
-    path('basic_info/',ad.basic_info),
-
-    # path('profile/',ad.profile),
-    # path("save_profile/",ad.save_profile),
-    path("gallery_list/", ad.gallery_list, name="gallery_list"),
-    path("donation-submit/", ui.donation_submit, name="donation_submit"),
-    path('donations/',ad.donar,name="donations"),
-    # testimoinals
-    path("testionmals_info/",ad.testionmals_info),
-    path("volunteers/", ad.volunteer_list, name="volunteers"),
-    path("donation/<int:pk>/receipt/", ad.donation_receipt_pdf, name="donation_receipt_pdf"),
-    path("messages/", ad.message_list, name="message_list"),
-    path("messages/delete/<int:id>/", ad.donation_message_delete, name="donation_message_delete"),
-
-    path("event/", ad.events_page, name="events_page"),
+    # Donate + forms
+    path("donate/", ui.donate, name="donate"),
+    path("donation_s/", ui.donation_s, name="donation_s"),               # donation save (simple)
     path("message_donate/", ui.message_donate, name="message_donate"),
-    path("messages/", ad.message_list, name="message_list"),
-    path("contcontact_page/", ui.contact_page, name="contact_page"),
-    path("dashboard/contact/", ad.dashboard_contact, name="dashboard_contact"),
-    path('adminn/dashboard/', ad.dashboard_view, name='dashboard'),
+    # ⚠️ donation_submit (ContactMessage वाला) जर तू clean website/views.py वापरत असशील तर हा URL काढ.
+    # path("donation/submit/", ui.donation_submit, name="donation_submit"),
+
+    # Volunteers (website + app)
+    path("volunteer/", ui.volunteers, name="volunteer_page"),
+    path("volunteers/", include(("volunteers.urls", "volunteers"), namespace="volunteers")),
+
+    # ===================== ADMIN AUTH =====================
+    path("adminn/", ad.login_view, name="login"),
+    path("logout/", LogoutView.as_view(next_page=reverse_lazy("login")), name="logout"),
+
+    # ===================== ADMIN PAGES =====================
+    path("adminn/dashboard/", ad.dashboard, name="dashboard"),  # ✅ clean views मधला dashboard
+    path("donations/", ad.donar, name="donar"),                 # ✅ donation list
+    path("donations/delete/<int:id>/", ad.donation_delete, name="donation_delete"),
+    path("donation/<int:pk>/receipt/", ad.donation_receipt_pdf, name="donation_receipt_pdf"),
     path("dashboard/report/", ad.donations_report_pdf, name="donations_report_pdf"),
 
-    ]
+    # Volunteers admin actions
+    path("admin/volunteers/", ad.volunteer_list, name="volunteer_list"),
+    path("admin/volunteers/approve/<int:id>/", ad.approve_volunteer, name="approve_volunteer"),
+    path("admin/volunteers/delete/<int:id>/", ad.delete_volunteer, name="delete_volunteer"),
+
+    # Basic info / profile
+    path("basic_info/", ad.basic_info, name="basic_info"),
+    path("basic_info/save/", ad.save_basic_info, name="save_basic_info"),
+    path("basic_info/delete/<int:id>/", ad.delete_basic_info, name="delete_basic_info"),
+    path("profile/", ad.profile, name="profile"),
+
+    # Messages / contact admin
+    path("messages/", ad.message_list, name="message_list"),
+    path("messages/delete/<int:id>/", ad.donation_message_delete, name="donation_message_delete"),
+    path("admin/contacts/", ad.contact_list, name="contact_list"),
+    path("admin/contacts/delete/<int:id>/", ad.message_delete, name="message_delete"),
+    path("adminn/donations/", ad.donar, name="donar"),
+    # Events admin page
+    path("admin/events/", ad.events_page, name="events_page"),
+    path("adminn/donation/<int:pk>/receipt/", ad.donation_receipt_pdf, name="donation_receipt_pdf"),
+
+]
+
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+   
 
 
 
    
-
-
     
-    
-  

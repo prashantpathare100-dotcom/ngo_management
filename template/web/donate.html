@@ -785,65 +785,114 @@
 
 
                             <div class="tab-pane fade show active" id="onlinePayment">
-                                <form id="successAlert" action="{% url 'donation_s' %}" method="POST" >
-                                    <div class="row g-3">
-                                          {% csrf_token %}
-                                        
-                                       <label class="form-label">Select Cause</label>
-                                            <select name="cause" id="causeSelect" class="form-select" required>
-                                                        <option value="">-- Select a Cause --</option>
-                                             <option value="Education for Every Child">Education for Every Child</option>
-                                                 <option value="Free Medical Camps">Free Medical Camps</option>
-                                             <option value="Feed The Hungry">Feed The Hungry</option>
-                                                 <option value="Build Homes for Homeless">Build Homes for Homeless</option>
-                                                       <option value="Women Empowerment">Women Empowerment</option>
-                                                      <option value="Plant Trees, Save Earth">Plant Trees, Save Earth</option>
-                                                  <option value="Care for Elderly">Care for Elderly</option>
-                                           <option value="Disaster Relief Fund">Disaster Relief Fund</option>
-                                                     </select>
 
-                                        <div class="col-md-6">
-                                            <label class="form-label">Full Name</label>
-                                            <input type="text" class="form-control" name="name" placeholder="Enter your name" required>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label">Email Address</label>
-                                            <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label">Phone Number</label>
-                                            <input type="number" class="form-control" name="phone" placeholder="Enter phone number" required>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label">PAN Number (for 80G)</label>
-                                            <input type="number" class="form-control"name="pan"  placeholder="Enter PAN (optional)">
-                                        </div>
-                                        <div class="col-12">
-                                            <label class="form-label">Card Number</label>
-                                            <input type="number"name="cardno" class="form-control"  id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label">Expiry Date</label>
-                                            <input type="text" class="form-control"name="expiry"  id="expiryDate" placeholder="MM/YY" maxlength="5">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label">CVV</label>
-                                            <input type="password" class="form-control" name="cvv"  placeholder="***" maxlength="4">
-                                        </div>
-                                         <div class=-amount-wrap>
-                                 <span>₹</span>
-                           
-                                  <input type="number" name="amount" class="form-control" placeholder="Enter amount" required>
-                                 </div>
-                                  </div>
-                                        <div class="col-12">
-                                            <button type="submit" class="btn btn-donate-submit" >
-                                                <i class="bi bi-lock-fill me-2"></i>Donate <span ></span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+<form id="successAlert" action="{% url 'donation_s' %}" method="POST">
+        {% csrf_token %}
+
+    <div class="row g-3">
+
+      <div class="col-12">
+        <label class="form-label">Select Cause</label>
+        <select name="cause" id="causeSelect" class="form-select" required>
+          <option value="">-- Select a Cause --</option>
+          <option value="Education for Every Child">Education for Every Child</option>
+          <option value="Free Medical Camps">Free Medical Camps</option>
+          <option value="Feed The Hungry">Feed The Hungry</option>
+          <option value="Build Homes for Homeless">Build Homes for Homeless</option>
+          <option value="Women Empowerment">Women Empowerment</option>
+          <option value="Plant Trees, Save Earth">Plant Trees, Save Earth</option>
+          <option value="Care for Elderly">Care for Elderly</option>
+          <option value="Disaster Relief Fund">Disaster Relief Fund</option>
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-control" name="name" placeholder="Enter your name" required>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Phone Number</label>
+        <input type="text" class="form-control" name="phone" placeholder="Enter phone number" required>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">PAN Number (for 80G)</label>
+        <input type="text" class="form-control" name="pan" placeholder="Enter PAN (optional)">
+      </div>
+
+      <div class="col-12">
+        <label class="form-label">Card Number (14 digits)</label>
+        <input
+          type="text"
+          name="cardno"
+          class="form-control"
+          id="cardNumber"
+          placeholder="Enter 14 digit card number"
+          maxlength="14"
+          inputmode="numeric"
+          autocomplete="off"
+          required
+        >
+        <div class="form-text">Only 14 digits allowed.</div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Expiry Date (MM/YY)</label>
+        <input
+          type="text"
+          class="form-control"
+          name="expiry"
+          id="expiryDate"
+          placeholder="MM/YY"
+          maxlength="5"
+          inputmode="numeric"
+          autocomplete="off"
+          required
+        >
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">CVV</label>
+        <input
+          type="password"
+          class="form-control"
+          name="cvv"
+          id="cvv"
+          placeholder="***"
+          maxlength="4"
+          inputmode="numeric"
+          autocomplete="off"
+          required
+        >
+      </div>
+
+      <div class="col-12">
+        <label class="form-label">Amount</label>
+        <div class="input-group">
+          <span class="input-group-text">₹</span>
+          <input type="number" name="amount" id="amountInput" class="form-control" placeholder="Enter amount" required>
+        </div>
+        <div class="form-text"></div>
+      </div>
+
+      <div class="col-12">
+        <button id="donateSubmitBtn" type="submit" class="btn btn-donate-submit w-100">
+  <i class="bi bi-lock-fill me-2"></i>Donate
+</button>
+      </div>
+
+
+    </div>
+  </form>
+</div></div></div></div></div></div>
+</div>
+
 
                             <!-- Bank Transfer -->
                             <div class="tab-pane fade" id="bankTransfer">
@@ -966,7 +1015,7 @@
     <!-- AOS Animation -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Custom JS -->
-    <script src="{% static 'web/javac/donate.js' %}"></script>
+    <script src="/static/web/javac/donate.js"></script>
     
 
 

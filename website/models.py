@@ -63,6 +63,8 @@ class Donation(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     cause = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True) 
+    transaction_id = models.CharField(max_length=30, blank=True, null=True)
+
 
 
 class DonationMessage(models.Model):
