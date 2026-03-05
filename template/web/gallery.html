@@ -368,7 +368,7 @@
                         </form> {% endcomment %}
 
 
-<form action="{% url 'gallery_page' %}" method="POST">    
+<form action="/gallery_page/" method="POST">    
     {% csrf_token %}
 
     <input type="text" name="full_name" class="form-control" placeholder="Full Name" required>
